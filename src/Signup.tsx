@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 
 const Signup: React.FC = () => {
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -24,6 +25,18 @@ const Signup: React.FC = () => {
       </div>
       <h2 className="text-2xl font-semibold mb-4">Signup</h2>
       <form onSubmit={handleSubmit}>
+      <div className="mb-4">
+          <label htmlFor="email" className="block font-semibold mb-2">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email Address"
+            className="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500"
+            required
+          />
+        </div>
         <div className="mb-4">
           <label htmlFor="username" className="block font-semibold mb-2">Username:</label>
           <input
