@@ -16,7 +16,7 @@ const PostPage: React.FC = () => {
 
   return (
     // Top-Parent Container
-    <div className="flex flex-col gap-y-10 items-center">
+    <div className="flex flex-col gap-y-10 items-center h-screen bg-white text-black">
         {/* Header */}
         <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
             <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
@@ -44,7 +44,7 @@ const PostPage: React.FC = () => {
             <h2 className="text-2xl self-start">Experience</h2>
             <div className="mb-20">
                 <form action="#" method="post" className="flex flex-col">
-                        <textarea className="w-96 border-2 border-black rounded-lg p-2 h-40"></textarea>
+                        <textarea className="w-96 border-2 bg-white border-black rounded-lg p-2 h-40"></textarea>
                 </form>
             </div>
 
