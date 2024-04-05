@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import './PostPage.css';
+import 'daisyui/dist/full.css';
 import { CiCalendar } from "react-icons/ci";
 
 interface Post {
