@@ -16,7 +16,7 @@ const PostPage: React.FC = () => {
 
   return (
     // Top-Parent Container
-    <div className="flex flex-col gap-y-10 items-center h-screen bg-white text-black">
+    <div className="flex flex-col gap-y-10 items-center bg-white text-black">
         {/* Header */}
         <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
             <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
@@ -28,21 +28,28 @@ const PostPage: React.FC = () => {
         </div>
 
         {/* Main */}
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 pb-10">
         {/* Timer */}
             <div className="flex justify-center border-2 w-40 py-2 border-black rounded-lg font-bold">
                 <h2 className="text-2xl">00:00:00</h2>
             </div>
 
             {/* Challenge */}
-            <h2 className="text-2xl self-start">Challenge</h2>
-            <div className="p-6 mb-10" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-                <p>{post.challenge}</p>
+            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Challenges" /></figure>
+                <div className="card-body bg-white">
+                    <p className='font-bold text-lg text-center'>Send a text to a mom expressing appreciation.</p>
+                    <p className='text-center'>Make it a video or audio message instead of a regular text.</p>
+                    <div className="card-actions justify-center">
+                        {/* Button for nav */}
+                        {/*<link to="/another-page" className='btn btn-primary'>Complete</link>*/}
+                    </div>
+                </div>
             </div>
 
             {/* Experience */}
-            <h2 className="text-2xl self-start">Experience</h2>
-            <div className="mb-20">
+            <h2 className="text-2xl self-start mt-10">Experience</h2>
+            <div className="mb-10">
                 <form action="#" method="post" className="flex flex-col">
                         <textarea className="w-96 border-2 bg-white border-black rounded-lg p-2 h-40"></textarea>
                 </form>
