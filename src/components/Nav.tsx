@@ -1,6 +1,7 @@
 // components/Navbar.js or components/Navbar.jsx
 
 import React from 'react';
+import { CiCalendar } from "react-icons/ci";
 //import { Link } from 'react-router-dom'; // Import Link from react-router-dom if you're using routing
 
 function Navbar() {
