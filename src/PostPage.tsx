@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from './components/Nav';
 import './index.css';
 import './PostPage.css';
 import 'daisyui/dist/full.css';
@@ -16,8 +17,8 @@ const PostPage: React.FC = () => {
 
   return (
     // Top-Parent Container
-    <div className="flex flex-col gap-y-10 items-center bg-white text-black">
-        {/* Header */}
+    <div className="flex flex-col gap-y-10 items-center text-black" style={{ backgroundColor: '#F4F4F9'}}>
+        {/* Header
         <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
             <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
             <h1>BeKindly</h1>
@@ -25,10 +26,12 @@ const PostPage: React.FC = () => {
                 <div className="text-6xl text-black"><CiCalendar /></div>
                 <div className="rounded-full bg-slate-100 p-7"></div>
             </div>
-        </div>
+        </div> */}
+        <Navbar/>
+        
 
         {/* Main */}
-        <div className="flex flex-col items-center gap-4 pb-10">
+        <div className="flex flex-col items-center gap-4 pb-10" style={{ backgroundColor: '#F4F4F9'}}>
         {/* Timer */}
             <div className="flex justify-center border-2 w-40 py-2 border-black rounded-lg font-bold">
                 <h2 className="text-2xl">00:00:00</h2>
@@ -51,7 +54,7 @@ const PostPage: React.FC = () => {
             <h2 className="text-2xl self-start mt-10">Experience</h2>
             <div className="mb-10">
                 <form action="#" method="post" className="flex flex-col">
-                        <textarea className="w-96 border-2 bg-white border-black rounded-lg p-2 h-40"></textarea>
+                        <textarea className="w-96 border-2 border-black rounded-lg p-2 h-32" style={{ backgroundColor: '#F4F4F9'}}></textarea>
                 </form>
             </div>
 
