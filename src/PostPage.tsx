@@ -18,6 +18,7 @@ const PostPage: React.FC = () => {
   return (
     // Top-Parent Container
     <div className="flex flex-col gap-y-10 items-center text-black" style={{ backgroundColor: '#F4F4F9'}}>
+        <Navbar/>
         {/* Header
         <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
             <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
@@ -27,8 +28,6 @@ const PostPage: React.FC = () => {
                 <div className="rounded-full bg-slate-100 p-7"></div>
             </div>
         </div> */}
-        <Navbar/>
-        
 
         {/* Main */}
         <div className="flex flex-col items-center gap-4 pb-10" style={{ backgroundColor: '#F4F4F9'}}>
