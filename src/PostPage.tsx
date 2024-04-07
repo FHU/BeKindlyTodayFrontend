@@ -3,7 +3,6 @@ import Navbar from './components/Nav';
 import './index.css';
 import './PostPage.css';
 import 'daisyui/dist/full.css';
-import { CiCalendar } from "react-icons/ci";
 
 interface Post {
   challenge: string;
@@ -38,10 +37,10 @@ const PostPage: React.FC = () => {
 
             {/* Challenge */}
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Challenges" /></figure>
+                <figure><img src="src/images/phone.jpg" alt="Challenges" /></figure>
                 <div className="card-body bg-white">
-                    <p className='font-bold text-lg text-center'>Send a text to a mom expressing appreciation.</p>
-                    <p className='text-center'>Make it a video or audio message instead of a regular text.</p>
+                    <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
+                    <p className='text-center font-semibold' style={{color: '#2485A9'}}>Make it a video or audio message instead of a regular text.</p>
                     <div className="card-actions justify-center">
                         {/* Button for nav */}
                         {/*<link to="/another-page" className='btn btn-primary'>Complete</link>*/}
@@ -58,7 +57,7 @@ const PostPage: React.FC = () => {
             </div>
 
             {/* Post */}
-            <div className="px-11 py-4 rounded-lg" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
+            <div className="px-11 py-4 rounded-lg text-lg" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
                 <h2>Post</h2>
             </div>
         </div>
