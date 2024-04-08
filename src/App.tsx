@@ -3,6 +3,7 @@
 import Home from "./views/Home"
 import Completion from "./views/Completion"
 import Calendar from "./views/Calendar"
+import Confirmation from "./views/Confirmation";
 //import Main from "./Index"
 
 import {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/calendar",
     element: <Calendar/>
+  },
+  {
+    path: "/confirmation",
+    element: <Confirmation/>,
   }
 
 ]);
