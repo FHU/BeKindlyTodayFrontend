@@ -8,11 +8,11 @@ import { BsPersonCircle } from "react-icons/bs";
 function Navbar() {
   return (
     <nav className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-      <Link to="/"><img className='btn bg-transparent w-8rem h-8rem border-none hover:bg-transparent' src={'src/assets/logo.png'} alt="Centered Image"/></Link>
+      <Link to="/" className='inline-block border-none hover:bg-transparent p-2 rounded-lg'><img className='border-none hover:opacity-75' style={{ width: '80px', height: '80px' }} src={'src/assets/logo.png'} alt='logo' /></Link>
       <h1 className="text-5xl">BeKindly</h1>
       <div className="flex items-center ">
-          <Link to="/calendar"><div className="btn text-5xl text-white pr-4 bg-transparent border-hidden hover:bg-transparent"><BsCalendar4 /></div></Link>
-          <div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent"><BsPersonCircle /></div>
+          <Link to="/calendar"><div className="btn text-5xl text-white pr-4 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsCalendar4 /></div></Link>
+          <div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsPersonCircle /></div>
       </div>
     </nav>
 
