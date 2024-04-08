@@ -47,7 +47,7 @@ const Option: React.FC = () => {
                Login
             </motion.Link> */}
             <motion.div
-                className="login-btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]" 
+                className="login-btn btn-block flex justify-center align-middle rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]" 
                 initial={{ opacity:0 }}
                 animate={{ opacity:1 }}
                 transition={{ type: "spring", delay:2.8, stiffness: 260, damping: 200 }}>
