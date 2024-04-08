@@ -1,6 +1,6 @@
 // components/Navbar.js or components/Navbar.jsx
 
-import React from 'react';
+//import React from 'react';
 import { BsCalendar4 } from "react-icons/bs";
 import { BsPersonCircle } from "react-icons/bs";
 //import { Link } from 'react-router-dom'; // Import Link from react-router-dom if you're using routing

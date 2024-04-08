@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 //import { Link } from 'react-router-dom';
 import 'daisyui/dist/full.css';
 import './Home.css';
@@ -46,8 +46,8 @@ function Home() {
             <div className='flex flex-row space-x-4 text-center'>
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
-                        <div className="stat-title text-black whitespace-normal">Challenges Completed Globally</div>
                         <div className="stat-value text-black">89,400</div>
+                        <div className="stat-title text-black whitespace-normal">Challenges Completed Globally</div>
                     </div>
                 </div>
 
@@ -60,8 +60,8 @@ function Home() {
 
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
-                        <div className="stat-title text-black whitespace-normal">Challenges Completed By You</div>
                         <div className="stat-value text-black">20</div>
+                        <div className="stat-title text-black whitespace-normal">Challenges Completed By You</div>
                     </div>
                 </div>
             </div>
