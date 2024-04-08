@@ -1,8 +1,8 @@
 //import React from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'daisyui/dist/full.css';
-import './Home.css';
-import Navbar from './Nav';
+import '../index.css';
+import Navbar from '../components/Nav';
 import { BsCheckCircle } from "react-icons/bs";
 
 
@@ -81,12 +81,11 @@ function Home() {
                         <p className='font-bold text-lg text-center text-black'>Send a text to a mom expressing appreciation.</p>
                         <p className='text-center font-semibold' style={{color: '#2485A9'}}>Make it a video or audio message instead of a regular text.</p>
                         <div className="card-actions justify-center pt-4">
-                            {/* Button for nav */}
-                            <button className="btn btn-block rounded-full text-xl" style={{ display: 'flex', alignItems: 'center', backgroundColor: '#227C9D', color: 'white'}}>
+                            {/* Button for nav*/}
+                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none">
                                 <div><BsCheckCircle /></div>
-                                Button
-                            </button>
-                            {/*<link to="/another-page" className='btn btn-primary'>Complete</link>*/}
+                                Complete
+                            </Link>
                         </div>
                     </div>
                 </div>

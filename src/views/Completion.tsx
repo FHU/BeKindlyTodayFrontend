@@ -1,7 +1,6 @@
 import React from 'react';
-import Navbar from './components/Nav';
-import './index.css';
-import './PostPage.css';
+import Navbar from '../components/Nav';
+import '../index.css';
 import 'daisyui/dist/full.css';
 
 interface Post {
@@ -58,7 +57,7 @@ const PostPage: React.FC = () => {
 
             {/* Post */}
             <div className="px-11 py-4 rounded-lg text-lg" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-                <h2>Post</h2>
+                <h2>Complete</h2>
             </div>
         </div>
         </div>

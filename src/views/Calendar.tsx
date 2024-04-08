@@ -1,7 +1,7 @@
 import React from 'react';
-import './index.css';
+//import './index.css';
 import './Calendar.css';
-import { CiCalendar } from 'react-icons/ci';
+import Navbar from '../components/Nav';
 
 const CalendarPage: React.FC = () => {
   const daysInMonth = 30;
@@ -18,14 +18,7 @@ const CalendarPage: React.FC = () => {
   return (
     <div className="flex flex-col gap-y-10 items-center bg-white text-black">
       {/* Header */}
-      <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-            <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
-            <h1>BeKindly</h1>
-            <div className="flex items-center">
-                <div className="text-6xl text-black"><CiCalendar /></div>
-                <div className="rounded-full bg-slate-100 p-7"></div>
-            </div>
-        </div>
+      <Navbar/>
 
       <div className="flex flex-col items-center gap-4 pb-10">
         <div className="rounded-lg shadow-lg p-4 calendar-container" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', width: '90%', maxWidth: '800px', padding: '20px' }}>

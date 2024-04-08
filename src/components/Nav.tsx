@@ -1,5 +1,5 @@
 // components/Navbar.js or components/Navbar.jsx
-
+import { Link } from 'react-router-dom';
 //import React from 'react';
 import { BsCalendar4 } from "react-icons/bs";
 import { BsPersonCircle } from "react-icons/bs";
@@ -8,10 +8,10 @@ import { BsPersonCircle } from "react-icons/bs";
 function Navbar() {
   return (
     <nav className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-      <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
+      <Link to="/"><img className='btn bg-transparent w-8rem h-8rem border-none hover:bg-transparent' src={'src/assets/logo.png'} alt="Centered Image"/></Link>
       <h1 className="text-5xl">BeKindly</h1>
       <div className="flex items-center ">
-          <div className="btn text-5xl text-white pr-4 bg-transparent border-hidden hover:bg-transparent"><BsCalendar4 /></div>
+          <Link to="/calendar"><div className="btn text-5xl text-white pr-4 bg-transparent border-hidden hover:bg-transparent"><BsCalendar4 /></div></Link>
           <div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent"><BsPersonCircle /></div>
       </div>
     </nav>

@@ -1,13 +1,33 @@
 //import Login from "./otherPages/Login"
 //import Signup from "./otherPages/Signup"
-//import Home from "./components/Home"
-//import PostPage from "./PostPage"
-//import Calendar from "./pages/Calendar"
-//import AppRouter from "./AppRouter"
-import Main from "./Index"
+import Home from "./views/Home"
+import Completion from "./views/Completion"
+import Calendar from "./views/Calendar"
+//import Main from "./Index"
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>,
+  },
+  {
+    path:"/completion",
+    element: <Completion/>
+  },
+  {
+    path: "/calendar",
+    element: <Calendar/>
+  }
+
+]);
 
 export default function App() {
   return (
-    <Main/>
+    <RouterProvider router={router} />
   )
 }
