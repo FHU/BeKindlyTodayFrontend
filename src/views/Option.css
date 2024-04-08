@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Comfortaa', cursive;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+
+  .title{
+    color: #2485A9;
+    width: 300px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .container {
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+  }
+
+  .login-btn {
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #227C9D;
+    color: white;
+    
+
+  }

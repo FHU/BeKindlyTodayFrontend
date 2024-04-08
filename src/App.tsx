@@ -1,5 +1,6 @@
 //import Login from "./otherPages/Login"
 //import Signup from "./otherPages/Signup"
+import Option from "./views/Option"
 import Home from "./views/Home"
 import Completion from "./views/Completion"
 import Calendar from "./views/Calendar"
@@ -14,6 +15,10 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Option/>
+  },
+  {
+    path: "/home",
     element: <Home/>,
   },
   {
