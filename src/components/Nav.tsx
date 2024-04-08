@@ -11,8 +11,8 @@ function Navbar() {
       <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
       <h1 className="text-5xl">BeKindly</h1>
       <div className="flex items-center ">
-          <div className="text-5xl text-white pr-4"><BsCalendar4 /></div>
-          <div className="text-5xl text-white"><BsPersonCircle /></div>
+          <div className="btn text-5xl text-white pr-4 bg-transparent border-hidden hover:bg-transparent"><BsCalendar4 /></div>
+          <div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent"><BsPersonCircle /></div>
       </div>
     </nav>
 
