@@ -82,7 +82,7 @@ function Home() {
                         <p className='text-center font-semibold' style={{color: '#2485A9'}}>Make it a video or audio message instead of a regular text.</p>
                         <div className="card-actions justify-center pt-4">
                             {/* Button for nav*/}
-                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none">
+                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]">
                                 <div><BsCheckCircle /></div>
                                 Complete
                             </Link>

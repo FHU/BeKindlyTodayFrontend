@@ -56,7 +56,7 @@ const PostPage: React.FC = () => {
             </div>
 
             {/* Post */}
-            <div className="px-11 py-4 rounded-lg text-lg" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
+            <div className="btn btn-lg rounded-lg text-xl bg-[#227C9D] text-white text-center border-none transition-colors duration-300 hover:bg-[#1C6F87]">
                 <h2>Complete</h2>
             </div>
         </div>
