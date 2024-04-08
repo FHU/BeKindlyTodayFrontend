@@ -2,12 +2,13 @@ import React from 'react';
 import Navbar from '../components/Nav';
 import '../index.css';
 import 'daisyui/dist/full.css';
+import { Link } from 'react-router-dom';
 
 interface Post {
   challenge: string;
 }
 
-const PostPage: React.FC = () => {
+const Completion: React.FC = () => {
   // Define a static post
   const post: Post = {
     challenge: "Send a text to a loved one to show your appreciation."
@@ -56,12 +57,14 @@ const PostPage: React.FC = () => {
             </div>
 
             {/* Post */}
-            <div className="btn btn-lg rounded-lg text-xl bg-[#227C9D] text-white text-center border-none transition-colors duration-300 hover:bg-[#1C6F87]">
-                <h2>Complete</h2>
-            </div>
+            <Link to="/confirmation">
+                <div className="btn btn-lg rounded-lg text-xl bg-[#227C9D] text-white text-center border-none transition-colors duration-300 hover:bg-[#1C6F87]">
+                    <h2>Complete</h2>
+                </div>
+            </Link>
         </div>
         </div>
   );
 };
 
-export default PostPage;
+export default Completion;
