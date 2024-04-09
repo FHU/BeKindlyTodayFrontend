@@ -7,10 +7,10 @@ const Option: React.FC = () => {
 
     return(
         <div className='bg-white'>
-            <div className='max-w-md mx-auto mt-10 p-4 font-comfortaa flex flex-col justify-center'>
+            <div className='max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center'>
                 {/* bekindly */}
                 <motion.div 
-                className='option-title flex justify-center text-5xl m-2 p-5'
+                className='option-title text-5xl m-1 p-2'
                 initial={{ opacity:0 }}
                 animate={{ opacity:1 }}
                 transition={{ type: "spring", delay:2, stiffness: 260, damping: 200 }} 
@@ -21,6 +21,7 @@ const Option: React.FC = () => {
                 <motion.img 
                 src="src/assets/bekindlylogo.svg" 
                 alt="BeKindlyLogo"
+                style={{width:'450px', height:'450px'}}
                 className="option-container p-2"
                 initial={{ y:600, scale: 0 }}
                 animate={{ y:0, rotate: 360, scale: 1 }}
@@ -29,7 +30,7 @@ const Option: React.FC = () => {
                 
                 {/* today */}
                 <motion.div 
-                className='option-title flex justify-center text-5xl m-2 p-5'
+                className='option-title text-5xl m-1 p-2'
                 initial={{ opacity:0 }}
                 animate={{ opacity:1 }}
                 transition={{ type: "spring", delay:2, stiffness: 260, damping: 200 }} 
@@ -46,7 +47,8 @@ const Option: React.FC = () => {
                 Login
                 </motion.Link> */}
                 <motion.div
-                    className="option-btn btn-block flex justify-center align-middle rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]" 
+                    className="option-btn btn-block m-10 rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]"
+                    style={{width:"300px"}} 
                     initial={{ opacity:0 }}
                     animate={{ opacity:1 }}
                     transition={{ type: "spring", delay:2.8, stiffness: 260, damping: 200 }}>
