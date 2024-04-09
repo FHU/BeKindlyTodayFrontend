@@ -16,7 +16,7 @@ const CalendarPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-y-10 items-center bg-white text-black">
+    <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite text-black">
       {/* Header */}
       <Navbar/>
 

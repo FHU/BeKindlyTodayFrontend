@@ -8,7 +8,7 @@ import { BsCheckCircle } from "react-icons/bs";
 
 function Home() {
     return(
-        <div className='flex flex-col gap-y-10 items-center pb-10 bg-white'>
+        <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
             <Navbar/>
             {/* <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#227C9D', color: '#ffffff' }}>
                 <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
@@ -59,7 +59,7 @@ function Home() {
                         <p className='text-center font-semibold' style={{color: '#2485A9'}}>Make it a video or audio message instead of a regular text.</p>
                         <div className="card-actions justify-center pt-4">
                             {/* Button for nav*/}
-                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]">
+                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-kindly-teal text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]">
                                 <div><BsCheckCircle /></div>
                                 Complete
                             </Link>

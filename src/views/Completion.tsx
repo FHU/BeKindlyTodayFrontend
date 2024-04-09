@@ -16,7 +16,7 @@ const Completion: React.FC = () => {
 
   return (
     // Top-Parent Container
-    <div className="flex flex-col gap-y-10 items-center text-black" style={{ backgroundColor: '#F4F4F9'}}>
+    <div className="flex flex-col gap-y-10 items-center text-black bg-kindly-offWhite">
         <Navbar/>
         {/* Header
         <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
@@ -29,7 +29,7 @@ const Completion: React.FC = () => {
         </div> */}
 
         {/* Main */}
-        <div className="flex flex-col items-center gap-4 pb-10" style={{ backgroundColor: '#F4F4F9'}}>
+        <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
         {/* Timer */}
             <div className="flex justify-center border-2 w-40 py-2 border-black rounded-lg font-bold">
                 <h2 className="text-2xl">00:00:00</h2>
@@ -58,7 +58,7 @@ const Completion: React.FC = () => {
 
             {/* Post */}
             <Link to="/confirmation">
-                <div className="btn btn-lg rounded-lg text-xl bg-[#227C9D] text-white text-center border-none transition-colors duration-300 hover:bg-[#1C6F87]">
+                <div className="btn btn-lg rounded-lg text-xl bg-kindly-teal text-white text-center border-none transition-colors duration-300 hover:bg-[#1C6F87]">
                     <h2>Complete</h2>
                 </div>
             </Link>

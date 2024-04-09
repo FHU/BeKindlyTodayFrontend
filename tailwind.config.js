@@ -5,8 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        kindly: {
+          offWhite: '#F4F4F9',
+          teal: '#227C9D'
+        },
+    },
   },
+},
   plugins: [],
 }
 

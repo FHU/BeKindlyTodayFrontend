@@ -5,7 +5,7 @@ import Navbar from '../components/Nav';
 
 function Confirmation() {
     return(
-        <div className='flex flex-col gap-y-10 items-center pb-10 bg-white'>
+        <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
             <Navbar/>
 
             {/* Stats Section */}
@@ -46,7 +46,7 @@ function Confirmation() {
                     <div className="card-body">
                         <p className='font-bold text-lg text-center text-black'>I sent a mom a video message telling her that I love her and appreciate her.</p>
                         <div className="card-actions justify-center pt-4">
-                            <div className='w-3/4 text-center rounded-full text-xl bg-[#227C9D] text-white border-none py-2 px-4'>Achieved</div>
+                            <div className='w-3/4 text-center rounded-full text-xl bg-kindly-teal text-white border-none py-2 px-4'>Achieved</div>
                         </div>
                     </div>
                 </div>

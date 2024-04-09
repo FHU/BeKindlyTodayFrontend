@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Option: React.FC = () => {
 
     return(
-        <div className='bg-white text-[#227C9D]'>
+        <div className='bg-kindly-offWhite text-kindly-teal h-screen'>
             <div className='max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center'>
                 {/* bekindly */}
                 <motion.div 
