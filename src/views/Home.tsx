@@ -19,34 +19,11 @@ function Home() {
                 </div>
             </div> */}
 
-            {/* Old Stats Section */}
-            {/* <div className="stats md: stats-horizontal w-fit shadow text-center text-black bg-white">
-  
-                <div className="stat">
-                    <div className="stat-value">10K</div>
-                    <div className="stat-title text-black">Challenges Completed Globally</div>
-                    {/*<div className="stat-desc">↗︎ 400 (22%)</div>
-                </div>
-                
-                <div className="stat">
-                    <div className="stat-value">517</div>
-                    <div className="stat-title text-black">Challenges Completed Today</div>
-                    {/*<div className="stat-desc">↗︎ 400 (22%)</div>
-                </div>
-                
-                <div className="stat">
-                    <div className="stat-value">12</div>
-                    <div className="stat-title text-black">Challenges Completed by You</div>
-                    {/*<div className="stat-desc">↗︎ 400 (22%)</div>
-                </div>
-                
-            </div> */}
-
             {/* Stats Section */}
             <div className='flex flex-row space-x-4 text-center'>
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black">89,400</div>
+                        <div className="stat-value text-black pt-2">89,400</div>
                         <div className="stat-title text-black whitespace-normal">Challenges Completed Globally</div>
                     </div>
                 </div>
@@ -60,7 +37,7 @@ function Home() {
 
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black">20</div>
+                        <div className="stat-value text-black pt-2">20</div>
                         <div className="stat-title text-black whitespace-normal">Challenges Completed By You</div>
                     </div>
                 </div>

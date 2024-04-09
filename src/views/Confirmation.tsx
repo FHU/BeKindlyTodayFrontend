@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
@@ -12,7 +12,7 @@ function Confirmation() {
             <div className='flex flex-row space-x-4 text-center'>
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black">89,400</div>
+                        <div className="stat-value text-black pt-2">89,400</div>
                         <div className="stat-title text-black whitespace-normal">Challenges Completed Globally</div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@ function Confirmation() {
 
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black">20</div>
+                        <div className="stat-value text-black pt-2">20</div>
                         <div className="stat-title text-black whitespace-normal">Challenges Completed By You</div>
                     </div>
                 </div>
@@ -46,10 +46,7 @@ function Confirmation() {
                     <div className="card-body">
                         <p className='font-bold text-lg text-center text-black'>I sent a mom a video message telling her that I love her and appreciate her.</p>
                         <div className="card-actions justify-center pt-4">
-                            {/* Button for nav*/}
-                            <Link to="/" className="btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none">
-                                Achieved 
-                            </Link>
+                            <div className='w-3/4 text-center rounded-full text-xl bg-[#227C9D] text-white border-none py-2 px-4'>Achieved</div>
                         </div>
                     </div>
                 </div>
