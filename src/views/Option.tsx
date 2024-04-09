@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 const Option: React.FC = () => {
 
     return(
-        <div className='bg-white'>
+        <div className='bg-white text-[#227C9D]'>
             <div className='max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center'>
                 {/* bekindly */}
                 <motion.div 
-                className='option-title text-5xl m-1 p-2'
+                className='option-title text-5xl m-1 mt-5 p-4'
                 initial={{ opacity:0 }}
                 animate={{ opacity:1 }}
                 transition={{ type: "spring", delay:2, stiffness: 260, damping: 200 }} 
@@ -21,8 +21,8 @@ const Option: React.FC = () => {
                 <motion.img 
                 src="src/assets/bekindlylogo.svg" 
                 alt="BeKindlyLogo"
-                style={{width:'450px', height:'450px'}}
-                className="option-container p-2"
+                style={{width:'400px', height:'400px'}}
+                className="option-container p-4"
                 initial={{ y:600, scale: 0 }}
                 animate={{ y:0, rotate: 360, scale: 1 }}
                 transition={{ type: "spring", stiffness: 260, velocity:50, damping: 100 }} 
@@ -30,7 +30,7 @@ const Option: React.FC = () => {
                 
                 {/* today */}
                 <motion.div 
-                className='option-title text-5xl m-1 p-2'
+                className='option-title text-5xl m-1 mb-5 p-4'
                 initial={{ opacity:0 }}
                 animate={{ opacity:1 }}
                 transition={{ type: "spring", delay:2, stiffness: 260, damping: 200 }} 
@@ -47,12 +47,12 @@ const Option: React.FC = () => {
                 Login
                 </motion.Link> */}
                 <motion.div
-                    className="option-btn btn-block m-10 rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]"
+                    className="option-btn btn-block m-10 mb-12 p-2 rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]"
                     style={{width:"300px"}} 
                     initial={{ opacity:0 }}
                     animate={{ opacity:1 }}
                     transition={{ type: "spring", delay:2.8, stiffness: 260, damping: 200 }}>
-                    <Link to="/home" className="btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]">
+                    <Link to="/home" className="btn btn-block rounded-full p-2 text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]">
                         Login
                     </Link>
                 </motion.div>
