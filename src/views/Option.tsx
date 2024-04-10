@@ -10,7 +10,7 @@ const Option: React.FC = () => {
         if (delayedNavigation) {
         const timeoutId = setTimeout(() => {
             window.location.href = "/home";
-        }, 5000);
+        }, 3200);
 
         return () => clearTimeout(timeoutId);
         }
