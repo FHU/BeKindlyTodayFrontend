@@ -38,7 +38,7 @@ const Completion: React.FC = () => {
             {/* Challenge */}
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
                 <figure><img src="src/images/phone.jpg" alt="Challenges" /></figure>
-                <div className="card-body bg-white">
+                <div className="card-body bg-white rounded-b-2xl">
                     <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
                     <p className='text-center font-semibold' style={{color: '#2485A9'}}>Make it a video or audio message instead of a regular text.</p>
                     <div className="card-actions justify-center">
@@ -52,7 +52,7 @@ const Completion: React.FC = () => {
             <h2 className="text-2xl self-start mt-10">Experience</h2>
             <div className="mb-10">
                 <form action="#" method="post" className="flex flex-col">
-                        <textarea className="w-96 border-2 border-black rounded-lg p-2 h-32" style={{ backgroundColor: '#F4F4F9'}}></textarea>
+                        <textarea className="w-96 border-2 border-black rounded-lg p-2 h-32 bg-kindly-offWhite"></textarea>
                 </form>
             </div>
 
