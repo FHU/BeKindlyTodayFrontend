@@ -9,7 +9,8 @@ export default {
       colors: {
         kindly: {
           offWhite: '#F4F4F9',
-          teal: '#227C9D'
+          teal: '#227C9D',
+          tealHover: '#1C6F87'
         },
     },
   },

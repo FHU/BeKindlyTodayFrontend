@@ -56,10 +56,10 @@ function Home() {
                     <figure><img src="src/images/phone.jpg" alt="Challenges" /></figure>
                     <div className="card-body">
                         <p className='font-bold text-lg text-center text-black'>Send a text to a mom expressing appreciation.</p>
-                        <p className='text-center font-semibold' style={{color: '#2485A9'}}>Make it a video or audio message instead of a regular text.</p>
+                        <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p>
                         <div className="card-actions justify-center pt-4">
                             {/* Button for nav*/}
-                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-kindly-teal text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]">
+                            <Link to="/completion" className="btn btn-block rounded-full text-xl bg-kindly-teal text-white border-none transition-colors duration-300 hover:bg-kindly-tealHover">
                                 <div><BsCheckCircle /></div>
                                 Complete
                             </Link>

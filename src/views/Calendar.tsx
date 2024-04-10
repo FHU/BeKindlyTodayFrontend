@@ -10,7 +10,7 @@ const MonthName = ({ monthIndex }: { monthIndex: number }) => {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  return <div className="text-center text-lg font-bold mb-2" style={{ backgroundColor: '#FDF9F9', color: '#000000', padding: '8px', borderRadius: '8px' }}>
+  return <div className="text-center text-lg font-bold mb-2 bg-kindly-offWhite text-black" style={{padding: '8px', borderRadius: '8px' }}>
     {monthNames[monthIndex]}
   </div>;
 };
