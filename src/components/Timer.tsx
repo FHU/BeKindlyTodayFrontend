@@ -34,7 +34,7 @@ const CountdownTimer = () => {
   const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
   return (
-    <div className="countdown-timer flex gap-x-2 w-96 justify-center text-bold text-black text-4xl">
+    <div className="countdown-timer my-5 flex gap-x-2 w-96 justify-center text-bold text-black text-4xl">
       <div>{formatTime(hours)}</div>:
       <div>{formatTime(minutes)}</div>:
       <div>{formatTime(seconds)}</div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Nav';
 import '../index.css';
 import 'daisyui/dist/full.css';
@@ -15,35 +15,24 @@ const Completion: React.FC = () => {
     challenge: "Send a text to a loved one to show your appreciation."
   };
 
+    // State to track textarea value
+    const [textValue, setTextValue] = useState('');
+
+    // Handler to update state based on input
+    const handleTextChange = (event) => {
+        setTextValue(event.target.value.slice(0, 250)); // Ensures character limit is respected
+    };
+
   return (
     // Top-Parent Container
     <div className="flex flex-col gap-y-10 items-center text-black bg-kindly-offWhite">
         <Navbar/>
-        {/* Header
-        <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-            <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
-            <h1>BeKindly</h1>
-            <div className="flex items-center">
-                <div className="text-6xl text-black"><CiCalendar /></div>
-                <div className="rounded-full bg-slate-100 p-7"></div>
-            </div>
-        </div> */}
 
         {/* Main */}
         <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
 
         {/* Timer */}
         <CountdownTimer />
-        
-        {/* <div className='text-center text-black'>
-            <h1 className='text-4xl font-bold'>04:43:07</h1>
-        </div> */}
-
-        {/* <span className="countdown font-mono text-2xl">
-            <span style={{"--value":10}}></span>:
-            <span style={{"--value":24}}></span>:
-            <span style={{"--value":51}}></span>
-        </span> */}
 
             {/* Challenge */}
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -59,11 +48,20 @@ const Completion: React.FC = () => {
             </div>
 
             {/* Experience */}
-            <h2 className="text-2xl self-start mt-10">Experience</h2>
-            <div className="mb-10">
-                <form action="#" method="post" className="flex flex-col">
-                        <textarea className="w-96 border-2 border-black rounded-lg p-2 h-32 bg-kindly-offWhite"></textarea>
-                </form>
+            <div className="my-6">
+                <h2 className="text-2xl self-start">Experience</h2>
+                <div className="relative"> {/* Relative positioning for character count */}
+                    <form action="#" method="post" className="flex flex-col">
+                        <textarea 
+                            className="w-96 border-2 border-black rounded-lg p-3 h-32 bg-kindly-offWhite"
+                            value={textValue}
+                            onChange={handleTextChange}
+                        ></textarea>
+                    </form>
+                </div>
+                <div className="text-right p-1 text-sm">
+                            {`${textValue.length} / 250`} {/* Displaying character count */}
+                </div>
             </div>
 
             {/* Post */}
