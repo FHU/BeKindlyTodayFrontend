@@ -8,10 +8,10 @@ import Card from '../components/Card';
 
 // interface Post {
 //   challenge: string;
-// }
+// } I put this in the card component
 
 const Completion: React.FC = () => {
-  // Define a static post
+  // Define a static post I put this in the card component
 //   const post: Post = {
 //     challenge: "Send a text to a loved one to show your appreciation."
 //   };
@@ -20,7 +20,7 @@ const Completion: React.FC = () => {
     const [textValue, setTextValue] = useState('');
 
     // Handler to update state based on input
-    const handleTextChange = (event) => {
+    const handleTextChange = (event: { target: { value: string; }; }) => {
         setTextValue(event.target.value.slice(0, 250)); // Ensures character limit is respected
     };
 
