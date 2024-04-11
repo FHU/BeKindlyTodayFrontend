@@ -1,9 +1,10 @@
 //import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
-import { BsCheckCircle } from "react-icons/bs";
+//import { BsCheckCircle } from "react-icons/bs";
+import Card from '../components/Card';
 
 
 function Home() {
@@ -49,8 +50,12 @@ function Home() {
                 <h1 className='text-4xl font-bold mr-4'>04:43:07</h1>
             </div>
 
-            {/* Card */}
+            {/* Card (component work) */}
             <div>
+                <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
+                <Card layoutType='home'/>
+            </div>
+            {/* <div>
                 <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl bg-white">
                     <figure><img src="src/images/phone.jpg" alt="Challenges" /></figure>
@@ -58,7 +63,7 @@ function Home() {
                         <p className='font-bold text-lg text-center text-black'>Send a text to a mom expressing appreciation.</p>
                         <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p>
                         <div className="card-actions justify-center pt-4">
-                            {/* Button for nav*/}
+                            {/* Button for nav*
                             <Link to="/completion" className="btn btn-block rounded-full text-xl bg-kindly-teal text-white border-none transition-colors duration-300 hover:bg-kindly-tealHover">
                                 <div><BsCheckCircle /></div>
                                 Complete
@@ -66,7 +71,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
 
     )

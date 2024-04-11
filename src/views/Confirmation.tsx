@@ -2,6 +2,7 @@
 import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
+import Card from '../components/Card';
 
 function Confirmation() {
     return(
@@ -38,8 +39,13 @@ function Confirmation() {
                 <h1 className='text-4xl font-bold mr-4'>04:43:07</h1>
             </div>
 
-            {/* Card */}
+            {/* Card Component work */}
             <div>
+                <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
+                <Card layoutType='confirmation'/>
+            </div>
+            {/* Old Card */}
+            {/* <div>
                 <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl bg-white">
                     <figure><img src="src/images/phone.jpg" alt="Challenges" /></figure>
@@ -50,7 +56,7 @@ function Confirmation() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
 
     )

@@ -3,16 +3,17 @@ import Navbar from '../components/Nav';
 import '../index.css';
 import 'daisyui/dist/full.css';
 import { Link } from 'react-router-dom';
+import Card from '../components/Card';
 
-interface Post {
-  challenge: string;
-}
+// interface Post {
+//   challenge: string;
+// }
 
 const Completion: React.FC = () => {
   // Define a static post
-  const post: Post = {
-    challenge: "Send a text to a loved one to show your appreciation."
-  };
+//   const post: Post = {
+//     challenge: "Send a text to a loved one to show your appreciation."
+//   };
 
   return (
     // Top-Parent Container
@@ -41,18 +42,24 @@ const Completion: React.FC = () => {
             <span style={{"--value":51}}></span>
         </span> */}
 
-            {/* Challenge */}
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            {/* Challenge component work */}
+            <div>
+                <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
+                <Card layoutType='completion'/>
+            </div>
+            
+            {/* Old Challenge Card */}
+            {/* <div className="card card-compact w-96 bg-base-100 shadow-xl">
                 <figure><img src="src/images/phone.jpg" alt="Challenges" /></figure>
                 <div className="card-body bg-white rounded-b-2xl">
                     <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
                     <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p>
                     <div className="card-actions justify-center">
-                        {/* Button for nav */}
-                        {/*<link to="/another-page" className='btn btn-primary'>Complete</link>*/}
+                        {/* Button for nav 
+                        {/*<link to="/another-page" className='btn btn-primary'>Complete</link>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Experience */}
             <h2 className="text-2xl self-start mt-10">Experience</h2>
