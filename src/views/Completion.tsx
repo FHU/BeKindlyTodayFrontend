@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Nav';
 import '../index.css';
 import 'daisyui/dist/full.css';
+import CountdownTimer from '../components/Timer';
 import { Link } from 'react-router-dom';
 
 interface Post {
@@ -30,10 +31,13 @@ const Completion: React.FC = () => {
 
         {/* Main */}
         <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
+
         {/* Timer */}
-        <div className='text-center text-black'>
+        <CountdownTimer />
+        
+        {/* <div className='text-center text-black'>
             <h1 className='text-4xl font-bold'>04:43:07</h1>
-        </div>
+        </div> */}
 
         {/* <span className="countdown font-mono text-2xl">
             <span style={{"--value":10}}></span>:
