@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const CountdownTimer = () => {
   // Initialize the countdown time to 24 hours from now
@@ -23,7 +23,7 @@ const CountdownTimer = () => {
 
     // Clear the interval on component unmount
     return () => clearInterval(intervalId);
-  }, [timeLeft]);
+  }, [targetTime, timeLeft]);
 
   // Convert milliseconds into hours, minutes, and seconds
   const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -34,7 +34,7 @@ const CountdownTimer = () => {
   const formatTime = (time: number) => (time < 10 ? `0${time}` : time);
 
   return (
-    <div className="countdown-timer my-5 flex gap-x-2 w-96 justify-center text-bold text-black text-4xl">
+    <div className="countdown-timer my-3 flex gap-x-2 w-96 justify-center text-bold text-black text-4xl">
       <div>{formatTime(hours)}</div>:
       <div>{formatTime(minutes)}</div>:
       <div>{formatTime(seconds)}</div>
