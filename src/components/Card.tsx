@@ -1,5 +1,5 @@
 // ChallengeCard.js
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom'; // Make sure to import Link if you're using it
 import { BsCheckCircle } from "react-icons/bs";
 import 'daisyui/dist/full.css';
@@ -10,18 +10,21 @@ interface Post {
   visual: string;
 }
 
-type CardProps = {
+interface CardProps {
   layoutType: 'home' | 'completion' | 'confirmation'
-};
+}
 
-const Card: React.FC<CardProps> = ({ layoutType }) => {
+// setLayoutType allows for interaction
+const Card: React.FC<CardProps> = ({layoutType}) => {
+  const [internalLayoutType] = useState<'home' | 'completion' | 'confirmation'>(layoutType);
+  
   const post: Post = {
     challenge: "Send a text to a loved one to show your appreciation.",
     visual: "src/images/phone.jpg"
   };
 
   let cardBody;
-  switch(layoutType) {
+  switch(internalLayoutType) {
     case 'home':
       cardBody = (
         <div className="card-body">

@@ -5,6 +5,7 @@ import '../index.css';
 import Navbar from '../components/Nav';
 //import { BsCheckCircle } from "react-icons/bs";
 import Card from '../components/Card';
+import CountdownTimer from '../components/Timer';
 
 
 function Home() {
@@ -37,9 +38,7 @@ function Home() {
             </div>
 
             {/* Timer Section */}
-            <div className='text-center text-black space-y-2'>
-                <h1 className='text-4xl font-bold mr-4'>04:43:07</h1>
-            </div>
+            <CountdownTimer />
 
             {/* Card (component work) */}
             <div className='pb-2'>

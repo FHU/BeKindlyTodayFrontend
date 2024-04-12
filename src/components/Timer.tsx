@@ -31,7 +31,7 @@ const CountdownTimer = () => {
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
   // Format time for display
-  const formatTime = (time) => (time < 10 ? `0${time}` : time);
+  const formatTime = (time: number) => (time < 10 ? `0${time}` : time);
 
   return (
     <div className="countdown-timer my-5 flex gap-x-2 w-96 justify-center text-bold text-black text-4xl">

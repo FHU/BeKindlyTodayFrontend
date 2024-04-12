@@ -32,8 +32,8 @@ const Completion: React.FC = () => {
         {/* Main */}
         <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
 
-        {/* Timer */}
-        <CountdownTimer />
+            {/* Timer */}
+            <CountdownTimer />
 
             {/* Challenge component work */}
             <div>
@@ -78,7 +78,7 @@ const Completion: React.FC = () => {
                 </div>
             </Link>
         </div>
-        </div>
+    </div>
   );
 };
 
