@@ -11,14 +11,6 @@ function Home() {
     return(
         <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
             <Navbar/>
-            {/* <div className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#227C9D', color: '#ffffff' }}>
-                <img src={'src/assets/logo.png'} alt="Centered Image" style={{ width: '65px', height: '65px' }} />
-                <h1 className='text-5xl'>BeKindly</h1>
-                <div className="flex items-center">
-                    <div className="text-6xl text-black"><CiCalendar /></div>
-                    <div className="rounded-full bg-slate-100 p-7"></div>
-                </div>
-            </div> */}
 
             {/* Stats Section */}
             <div className='flex flex-row space-x-4 text-center'>
@@ -44,14 +36,13 @@ function Home() {
                 </div>
             </div>
 
-            
             {/* Timer Section */}
-            <div className='text-center text-black'>
+            <div className='text-center text-black space-y-2'>
                 <h1 className='text-4xl font-bold mr-4'>04:43:07</h1>
             </div>
 
             {/* Card (component work) */}
-            <div>
+            <div className='pb-2'>
                 <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
                 <Card layoutType='home'/>
             </div>
