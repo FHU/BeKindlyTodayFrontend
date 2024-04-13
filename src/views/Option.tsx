@@ -26,10 +26,10 @@ const Option: React.FC = () => {
                 <div className='max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center'>
                     {/* bekindly */}
                     <motion.div 
-                    className='option-title text-5xl m-1 mt-5 p-4'
+                    className='option-title text-5xl m-1 mt-12 p-4'
                     initial={{ opacity:0 }}
                     animate={{ opacity:1 }}
-                    transition={{ type: "spring", delay:2, stiffness: 260, damping: 200 }} 
+                    transition={{ type: "spring", delay:1.5, stiffness: 260, damping: 200 }} 
                     >BeKindly
                     </motion.div>
 
@@ -49,7 +49,7 @@ const Option: React.FC = () => {
                     className='option-title text-5xl m-1 mb-5 p-4'
                     initial={{ opacity:0 }}
                     animate={{ opacity:1 }}
-                    transition={{ type: "spring", delay:2, stiffness: 260, damping: 200 }} 
+                    transition={{ type: "spring", delay:1.5, stiffness: 260, damping: 200 }} 
                     >Today
                     </motion.div>
 
