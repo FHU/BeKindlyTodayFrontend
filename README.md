@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# BeKindlyTodayFrontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The BeKindly.Today kindness challenge app.
 
-Currently, two official plugins are available:
+## Developers
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Getting set up
 
-## Expanding the ESLint configuration
+### Environment Variables
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Development environment variables should be stored in a file in the root directory named `.env.dev`.\
+This file will not be tracked by git and is unique to your local directory.\
 
-- Configure the top-level `parserOptions` property like this:
+#### Environment Variables
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- DATABASE_URL
+  - <span style="color:yellow;">**Required**</span>
+  - Contains the url of the postgres docker container
+- PORT
+  - <span style="color:yellow;">**Required For Development**</span>
+  - Contains the port used for the backend
+- POSTGRES_PASSWORD
+  - <span style="color:yellow;">**Required**</span>
+  - Contains the password used for the postgres database
+- FRONTEND_PORT
+  - <span style="color:yellow;">**Required**</span>
+  - Contains the port used for the frontend
+- BACKEND_URL
+  - <span style="color:yellow;">**Required**</span>
+  - Contains the url of the backend
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Starting the server
+
+- Configure env vars
+  - an example env var file has been provided (.env.example)
+  - if you rename .env.example to .env.dev, docker will run correctly
+- Run compose
+  - Run `npm run docker-dev`
+  - This command will run the docker-compose file and run the frontend, backend, and database.
