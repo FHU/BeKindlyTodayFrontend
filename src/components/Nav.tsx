@@ -12,7 +12,7 @@ function Navbar() {
       <h1 className="text-5xl">BeKindly</h1>
       <div className="flex items-center">
           <Link to="/calendar"><div className="btn text-5xl text-white pr-4 pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsCalendar4 /></div></Link>
-          <div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsPersonCircle /></div>
+          <Link to="/profile"><div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsPersonCircle /></div></Link>
       </div>
     </nav>
 
