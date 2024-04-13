@@ -13,7 +13,7 @@ RUN addgroup react && adduser -S -G react react
 USER react
 
 USER root
-RUN chown -R app:app . 
+RUN chown -R react:react . 
 
 USER frontend
 RUN npm ci
