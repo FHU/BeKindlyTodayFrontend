@@ -15,7 +15,7 @@ USER react
 USER root
 RUN chown -R react:react . 
 
-USER frontend
+USER react
 RUN npm ci
 COPY . .
 RUN npm run build
