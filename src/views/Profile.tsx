@@ -10,11 +10,19 @@ function Profile() {
             <div className="profile-picture-container mt-6 flex flex-col items-center">
                 <div className="profile-picture bg-gray-300 rounded-full w-20 h-20 flex items-center justify-center mb-2">
                     {/* Placeholder or actual profile image can be inserted here */}
+<<<<<<< HEAD
                     <span className="text-lg font-bold text-gray-600">SF</span>
                 </div>
                 <div className="text-center">
                     <h2 className="text-xl font-semibold">Sam Flowers</h2>
                     <p className="text-sm text-gray-600">I just lost the game</p>
+=======
+                    <span className="text-lg font-bold text-gray-600">JD</span>
+                </div>
+                <div className="text-center">
+                    <h2 className="text-xl font-semibold">John Doe</h2>
+                    <p className="text-sm text-gray-600">Mission statement goes here...</p>
+>>>>>>> d0c82385f0abd88a783906e9089d0577686f8e8b
                 </div>
             </div>
 
