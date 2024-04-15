@@ -3,12 +3,48 @@ import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
 import Card from '../components/Card';
+import React, { useState, useEffect } from 'react';
 
 function Confirmation() {
+    const [fadeIn, setFadeIn] = useState(false);
+    const [visible, setVisible] = useState(true);
+  
+    useEffect(() => {
+      // On component mount, set fade in to true
+      setFadeIn(true);
+  
+      // After 5 seconds, set fade in back to false to trigger fade-out
+      const timeout = setTimeout(() => {
+        setFadeIn(false);
+      }, 5000);
+  
+      // After fade-out animation completes, hide the div
+      const hideTimeout = setTimeout(() => {
+        setVisible(false);
+      }, 5500); // Duration of fade-out animation + 500ms buffer
+  
+      // Clean up timeouts to avoid memory leaks
+      return () => {
+        clearTimeout(timeout);
+        clearTimeout(hideTimeout);
+      };
+    }, []); // Empty dependency array ensures this effect runs only once on component mount
+  
     return(
         <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
             <Navbar/>
-
+{/* animate height??????????? */}
+            {/* alert for completed task */}
+                {/* Conditionally render the fading element based on visibility */}
+                {visible && (
+                    <div className={`fade ${fadeIn ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 -mt-10`}>
+                        <div className="bg-green-100 border border-green-400 text-green-700 px-12 py-3 rounded relative text-center" role="alert">
+                            <strong className="font-bold ">Success!</strong>
+                            <span className="block sm:inline">You Completed the task to send your mom a video message telling her that you love her and appreciate her</span>
+                        </div>
+                    </div>
+                 )}
+ 
             {/* Stats Section */}
             <div className='flex flex-row space-x-4 text-center'>
                 <div className="stats shadow bg-white">
@@ -34,9 +70,11 @@ function Confirmation() {
             </div>
 
             
+
+            
             {/* Timer Section */}
             <div className='text-center text-black'>
-                <h1 className='text-4xl font-bold mr-4'>04:43:07</h1>
+                <h1 className='text-4xl font-bold mr-4 hidden'>04:43:07</h1>
             </div>
 
             {/* Card Component work */}

@@ -5,6 +5,8 @@ import 'daisyui/dist/full.css';
 import CountdownTimer from '../components/Timer';
 import { Link } from 'react-router-dom';
 import Card from '../components/Card';
+import  Alert  from 'daisyui';
+
 
 // interface Post {
 //   challenge: string;
@@ -28,6 +30,7 @@ const Completion: React.FC = () => {
     // Top-Parent Container
     <div className="flex flex-col gap-y-10 items-center text-black bg-kindly-offWhite">
         <Navbar/>
+        
 
         {/* Main */}
         <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
