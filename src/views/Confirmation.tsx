@@ -55,28 +55,29 @@ function Confirmation() {
                     </div>
                 </div>
 
-                <div className="stats shadow bg-white">
-                    <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black pt-2">8,400</div>
-                        <div className="stat-title text-black whitespace-normal">Challenges Completed Today</div>
-                    </div>
-                </div>
-
-                <div className="stats shadow bg-white">
-                    <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black pt-2">20</div>
-                        <div className="stat-title text-black whitespace-normal">Challenges Completed By You</div>
-                    </div>
-                </div>
+        <div className="stats shadow bg-white">
+          <div className="stat w-40 space-y-2">
+            <div className="stat-value text-black pt-2">8,400</div>
+            <div className="stat-title text-black whitespace-normal">
+              Challenges Completed Today
             </div>
+          </div>
+        </div>
 
-            
-
-            
-            {/* Timer Section */}
-            <div className='text-center text-black'>
-                <h1 className='text-4xl font-bold mr-4 hidden'>04:43:07</h1>
+        <div className="stats shadow bg-white">
+          <div className="stat w-40 space-y-2">
+            <div className="stat-value text-black pt-2">20</div>
+            <div className="stat-title text-black whitespace-normal">
+              Challenges Completed By You
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Timer Section */}
+      <div className="text-center text-black">
+        <h1 className="text-4xl font-bold mr-4 hidden">04:43:07</h1>
+      </div>
 
             {/* Card Component work */}
             <div>
@@ -112,9 +113,8 @@ function Confirmation() {
                     </div>
                 </div>
             </div> */}
-        </div>
-
-    )
+    </div>
+  );
 }
 
 export default Confirmation;

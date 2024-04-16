@@ -31,9 +31,9 @@ const Card: React.FC<CardProps> = ({ layoutType }) => {
       cardBody = (
         <div className="card-body">
           <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
-          <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p>
+          <p className='text-center font-semibold text-kindly-blue'>Make it a video or audio message instead of a regular text.</p>
           <div className="card-actions justify-center pt-4">
-            <Link to='/completion' className="btn btn-block rounded-full text-xl bg-kindly-teal text-white border-none transition-colors duration-300 hover:bg-kindly-tealHover">
+            <Link to='/completion' className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue">
               <div><BsCheckCircle /></div>
               Complete
             </Link>

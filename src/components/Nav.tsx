@@ -7,12 +7,12 @@ import { BsPersonCircle } from "react-icons/bs";
 
 function Navbar() {
   return (
-    <nav className="flex w-full h-24 text-2xl px-5 justify-between items-center" style={{ backgroundColor: '#2485A9', color: '#ffffff' }}>
-      <Link to="/home" className='inline-block border-none hover:bg-transparent p-2 rounded-lg'><img className='border-none hover:opacity-75' style={{ width: '80px', height: '80px' }} src={'src/assets/logo.png'} alt='logo' /></Link>
+    <nav className="flex w-full h-24 text-2xl px-5 justify-between items-center bg-kindly-blue" style={{ backgroundColor: '#1964de', color: '#ffffff' }}>
+      <Link to="/home" className='inline-block border-none hover:bg-transparent p-2 rounded-lg'><img className='border-none hover:opacity-75' style={{ width: '80px', height: '80px' }} src={'src/assets/bekindlyblue.svg'} alt='logo' /></Link>
       <h1 className="text-5xl">BeKindly</h1>
       <div className="flex items-center">
           <Link to="/calendar"><div className="btn text-5xl text-white pr-4 pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsCalendar4 /></div></Link>
-          <Link to="/profile"><div className="btn text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsPersonCircle /></div></Link>
+          <Link to="/profile"><div className="btn text-5xl text-white pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"><BsPersonCircle /></div></Link>
       </div>
     </nav>
 

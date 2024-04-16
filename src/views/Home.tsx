@@ -43,8 +43,7 @@ function Home() {
             <CountdownTimer />
 
             {/* Card (component work) */}
-            <div className='pb-2'>
-                <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
+            <div>
                 <Card layoutType='home'/>
             </div>
             {/* <div>
