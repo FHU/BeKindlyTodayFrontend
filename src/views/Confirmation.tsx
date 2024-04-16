@@ -5,6 +5,7 @@ import Navbar from '../components/Nav';
 import Card from '../components/Card';
 import React, { useState, useEffect } from 'react';
 
+
 function Confirmation() {
     const [fadeIn, setFadeIn] = useState(false);
     const [visible, setVisible] = useState(true);
@@ -39,8 +40,8 @@ function Confirmation() {
                 {visible && (
                     <div className={`fade ${fadeIn ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 -mt-10`}>
                         <div className="bg-green-100 border border-green-400 text-green-700 px-12 py-3 rounded relative text-center" role="alert">
-                            <strong className="font-bold ">Success!</strong>
-                            <span className="block sm:inline">You Completed the task to send your mom a video message telling her that you love her and appreciate her</span>
+                            <strong className="font-bold ">Success! </strong>
+                            <span className="block sm:inline">You Completed the task </span>
                         </div>
                     </div>
                  )}
@@ -79,8 +80,24 @@ function Confirmation() {
 
             {/* Card Component work */}
             <div>
-                <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
-                <Card layoutType='confirmation'/>
+            <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-teal rounded-t-lg">Today's Challenge</h2>
+               <Card layoutType='confirmation'/>
+            </div>
+
+            <div>
+                <Card layoutType='staticFeed'/>
+            </div>
+
+            <div>
+                <Card layoutType='staticFeed'/>
+            </div>
+
+            <div>
+                <Card layoutType='staticFeed'/>
+            </div>
+
+            <div>
+                <Card layoutType='staticFeed'/>
             </div>
             {/* Old Card */}
             {/* <div>
