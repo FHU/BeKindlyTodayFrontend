@@ -72,6 +72,11 @@ const Completion: React.FC = () => {
             </div>
 
             {/* Post */}
+            {/* <div>
+                <button onClick={handleComplete} className='btn btn-lg rounded-lg text-xl bg-kindly-teal text-white text-center border-none transition-colors duration-300 hover:bg-kindly-tealHover'>
+
+                </button>
+            </div> */}
             <Link to="/confirmation">
                 <div className="btn btn-lg rounded-lg text-xl bg-kindly-teal text-white text-center border-none transition-colors duration-300 hover:bg-kindly-tealHover">
                     <h2>Complete</h2>
