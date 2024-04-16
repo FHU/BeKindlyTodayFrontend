@@ -22,7 +22,7 @@ const Option: React.FC = () => {
 
     return(
         <Link to={'/home'} >
-            <div className='bg-kindly-offWhite text-kindly-teal h-screen'>
+            <div className='text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue h-screen'>
                 <div className='max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center'>
                     {/* bekindly */}
                     <motion.div 
@@ -35,7 +35,7 @@ const Option: React.FC = () => {
 
                     {/* logo */}
                     <motion.img 
-                    src="src/assets/bekindlylogo.svg" 
+                    src="src/assets/bekindlyblue.svg" 
                     alt="BeKindlyLogo"
                     style={{width:'400px', height:'400px'}}
                     className="option-container p-4"
