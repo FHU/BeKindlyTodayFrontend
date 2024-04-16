@@ -41,7 +41,7 @@ function Confirmation() {
                     <div className={`fade ${fadeIn ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 -mt-10`}>
                         <div className="bg-green-100 border border-green-400 text-green-700 px-12 py-3 rounded relative text-center" role="alert">
                             <strong className="font-bold ">Success! </strong>
-                            <span className="block sm:inline">You Completed the task </span>
+                            <span className="block sm:inline">You Completed the task to send a message to a loved one saying you love them</span>
                         </div>
                     </div>
                  )}
