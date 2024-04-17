@@ -92,7 +92,7 @@ function Confirmation() {
 
       {/* Card Component work */}
       <div>
-        <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-lg">
+        <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
           Today's Challenge
         </h2>
         <Card layoutType="confirmation" />
