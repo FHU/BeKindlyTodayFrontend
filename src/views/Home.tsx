@@ -7,10 +7,8 @@ import Stats from '../components/Stats';
 //import { BsCheckCircle } from "react-icons/bs";
 import Card from '../components/Card';
 import CountdownTimer from '../components/Timer';
-import getData  from "../services/fetchData"
 
 function Home() {
-    getData("http://localhost:5000/api/v1/users")
     return(
         <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
             <Navbar/>
