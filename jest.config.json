@@ -1,0 +1,13 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "transformIgnorePatterns": [
+    "/node_modules/(?!react-icons)"
+  ],
+  "moduleNameMapper": {
+    "^.+\\.svg$": "<rootDir>/__mocks__/svgMock.js"
+  }
+}
