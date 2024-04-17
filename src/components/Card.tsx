@@ -9,6 +9,7 @@ import ProfileBubble from '../components/ProfileBubble'; // Import the ProfileBu
 interface Post {
   challenge: string;
   visual: string;
+  experience:string;
 }
 
 interface CardProps {
@@ -22,7 +23,8 @@ const Card: React.FC<CardProps> = ({ layoutType }) => {
 
   const post: Post = {
     challenge: "Send a text to a loved one to show your appreciation.",
-    visual: "src/images/phone.jpg"
+    visual: "src/images/phone.jpg",
+    experience: "I sent a mom a text and she really appreciated it"
   };
 
   let cardBody;
@@ -55,14 +57,12 @@ const Card: React.FC<CardProps> = ({ layoutType }) => {
       );
       break;
 
-      case 'confirmation':
-        const todayChallenge = "I sent a mom a video message telling her that I love her and appreciate her."; // Today's challenge
-        
+      case 'confirmation':        
         cardBody = (
           <div className="card-body">
             
             <div className="text-black text-center py-6">
-              <p className="text-lg font-semibold leading-tight">{todayChallenge}</p>
+              <p className="text-lg font-semibold leading-tight">{post.experience}</p>
             </div>
             
           </div>
