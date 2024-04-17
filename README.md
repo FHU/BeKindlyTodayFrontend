@@ -28,7 +28,7 @@ This file will not be tracked by git and is unique to your local directory.\
 - BACKEND_URL
   - <span style="color:yellow;">**Required**</span>
   - Contains the url of the backend
-- ENVIROMENT
+- VITE_ENVIROMENT
   - <span style="color:yellow;">**Required**</span>
   - Sets the enviroment to know whether to use authentication or not
 
