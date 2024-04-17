@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({ layoutType }) => {
 
     case 'completion':
       cardBody = (
-        <div className="card-body bg-white rounded-b-2xl">
+        <div className="card-body bg-white rounded-2xl">
           <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
           <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p>
           <div className="card-actions justify-center">

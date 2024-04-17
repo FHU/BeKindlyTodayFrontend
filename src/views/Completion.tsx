@@ -17,7 +17,7 @@ const Completion: React.FC = () => {
       <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
         <CountdownTimer />
         <div>
-          <h2 className="text-3xl pb-2 text-black text-center font-extrabold">
+          <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             Today's Challenge
           </h2>
           <Card layoutType="completion" />
