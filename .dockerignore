@@ -1,1 +1,17 @@
 node_modules/
+
+#Exclude Logs
+**/*.log
+
+#Exclude .env files for security since this image is on dockerhub now
+*.env
+
+#Exclude git and github stuff
+.git
+.github
+
+#Exclude tests from images
+tests
+
+#Exclude all markdow
+*.md

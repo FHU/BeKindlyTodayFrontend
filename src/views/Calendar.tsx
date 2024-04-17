@@ -80,7 +80,7 @@ const Calendar = ({ month, daysInMonth }: { month: number, daysInMonth: number }
 };
 
 const CalendarPage: React.FC = () => {
-  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   return (
     <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite text-black">

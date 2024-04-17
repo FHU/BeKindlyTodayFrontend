@@ -3,6 +3,7 @@
 import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
+import Stats from '../components/Stats';
 //import { BsCheckCircle } from "react-icons/bs";
 import Card from '../components/Card';
 import CountdownTimer from '../components/Timer';
@@ -14,7 +15,8 @@ function Home() {
             <Navbar/>
 
             {/* Stats Section */}
-            <div className='flex flex-row space-x-4 text-center'>
+            <Stats/>
+            {/* <div className='flex flex-row space-x-4 text-center'>
                 <div className="stats shadow bg-white">
                     <div className="stat w-40 space-y-2">
                         <div className="stat-value text-black pt-2">89,400</div>
@@ -35,14 +37,13 @@ function Home() {
                         <div className="stat-title text-black whitespace-normal">Challenges Completed By You</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Timer Section */}
             <CountdownTimer />
 
             {/* Card (component work) */}
-            <div className='pb-2'>
-                <h2 className="text-3xl pb-2 text-black text-center font-extrabold">Today's Challenge</h2>
+            <div>
                 <Card layoutType='home'/>
             </div>
             {/* <div>
