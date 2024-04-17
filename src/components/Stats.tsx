@@ -72,7 +72,7 @@ function Stats() {
                           <div className="text-white p-1 pt-3 text-3xl align-middle items-center">{KConvert(statbar.Global)}</div>  
                         </div>
                         
-                        <div className="bg-white h-0.5 rounded-sm"></div>
+                        <div className="bg-white opacity-50 h-0.5 rounded-sm"></div>
                         <div className="stat-title pt-4 text-white whitespace-normal">Globally</div>
                     </div>
                 </div>
@@ -83,8 +83,8 @@ function Stats() {
                           <motion.div className="stat-value text-white pt-2">{roundedGlobalDaily}</motion.div>
                           <div className="text-white p-1 pt-3 text-3xl align-middle items-center">{KConvert(statbar.GlobalDaily)}</div>  
                         </div>
-                        <div className="bg-white h-0.5 rounded-sm"></div>
-                        <div className="stat-title pt-4 text-white whitespace-normal">Globally Today</div>
+                        <div className="bg-white opacity-50 h-0.5 rounded-sm"></div>
+                        <div className="stat-title pt-2 text-white whitespace-normal">Globally Today</div>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@ function Stats() {
                           <motion.div className="stat-value text-white pt-2">{roundedPersonal}</motion.div>
                           <div className="text-white p-1 pt-3 text-3xl align-middle items-center">{KConvert(statbar.Personal)}</div>  
                         </div>
-                        <div className="bg-white h-0.5 rounded-sm"></div>
+                        <div className="bg-white opacity-50 h-0.5 rounded-sm"></div>
                         <div className="stat-title pt-4 text-white whitespace-normal">Personally</div>
                     </div>
                 </div>
