@@ -20,7 +20,7 @@ const TestCompletion: React.FC = () => {
           <h2 className="text-3xl pb-2 text-black text-center font-extrabold">
             Today's Challenge
           </h2>
-          <Card/>
+          <Card layoutType={'home'}/>
         </div>
         <div className="my-6">
           <h2 className="text-2xl self-start">Experience</h2>
