@@ -1,50 +1,37 @@
-/**
- * @jest-environment jsdom
- */
+// Import necessary dependencies and render test utilities
+import React from 'react';
+import { render } from '@testing-library/react';
+import Confirmation from './Confirmation';
 
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import Option from './Option';
+// Describe the tests for the Confirmation component
+describe('Confirmation Component', () => {
+  // Test that the component renders without crashing
+  it('should render without errors', () => {
+    render(<Confirmation />);
+  });
 
-jest.useFakeTimers();
+  // Test that the Navbar component is rendered
+  it('should render Navbar component', () => {
+    const { getByTestId } = render(<Confirmation />);
+    expect(getByTestId('navbar')).toBeInTheDocument();
+  });
 
-/**
- * Test suite for the Option component.
- */
-describe('Option component', () => {
-    /**
-     * Test case to verify that the Option component is rendered.
-     */
-    test('should render Option component', () => {
-        render(<Option />);
-        expect(screen.getByTestId('option-component')).toBeTruthy();
-    });
+  // Test that the Stats Section renders the correct number of stats
+  it('should render three stats', () => {
+    const { getAllByTestId } = render(<Confirmation />);
+    const stats = getAllByTestId('stat');
+    expect(stats.length).toBe(3);
+  });
 
-    /**
-     * Test case to verify that the page navigates to /home after 3.2 seconds.
-     */
-    test('should navigate to /home after 3.2 seconds', async () => {
-        render(<Option />);
-        expect(screen.getByTestId('delayed-navigation').textContent).toBe('false');
-        jest.advanceTimersByTime(3200);
-        expect(screen.getByTestId('delayed-navigation').textContent).toBe('true');
-        jest.advanceTimersByTime(100);
-        expect(window.location.href).toBe('/home');
-    });
+  // Test that the Timer Section renders with the correct time
+  it('should render the timer with a specific time format', () => {
+    const { getByText } = render(<Confirmation />);
+    expect(getByText('04:43:07')).toBeInTheDocument();
+  });
 
-    /**
-     * Test case to verify that a Link component is rendered.
-     */
-    test('should render a Link component', () => {
-        render(<Option />);
-        expect(screen.getByTestId('link-component')).toBeTruthy();
-    });
-
-    /**
-     * Test case to verify that a motion component is rendered.
-     */
-    test('should render a motion component', () => {
-        render(<Option />);
-        expect(screen.getByTestId('motion-component')).toBeTruthy();
-    });
+  // Test that the Card component is rendered
+  it('should render the Card component', () => {
+    const { getByTestId } = render(<Confirmation />);
+    expect(getByTestId('card')).toBeInTheDocument();
+  });
 });

@@ -9,13 +9,11 @@ function Profile() {
 
             <div className="profile-picture-container mt-6 flex flex-col items-center">
                 <div className="profile-picture bg-gray-300 rounded-full w-20 h-20 flex items-center justify-center mb-2">
-                    {/* Placeholder or actual profile image can be inserted here */}
                     <span className="text-lg font-bold text-gray-600">SF</span>
                 </div>
                 <div className="text-center">
                     <h2 className="text-xl font-semibold">Sam Flowers</h2>
                     <p className="text-sm text-gray-600">I just lost the game</p>
-                    {/**/}
                 </div>
             </div>
 
@@ -24,13 +22,6 @@ function Profile() {
                     <div className="stat w-40 space-y-2">
                         <div className="stat-value text-black pt-2">1</div>
                         <div className="stat-title text-black whitespace-normal">Challenges Completed</div>
-                    </div>
-                </div>
-
-                <div className="stats shadow bg-white">
-                    <div className="stat w-40 space-y-2">
-                        <div className="stat-value text-black pt-2">1</div>
-                        <div className="stat-title text-black whitespace-normal">Twists Completed</div>
                     </div>
                 </div>
 
