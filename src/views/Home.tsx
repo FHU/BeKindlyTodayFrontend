@@ -3,7 +3,6 @@ import Navbar from '../components/Nav';
 import Stats from '../components/Stats';
 import Footer from '../components/Footer';
 //import { BsCheckCircle } from "react-icons/bs";
-import Card from '../components/Card';
 import CountdownTimer from '../components/Timer';
 import Card from '../components/Card';
 
@@ -19,7 +18,7 @@ const Home: React.FC = () => {
     };
 
     return (
-        <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
+        <div className='flex flex-col gap-y-10 items-center bg-kindly-offWhite'>
             <Navbar />
 
             {/* Stats Section */}
@@ -54,6 +53,7 @@ const Home: React.FC = () => {
                     <Card layoutType='staticFeed' handleButtonClick={handleConfirmationButtonClick}/>
                 </div>
             )}
+            <Footer/>
         </div>
     );
 };
