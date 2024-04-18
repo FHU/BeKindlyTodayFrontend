@@ -6,7 +6,6 @@ import { KindeProvider } from '@kinde-oss/kinde-auth-react';
 
 const inDev = import.meta.env.VITE_ENVIRONMENT;
 
-console.log(inDev);
 if (inDev !== 'dev') {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
