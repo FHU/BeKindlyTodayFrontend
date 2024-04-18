@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 
     return (
         <div className='flex flex-col gap-y-10 items-center bg-kindly-offWhite'>
-            <Navbar />
+            <Navbar/>
 
             {/* Stats Section */}
             <Stats />

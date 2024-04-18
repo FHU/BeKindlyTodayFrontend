@@ -60,8 +60,14 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
     case 'completion':
       cardBody = (
         <div className="card-body bg-white rounded-2xl">
-          <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
-          <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p>
+          <div className='flex flex-row'>
+            <div className='text-3xl text-kindly-blue pr-2 pt-3'><BsCheck2/></div>
+            <p className='font-bold text-lg text-kindly-blue'>{post.challenge}</p>
+          </div>
+          <div className='flex flex-row '>
+            <div className='text-3xl text-kindly-blue pr-2 pt-1'><BsCheck2All/></div>
+            <p className='font-semibold text-black'>Make it a video or audio message instead of a regular text.</p>
+          </div>
           <div className="card-actions justify-center">
             {/* Button for nav */}
             {/*<link to="/another-page" className='btn btn-primary'>Complete</link>*/}
