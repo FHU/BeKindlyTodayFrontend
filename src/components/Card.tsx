@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 //import { Link } from 'react-router-dom';
 import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
+import Feed from '../components/Feed';
 import 'daisyui/dist/full.css';
-import ProfileBubble from '../components/ProfileBubble'; // Import the ProfileBubble component
+//import ProfileBubble from '../components/ProfileBubble'; // Import the ProfileBubble component
 
 
 interface Post {
@@ -108,17 +109,7 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
 
       case 'staticFeed':
       cardBody = (
-        <div className={`flex flex-col gap-y-4 ${showShadow ? 'shadow-lg' : 'shadow-none'}`}> {/* Dynamically apply shadow class based on state */}
-          {/* ProfileBubble component with transparent background */}
-          <div className="p-4 rounded-t-lg bg-kindly-offWhite">
-            <ProfileBubble />
-          </div>
-          {/* Original card with transparent top part */}
-          <div className="card-body bg-transparent border-t-0">
-            <p className='font-bold text-lg text-center text-black'>I sent it to my best friend who is a new mom!</p>
-            {/* <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p> */}
-          </div>  
-        </div>    
+        <Feed/>   
       );
       break;
 
