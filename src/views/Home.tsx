@@ -4,13 +4,14 @@ import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
 import Stats from '../components/Stats';
+import Footer from '../components/Footer';
 //import { BsCheckCircle } from "react-icons/bs";
 import Card from '../components/Card';
 import CountdownTimer from '../components/Timer';
 
 function Home() {
     return(
-        <div className='flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite'>
+        <div className='flex flex-col gap-y-10 items-center bg-kindly-offWhite'>
             <Navbar/>
 
             {/* Stats Section */}
@@ -65,6 +66,8 @@ function Home() {
                     </div>
                 </div>
             </div> */}
+            <Footer/>
+                
         </div>
 
     )
