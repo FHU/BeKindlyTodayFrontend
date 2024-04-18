@@ -31,6 +31,16 @@ This file will not be tracked by git and is unique to your local directory.\
 - VITE_ENVIROMENT
   - <span style="color:yellow;">**Required**</span>
   - Sets the enviroment to know whether to use authentication or not
+- VITE_BACKEND_URL
+  - Contains the url of the backend (accessable in code)
+- VITE_KINDE_FRONTEND_CLIENT_ID
+  - The ID of the client on Kinde
+- VITE_KINDE_DOMAIN
+  - The URL of the website on Kinde's subdomain
+- VITE_KINDE_REDIRECT_URL
+  - The redirect URLs where the user can be sent after authenticating
+- VITE_KINDE_LOGOUT_URL
+  - The redirect URLs where the user can be sent after logging out
 
 ### Starting the server
 
