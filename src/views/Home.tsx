@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Nav';
 import Stats from '../components/Stats';
+import Footer from '../components/Footer';
+//import { BsCheckCircle } from "react-icons/bs";
+import Card from '../components/Card';
 import CountdownTimer from '../components/Timer';
 import Card from '../components/Card';
 

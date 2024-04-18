@@ -63,7 +63,7 @@ function Stats() {
 
 
     return(
-        <div className='flex flex-row space-x-4 text-center'>
+        <div className='stats stats-vertical bg-kindly-offWhite lg:stats-horizontal flex flex-row space-x-4 text-center'>
 
                 <div className="stats shadow border-2 border-white text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                     <div className="stat flex flex-col w-40 space-y-2">
@@ -98,6 +98,8 @@ function Stats() {
                         <div className="stat-title pt-4 text-white whitespace-normal">Personally</div>
                     </div>
                 </div>
+
+            
             </div>
     )
 }
