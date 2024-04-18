@@ -8,6 +8,8 @@ EXPOSE ${FRONTEND_PORT}
 
 FROM base as prod
 
+ENV VITE_ENVIROMENT=prod
+
 RUN addgroup react && adduser -S -G react react
 
 USER react
@@ -23,7 +25,7 @@ CMD [ "npm", "run", "preview" ]
 
 
 FROM base as dev
-
+ENV VITE_ENVIROMENT=${VITE_ENVIROMENT}
 RUN npm i
 COPY . .
 CMD [ "npm", "run", "dev" ]
