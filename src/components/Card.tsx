@@ -1,7 +1,7 @@
 // ChallengeCard.js
 import React, { useState } from 'react';
 //import { Link } from 'react-router-dom';
-import { BsCheckCircle } from "react-icons/bs";
+import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
 import 'daisyui/dist/full.css';
 import ProfileBubble from '../components/ProfileBubble'; // Import the ProfileBubble component
 
@@ -39,8 +39,14 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
     case 'home':
       cardBody = (
         <div className="card-body">
-          <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
-          <p className='text-center font-semibold text-kindly-blue'>Make it a video or audio message instead of a regular text.</p>
+          <div className='flex flex-row'>
+            <div className='text-3xl text-kindly-blue pr-2 pt-3'><BsCheck2/></div>
+            <p className='font-bold text-lg text-kindly-blue'>{post.challenge}</p>
+          </div>
+          <div className='flex flex-row '>
+            <div className='text-3xl text-kindly-blue pr-2 pt-1'><BsCheck2All/></div>
+            <p className='font-semibold text-black'>Make it a video or audio message instead of a regular text.</p>
+          </div>
           <div className="card-actions justify-center pt-4">
             <button onClick={handleButtonClick} className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue">
               <div><BsCheckCircle /></div>
@@ -103,11 +109,10 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
           </div>
           {/* Original card with transparent top part */}
           <div className="card-body bg-transparent border-t-0">
-            <p className='font-bold text-lg text-center text-black'>{post.challenge}</p>
+            <p className='font-bold text-lg text-center text-black'>I sent it to my best friend who is a new mom!</p>
             {/* <p className='text-center font-semibold text-kindly-teal'>Make it a video or audio message instead of a regular text.</p> */}
-          </div>
-          <div className="bg-gray-300 text-black rounded-b-lg text-center py-2">Wow!</div> </div>
-      
+          </div>  
+        </div>    
       );
       break;
 

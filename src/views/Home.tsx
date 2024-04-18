@@ -49,7 +49,12 @@ const Home: React.FC = () => {
             )}
             {currentPage === 'confirmation' && (
                 <div className="flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite">
-                    <Card layoutType="confirmation" handleButtonClick={handleConfirmationButtonClick} />
+                    <div>
+                        <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
+                            Completed Challenge
+                        </h2>
+                        <Card layoutType="confirmation" handleButtonClick={handleConfirmationButtonClick} />
+                    </div>
                     <Card layoutType='staticFeed' handleButtonClick={handleConfirmationButtonClick}/>
                 </div>
             )}
