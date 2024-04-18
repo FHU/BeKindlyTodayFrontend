@@ -44,10 +44,5 @@ jobs:
           tags: evandvance/bekindlytodayfrontend:dev
           labels: ${{ steps.meta.outputs.labels }}
 
-  redeploy_render:
-    name: Redeploy New Image
-    runs-on: ubuntu:latest
-
-    steps:
-      - name: Curl Redeply URL
+      - name: Redeploy on Render
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
