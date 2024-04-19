@@ -60,19 +60,19 @@ function Navbar() {
               alt="logo"
             />
           </Link>
-          <h1 className="text-5xl">BeKindly</h1>
+          <h1 className="text-5xl ml-20">BeKindly</h1>
           <div className="flex items-center">
             <button
               onClick={() => login()}
               type="button"
-              className="btn text-3xl text-white pr-4 pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+              className="btn text-xl text-white pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
             >
               Sign In
             </button>
             <button
               onClick={() => register()}
               type="button"
-              className="btn text-3xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+              className="btn text-xl text-white pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
             >
               Sign Up
             </button>
