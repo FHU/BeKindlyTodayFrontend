@@ -15,9 +15,9 @@ services:
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - PORT=${BACKEND_PORT}
+      - ENVIRONMENT=${VITE_ENVIRONMENT}
     ports:
       - ${BACKEND_PORT}:${BACKEND_PORT}
-      - ENVIRONMENT=dev
   frontend:
     depends_on:
       - api
@@ -32,6 +32,10 @@ services:
       - FRONTEND_PORT=${FRONTEND_PORT}
       - BACKEND_URL=${BACKEND_URL}
       - VITE_ENVIRONMENT=${VITE_ENVIRONMENT}
+      - VITE_KINDE_FRONTEND_CLIENT_ID=${VITE_KINDE_FRONTEND_CLIENT_ID}
+      - VITE_KINDE_DOMAIN=${VITE_KINDE_DOMAIN}
+      - VITE_KINDE_REDIRECT_URL=${VITE_KINDE_REDIRECT_URL}
+      - VITE_KINDE_LOGOUT_URL=${VITE_KINDE_LOGOUT_URL}
     develop:
       watch:
         - path: ./package.json

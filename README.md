@@ -10,13 +10,14 @@ The BeKindly.Today kindness challenge app.
 
 Development environment variables should be stored in a file in the root directory named `.env.dev`.\
 This file will not be tracked by git and is unique to your local directory.\
+The Kinde Stuff will not work without setting up an accout, but if you make the VITE_ENVIRONMENT = dev all the kinde stuff should be turned off
 
 #### Environment Variables
 
 - DATABASE_URL
   - <span style="color:yellow;">**Required**</span>
   - Contains the url of the postgres docker container
-- PORT
+- VITE_PORT
   - <span style="color:yellow;">**Required For Development**</span>
   - Contains the port used for the backend
 - POSTGRES_PASSWORD
@@ -25,7 +26,7 @@ This file will not be tracked by git and is unique to your local directory.\
 - FRONTEND_PORT
   - <span style="color:yellow;">**Required**</span>
   - Contains the port used for the frontend
-- BACKEND_URL
+- VITE_BACKEND_URL
   - <span style="color:yellow;">**Required**</span>
   - Contains the url of the backend
 - VITE_ENVIRONMENT
