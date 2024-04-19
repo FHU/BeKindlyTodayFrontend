@@ -24,7 +24,7 @@ function Navbar() {
             <img
               className="border-none hover:opacity-75"
               style={{ width: '80px', height: '80px' }}
-              src={'src/assets/logo.png'}
+              src={'assets/logo.png'}
               alt="logo"
             />
           </Link>
@@ -56,7 +56,7 @@ function Navbar() {
             <img
               className="border-none hover:opacity-75"
               style={{ width: '80px', height: '80px' }}
-              src={'src/assets/logo.png'}
+              src={'assets/logo.png'}
               alt="logo"
             />
           </Link>
@@ -93,7 +93,7 @@ function Navbar() {
           <img
             className="border-none hover:opacity-75"
             style={{ width: '80px', height: '80px' }}
-            src={'src/assets/logo.png'}
+            src={'assets/logo.png'}
             alt="logo"
           />
         </Link>

@@ -1,60 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'daisyui/dist/full.css';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 const Option: React.FC = () => {
-    const [delayedNavigation, setDelayedNavigation] = useState(false);
+  const [delayedNavigation, setDelayedNavigation] = useState(false);
 
-    useEffect(() => {
-        if (delayedNavigation) {
-        const timeoutId = setTimeout(() => {
-            window.location.href = "/home";
-        }, 3200);
+  useEffect(() => {
+    if (delayedNavigation) {
+      const timeoutId = setTimeout(() => {
+        window.location.href = '/home';
+      }, 3200);
 
-        return () => clearTimeout(timeoutId);
-        }
-    }, [delayedNavigation]);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [delayedNavigation]);
 
-    useEffect(() => {
-        setDelayedNavigation(true);
-    }, []); 
+  useEffect(() => {
+    setDelayedNavigation(true);
+  }, []);
 
-    return(
-        <Link to={'/home'} >
-            <div className='text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue h-screen'>
-                <div className='max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center'>
-                    {/* bekindly */}
-                    <motion.div 
-                    className='option-title text-5xl m-1 mt-12 p-4'
-                    initial={{ opacity:0 }}
-                    animate={{ opacity:1 }}
-                    transition={{ type: "spring", delay:1.5, stiffness: 260, damping: 200 }} 
-                    >BeKindly
-                    </motion.div>
+  return (
+    <Link to={'/home'}>
+      <div className="text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue h-screen">
+        <div className="max-w-md mx-auto p-4 font-comfortaa flex flex-col items-center">
+          {/* bekindly */}
+          <motion.div
+            className="option-title text-5xl m-1 mt-12 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              type: 'spring',
+              delay: 1.5,
+              stiffness: 260,
+              damping: 200,
+            }}
+          >
+            BeKindly
+          </motion.div>
 
-                    {/* logo */}
-                    <motion.img 
-                    src="src/assets/bekindlyblue.svg" 
-                    alt="BeKindlyLogo"
-                    style={{width:'400px', height:'400px'}}
-                    className="option-container p-4"
-                    initial={{ y:600, scale: 0 }}
-                    animate={{ y:0, rotate: 360, scale: 1 }}
-                    transition={{ type: "spring", stiffness: 260, velocity:50, damping: 100 }} 
-                    />
-                    
-                    {/* today */}
-                    <motion.div 
-                    className='option-title text-5xl m-1 mb-5 p-4'
-                    initial={{ opacity:0 }}
-                    animate={{ opacity:1 }}
-                    transition={{ type: "spring", delay:1.5, stiffness: 260, damping: 200 }} 
-                    >Today
-                    </motion.div>
+          {/* logo */}
+          <motion.img
+            src="assets/bekindlyblue.svg"
+            alt="BeKindlyLogo"
+            style={{ width: '400px', height: '400px' }}
+            className="option-container p-4"
+            initial={{ y: 600, scale: 0 }}
+            animate={{ y: 0, rotate: 360, scale: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 260,
+              velocity: 50,
+              damping: 100,
+            }}
+          />
 
-                    {/* login button */}
-                    {/* <motion.Link 
+          {/* today */}
+          <motion.div
+            className="option-title text-5xl m-1 mb-5 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              type: 'spring',
+              delay: 1.5,
+              stiffness: 260,
+              damping: 200,
+            }}
+          >
+            Today
+          </motion.div>
+
+          {/* login button */}
+          {/* <motion.Link 
                     to="/home" 
                     className="login-btn btn-block rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]" 
                     initial={{ opacity:0 }}
@@ -62,7 +79,7 @@ const Option: React.FC = () => {
                     transition={{ type: "spring", delay:2.8, stiffness: 260, damping: 200 }} >
                     Login
                     </motion.Link> */}
-                    {/* <motion.div
+          {/* <motion.div
                         className="option-btn btn-block m-10 mb-12 p-2 rounded-full text-xl bg-[#227C9D] text-white border-none transition-colors duration-300 hover:bg-[#1C6F87]"
                         style={{width:"300px"}} 
                         initial={{ opacity:0 }}
@@ -72,17 +89,10 @@ const Option: React.FC = () => {
                             Login
                         </Link>
                     </motion.div> */}
-                        
+        </div>
+      </div>
+    </Link>
+  );
+};
 
-                </div>
-            </div>
-                
-
-        </Link>
-
-
-        
-    )
-}
-
-export default Option
+export default Option;

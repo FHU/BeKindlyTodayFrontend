@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
 
   const post: Post = {
     challenge: 'Send a text to a loved one to show your appreciation.',
-    visual: 'src/images/phone.jpg',
+    visual: 'images/phone.jpg',
     experience: 'I sent a mom a text and she really appreciated it',
   };
 
