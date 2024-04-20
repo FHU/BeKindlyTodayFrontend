@@ -11,7 +11,7 @@ EXPOSE ${FRONTEND_PORT}
 
 FROM base as prod
 
-ENV VITE_KINDE_REDIRECT_URL=https://bekindlytodayfrontend.onrender.com
+ENV VITE_KINDE_REDIRECT_URL=https://bekindlytodayfrontend.onrender.com/home
 ENV VITE_KINDE_LOGOUT_URL=https://bekindlytodayfrontend.onrender.com
 ENV VITE_ENVIROMENT=prod
 
