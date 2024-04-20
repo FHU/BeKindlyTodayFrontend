@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "dev:docker": "docker compose --env-file .env.dev up --detach --build && docker compose --env-file .env.dev watch",
-    "test": "jest --config jest.config.json"
+    "test": "jest --config jest.config.json",
+    "kill-docker": "docker stop db_c api_c frontend_c && docker remove db_c api_c frontend_c"
   },
   "dependencies": {
     "@kinde-oss/kinde-auth-react": "^3.0.28",
