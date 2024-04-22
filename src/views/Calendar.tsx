@@ -9,7 +9,7 @@ const monthNames = [
 ];
 
 const MonthName = ({ monthIndex }: { monthIndex: number }) => (
-  <div className="text-center text-lg font-bold mb-2 bg-kindly-offWhite text-black" style={{padding: '8px', borderRadius: '8px' }}>
+  <div className="text-center text-lg font-bold mb-2 bg-kindly-offWhite text-black" style={{ padding: '8px', borderRadius: '8px' }}>
     {monthNames[monthIndex]}
   </div>
 );
@@ -56,9 +56,9 @@ const CalendarPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite text-black">
+    <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
       {/* Header */}
-      <Navbar/>
+      <Navbar />
 
       {/* Carousel Navigation */}
       <div className="flex justify-between w-full px-4 max-w-screen-lg">
@@ -67,7 +67,7 @@ const CalendarPage: React.FC = () => {
       </div>
 
       {/* Carousel for Current Calendar Month */}
-      <div className="carousel w-full">
+      <div className="carousel w-full flex justify-center items-center">
         <div className="carousel-item">
           <div className="calendar-container rounded-lg shadow-lg p-4" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', maxWidth: '800px' }}>
             <MonthName monthIndex={currentMonth} />
@@ -80,16 +80,6 @@ const CalendarPage: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </div>
   );
 };
