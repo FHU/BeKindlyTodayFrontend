@@ -16,7 +16,7 @@ const MonthName = ({ monthIndex }: { monthIndex: number }) => {
 };
 
 const Calendar = ({ month, daysInMonth }: { month: number, daysInMonth: number }) => {
-  let startingOffset = new Date(2024, month, 1).getDay() - 5;
+  let startingOffset = new Date(2024, month, 1).getDay() - 1;
 
   if (startingOffset < 0) {
     startingOffset += 7;
@@ -29,48 +29,16 @@ const Calendar = ({ month, daysInMonth }: { month: number, daysInMonth: number }
           -
         </div>
       ))}
-
       {[...Array(daysInMonth)].map((_, index) => {
         const dayOfMonth = index + 1;
-        let dayStyle = {};
+        let dayStyle = 'day-number'; // Use class for styling
 
         if ([1, 2, 5].includes(dayOfMonth)) {
-          dayStyle = {
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: '#3D7068',
-            color: '#FFFFFF',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          };
-        } else if (dayOfMonth === 6) {
-          dayStyle = {
-            border: '2px solid #5F5F5F',
-            borderRadius: '50%',
-            width: '32px',
-            height: '32px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#5F5F5F',
-            color: '#FFFFFF',
-          };
-        } else {
-
-          dayStyle = {
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          };
+          dayStyle += ' special-day'; // Use class for special days
         }
 
         return (
-          <div key={dayOfMonth} className="text-center text-xl" style={dayStyle}>
+          <div key={dayOfMonth} className={dayStyle}>
             {dayOfMonth}
           </div>
         );
@@ -80,28 +48,39 @@ const Calendar = ({ month, daysInMonth }: { month: number, daysInMonth: number }
 };
 
 const CalendarPage: React.FC = () => {
-  const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  // Adjust for leap year
+  const year = new Date().getFullYear();
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    daysInMonth[1] = 29;
+  }
 
   return (
     <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite text-black">
       {/* Header */}
       <Navbar/>
 
-      <div className="flex flex-col items-center gap-4 pb-10">
+      {/* Carousel for Calendars */}
+      <div className="carousel w-full">
         {[...Array(12)].map((_, index) => (
-          <div key={index} className="rounded-lg shadow-lg p-4 calendar-container" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', width: '90%', maxWidth: '800px', padding: '20px' }}>
-            <MonthName monthIndex={index} />
-
-            <div className="grid grid-cols-7 gap-4 mb-4">
-              {daysOfWeek.map((day) => (
-                <div key={day} className="text-center font-bold">{day}</div>
-              ))}
+          <div key={index} className="carousel-item">
+            <div className="calendar-container rounded-lg shadow-lg p-4" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', maxWidth: '800px' }}>
+              <MonthName monthIndex={index} />
+              <div className="grid grid-cols-7 gap-4 mb-4">
+                {daysOfWeek.map((day) => (
+                  <div key={day} className="text-center font-bold">{day}</div>
+                ))}
+              </div>
+              <Calendar month={index} daysInMonth={daysInMonth[index]} />
             </div>
-
-            <Calendar month={index} daysInMonth={daysInMonth[index]} />
           </div>
         ))}
       </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>
