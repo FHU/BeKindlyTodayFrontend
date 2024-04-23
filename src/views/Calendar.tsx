@@ -91,7 +91,7 @@ const CalendarPage: React.FC = () => {
         {[...Array(12)].map((_, index) => (
           <div key={index} className="rounded-lg shadow-lg p-4 calendar-container" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', width: '90%', maxWidth: '800px', padding: '20px' }}>
             <MonthName monthIndex={index} />
-
+            
             <div className="grid grid-cols-7 gap-4 mb-4">
               {daysOfWeek.map((day) => (
                 <div key={day} className="text-center font-bold">{day}</div>
