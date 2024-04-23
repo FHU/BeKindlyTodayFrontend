@@ -7,6 +7,42 @@ body {
 
 /* Calendar.css */
 
+.larger-button {
+  font-size: 3rem; /* 3 times larger font size */
+  width: 4rem; /* 3 times larger width */
+  height: 3rem; /* 3 times larger height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.streak-highlight {
+  background-color: rgba(128, 0, 128, 0.3); /* Purple color with transparency */
+  border-radius: 120%; /* Make it a slightly larger circle */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem; /* Increase padding */
+}
+
+.current-day-highlight {
+  background-color: rgba(79, 79, 79, 0.3); /* Purple color with transparency */
+  border-radius: 120%; /* Make it a slightly larger circle */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem; /* Increase padding */
+  font-weight: none;
+}
+
+
+
+
+
+
+
+
+
 .calendar-container {
     font-family: 'Lato', sans-serif;
     font-size: 27.72px;

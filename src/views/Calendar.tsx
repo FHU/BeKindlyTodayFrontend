@@ -29,8 +29,12 @@ const Calendar = ({ month, daysInMonth }: { month: number, daysInMonth: number }
         const dayOfMonth = index + 1;
         let dayStyle = 'day-number'; // Use class for styling
 
-        if ([1, 2, 5].includes(dayOfMonth)) {
-          dayStyle += ' special-day'; // Use class for special days
+        if ([3, 4, 5, 6].includes(dayOfMonth)) {
+          dayStyle += ' special-day streak-highlight'; // Use class for special days with streak highlight
+        }
+
+        if ([7].includes(dayOfMonth)) {
+          dayStyle += 'special-day current-day-highlight'
         }
 
         return (
@@ -42,6 +46,7 @@ const Calendar = ({ month, daysInMonth }: { month: number, daysInMonth: number }
     </div>
   );
 };
+
 
 const CalendarPage: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
@@ -61,25 +66,26 @@ const CalendarPage: React.FC = () => {
       <Navbar />
 
       {/* Carousel Navigation */}
-      <div className="flex justify-between w-full px-4 max-w-screen-lg">
-        <button onClick={goToPreviousMonth} className="carousel-control left-control">{'<'}</button>
-        <button onClick={goToNextMonth} className="carousel-control right-control">{'>'}</button>
-      </div>
-
-      {/* Carousel for Current Calendar Month */}
-      <div className="carousel w-full flex justify-center items-center">
-        <div className="carousel-item">
-          <div className="calendar-container rounded-lg shadow-lg p-4" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', maxWidth: '800px' }}>
-            <MonthName monthIndex={currentMonth} />
-            <div className="grid grid-cols-7 gap-4 mb-4">
-              {daysOfWeek.map((day, index) => (
-                <div key={index} className="text-center font-bold">{day}</div>
-              ))}
+      <div className="flex items-center  max-w-screen-sm mt-16">
+        <button onClick={goToPreviousMonth} className="carousel-control left-control  larger-button rounded-full" style={{ backgroundColor: '#0085FF', marginRight: '-1px' }}>{'<'}</button>
+        {/* Carousel for Current Calendar Month */}
+        <div className="carousel w-full flex justify-center items-center">
+          <div className="carousel-item">
+            <div className="calendar-container rounded-lg shadow-lg p-4" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', maxWidth: '800px' }}>
+              <MonthName monthIndex={currentMonth} />
+              <div className="grid grid-cols-7 gap-4 mb-4">
+                {daysOfWeek.map((day, index) => (
+                  <div key={index} className="text-center font-bold">{day}</div>
+                ))}
+              </div>
+              <Calendar month={currentMonth} daysInMonth={daysInMonth[currentMonth]} />
             </div>
-            <Calendar month={currentMonth} daysInMonth={daysInMonth[currentMonth]} />
           </div>
         </div>
+        <button onClick={goToNextMonth} className="carousel-control right-control rounded-full larger-button" style={{ backgroundColor: '#0085FF', marginLeft: '-1px' }}>{'>'}</button>
       </div>
+
+      
     </div>
   );
 };
