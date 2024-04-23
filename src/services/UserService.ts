@@ -1,3 +1,4 @@
+import internal from 'stream';
 import fancyFetch from './fetchData';
 
 interface User {
@@ -10,6 +11,10 @@ interface User {
 
 async function getLoggedInUser(): Promise<User> {
   return await fancyFetch('/users', 'GET');
+}
+
+async function getUserByID(id: number) {
+  return await fancyFetch(`/users/${id}`, 'GET');
 }
 
 async function updateUserBio(bio: string): Promise<User> {
@@ -29,4 +34,5 @@ export {
   updateUserProfilePicture,
   updateUsername,
   getLoggedInUser,
+  getUserByID,
 };

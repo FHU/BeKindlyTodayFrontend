@@ -26,6 +26,7 @@ export default async function fancyFetch(
           'Access-Control-Allow-Methods':
             'GET, POST, PUT, DELETE, PATCH, OPTIONS',
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify(data),
       });
