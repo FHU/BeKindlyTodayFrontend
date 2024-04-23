@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Nav';
 import Stats from '../components/Stats';
 import Footer from '../components/Footer';
-//import { BsCheckCircle } from "react-icons/bs";
 import CountdownTimer from '../components/Timer';
 import Card from '../components/Card';
 
+// Importing the completedChallenge variable
+import { completedChallenge } from '../components/Card'; // Importing completedChallenge variable
+
 const Home: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<'home' | 'completion' | 'confirmation'>('home');
+
+    useEffect(() => {
+        // Check if completedChallenge is true and set currentPage accordingly
+        if (completedChallenge) {
+            setCurrentPage('confirmation');
+        }
+    }, []); // Empty dependency array ensures useEffect runs only once
 
     const handleCompletionButtonClick = () => {
         setCurrentPage('completion');

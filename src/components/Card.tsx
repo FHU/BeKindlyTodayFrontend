@@ -1,10 +1,9 @@
-// ChallengeCard.js
-import React, { useState } from 'react';
-//import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { BsCheckCircle, BsCheck2, BsCheck2All } from 'react-icons/bs';
 import Feed from '../components/Feed';
 import 'daisyui/dist/full.css';
-//import ProfileBubble from '../components/ProfileBubble'; // Import the ProfileBubble component
+
+export let completedChallenge = false; 
 
 interface Post {
   challenge: string;
@@ -18,13 +17,19 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
-  const [internalLayoutType] = useState<
+  const [internalLayoutType, setInternalLayoutType] = useState<
     'home' | 'completion' | 'confirmation' | 'staticFeed'
   >(layoutType);
-  const [showShadow, setShowShadow] = useState<boolean>(false); // State to control shadow visibility
+  const [showShadow, setShowShadow] = useState<boolean>(false);
   const [textValue, setTextValue] = useState('');
 
-  console.log(showShadow); //This is to allow the TS to build Remove when the TS builds without it.
+  console.log(showShadow);
+
+  useEffect(() => {
+    if (completedChallenge && internalLayoutType === 'home') {
+      setInternalLayoutType('confirmation');
+    }
+  }, [completedChallenge, internalLayoutType]);
 
   const post: Post = {
     challenge: 'Send a text to a loved one to show your appreciation.',
@@ -34,6 +39,15 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
 
   const handleTextChange = (event: { target: { value: string } }) => {
     setTextValue(event.target.value.slice(0, 250));
+  };
+
+  const handleButtonClickInternal = () => {
+    completedChallenge = true; // Set completedChallenge to true when button is clicked
+    console.log('completedChallenge is set to true:', completedChallenge); // Log that completedChallenge is true
+    // Call the original handleButtonClick function
+    if (typeof handleButtonClick === 'function') {
+      handleButtonClick();
+    }
   };
 
   let cardBody;
@@ -59,7 +73,7 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
           </div>
           <div className="card-actions justify-center pt-4">
             <button
-              onClick={handleButtonClick}
+              onClick={handleButtonClickInternal} // Changed to handleButtonClickInternal
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
             >
               <div>
@@ -92,8 +106,6 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
             </p>
           </div>
           <div className="card-actions justify-center">
-            {/* Button for nav */}
-            {/*<link to="/another-page" className='btn btn-primary'>Complete</link>*/}
             <div className="my-6">
               <h2 className="text-2xl self-start">Experience</h2>
               <div className="relative">
@@ -109,9 +121,10 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
                 {`${textValue.length} / 250`}
               </div>
             </div>
-            <button
-              onClick={handleButtonClick}
+            <button 
+              onClick={handleButtonClickInternal} // Changed to handleButtonClickInternal
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+              name="completeChallenge"
             >
               <div>
                 <BsCheckCircle />
@@ -143,7 +156,6 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
       cardBody = null;
   }
 
-  // Conditionally render the image based on layoutType
   const image = internalLayoutType !== 'staticFeed' && (
     <figure className="rounded-none">
       <img src={post.visual} alt="Challenges" />
@@ -155,8 +167,8 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
       className={`card card-compact w-96 bg-base-100 bg-white ${
         layoutType === 'completion' ? 'custom-class' : ''
       }`}
-      onMouseEnter={() => setShowShadow(true)} // Show shadow on mouse enter
-      onMouseLeave={() => setShowShadow(false)} // Hide shadow on mouse leave
+      onMouseEnter={() => setShowShadow(true)}
+      onMouseLeave={() => setShowShadow(false)}
     >
       {image}
       {cardBody}
