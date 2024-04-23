@@ -9,8 +9,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className="flex w-full h-24 text-2xl px-5 justify-between items-center"
-      style={{ backgroundColor: '#2485A9', color: '#ffffff' }}
+      className="flex w-full h-24 text-2xl px-5 justify-between items-center bg-kindly-blue"
+      style={{ color: '#ffffff' }}
     >
       <Link
         to="/home"
