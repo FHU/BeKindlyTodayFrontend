@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Calendar.css';
 import Navbar from '../components/Nav';
 
 const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-const monthNames = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
+
+const MonthName = ({ monthIndex }: { monthIndex: number }) => {
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
 
 const MonthName = ({ monthIndex }: { monthIndex: number }) => (
   <div className="text-center text-lg font-bold mb-2 bg-kindly-offWhite text-black" style={{ padding: '8px', borderRadius: '8px' }}>
