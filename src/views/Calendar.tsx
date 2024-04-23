@@ -60,6 +60,14 @@ const CalendarPage: React.FC = () => {
       {/* Header */}
       <Navbar />
 
+<<<<<<< HEAD
+      <div className="flex flex-col items-center gap-4 pb-10">
+        {[...Array(12)].map((_, index) => (
+          <div key={index} className="rounded-lg shadow-lg p-4 calendar-container" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', width: '90%', maxWidth: '800px', padding: '20px' }}>
+            <MonthName monthIndex={index} />
+<<<<<<< HEAD
+            
+=======
       {/* Carousel Navigation */}
       <div className="flex justify-between w-full px-4 max-w-screen-lg">
         <button onClick={goToPreviousMonth} className="carousel-control left-control">{'<'}</button>
@@ -71,6 +79,10 @@ const CalendarPage: React.FC = () => {
         <div className="carousel-item">
           <div className="calendar-container rounded-lg shadow-lg p-4" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', maxWidth: '800px' }}>
             <MonthName monthIndex={currentMonth} />
+>>>>>>> 0c998cbd1c4e1c83660648d9e6014b672441cef3
+=======
+
+>>>>>>> parent of 68a0373 (commit)
             <div className="grid grid-cols-7 gap-4 mb-4">
               {daysOfWeek.map((day, index) => (
                 <div key={index} className="text-center font-bold">{day}</div>
