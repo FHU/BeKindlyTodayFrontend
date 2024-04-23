@@ -15,7 +15,7 @@ const MonthName = ({ monthIndex, year }: { monthIndex: number, year: number }) =
 );
 
 const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, daysInMonth: number }) => {
-  let startingOffset = new Date(year, month, 1).getDay();  // Adjusted to line up with the correct start day of the week
+  let startingOffset = new Date(year, month, 1).getDay();
 
   return (
     <div className="grid grid-cols-7 gap-4">
@@ -47,8 +47,12 @@ const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, d
 };
 
 const CalendarPage: React.FC = () => {
-  const currentYear = new Date().getFullYear();  // Current year, can be set to 2024 for consistency
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const initialYear = new Date().getFullYear();
+  const initialMonth = new Date().getMonth();
+
+  const [currentYear, setCurrentYear] = useState(initialYear);
+  const [currentMonth, setCurrentMonth] = useState(initialMonth);
+
   const daysInMonth = [
     31, 
     (currentYear % 4 === 0 && (currentYear % 100 !== 0 || currentYear % 400 === 0)) ? 29 : 28,
@@ -56,18 +60,28 @@ const CalendarPage: React.FC = () => {
   ];
 
   const goToNextMonth = () => {
-    setCurrentMonth((prevMonth) => (prevMonth === 11 ? 0 : prevMonth + 1));
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
   };
 
   const goToPreviousMonth = () => {
-    setCurrentMonth((prevMonth) => (prevMonth === 0 ? 11 : prevMonth - 1));
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
   };
 
   return (
     <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
       <Navbar />
       <div className="flex items-center max-w-screen-sm mt-16">
-        <button onClick={goToPreviousMonth} className="carousel-control left-control larger-button rounded-full" style={{ backgroundColor: '#0085FF', marginRight: '-1px' }}>{'<'}</button>
+        <button onClick={goToPreviousMonth} className="carousel-control left-control larger-button rounded-md bg-kindly-blue" style={{ marginRight: '8px' }}>{'<'}</button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
             <div className="calendar-container rounded-lg shadow-lg p-4" style={{ backgroundColor: '#D9D9D9', borderRadius: '20px', maxWidth: '800px' }}>
@@ -81,7 +95,7 @@ const CalendarPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <button onClick={goToNextMonth} className="carousel-control right-control rounded-full larger-button" style={{ backgroundColor: '#0085FF', marginLeft: '-1px' }}>{'>'}</button>
+        <button onClick={goToNextMonth} className="carousel-control right-control larger-button rounded-md bg-kindly-blue" style={{ marginLeft: '8px' }}>{'>'}</button>
       </div>
     </div>
   );
