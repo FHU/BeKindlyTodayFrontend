@@ -1,5 +1,6 @@
 import fancyFetch from './fetchData';
 
+/** The shape of the challenges returned from the backend */
 interface Challenge {
   date: string;
   id: number;
@@ -13,6 +14,10 @@ interface Challenge {
   twist: string;
 }
 
+/**
+ * A function to get todays challenge from the backend
+ * @returns Promise<Challenge>
+ */
 async function getTodaysChallenge(): Promise<Challenge> {
   return await fancyFetch('/challenges/today', 'GET');
 }

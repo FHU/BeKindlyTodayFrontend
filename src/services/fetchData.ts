@@ -1,5 +1,12 @@
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
+/**
+ * A fancy Fetch abstraction for DRY principles
+ * @param endpoint The endpoint on the backend the fetch is ran against
+ * @param method The method used in the request
+ * @param data If a method requires body data, this is that data
+ * @returns Returns are dynamic depending on method.
+ */
 export default async function fancyFetch(
   endpoint: string,
   method: 'GET' | 'POST' | 'PUT' | 'DELETE',
