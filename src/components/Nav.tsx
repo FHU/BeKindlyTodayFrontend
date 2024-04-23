@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { BsCalendar4, BsPersonCircle } from 'react-icons/bs';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
+import { getTodaysChallenge } from '../services/ChallengeService';
 
 const Navbar = () => {
   const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
 
   const { login, register, isAuthenticated } = useKindeAuth();
 
+  console.log(getTodaysChallenge());
   return (
     <nav
       className="flex w-full h-24 text-2xl px-5 justify-between items-center"
