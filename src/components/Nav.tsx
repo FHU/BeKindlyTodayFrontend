@@ -8,7 +8,7 @@ const Navbar = () => {
   const { login, register, isAuthenticated } = useKindeAuth();
 
   return (
-    <nav className="grid grid-cols-3 w-full text-2xl px-5 bg-kindly-blue text-kindly-offWhite">
+    <nav className="grid grid-cols-3 w-full text-2xl px-2 md:px-5 bg-kindly-blue text-kindly-offWhite">
       <Link
         to="/home"
         className="flex items-center hover:bg-transparent p-2 rounded-lg w-20 h-20"
@@ -21,10 +21,10 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <h1 className="text-4xl md:text-5xl my-auto justify-self-center">
+      <h1 className="text-3xl md:text-5xl my-auto justify-self-center">
         BeKindly
       </h1>
-      <div className="flex items-center justify-end">
+      <div className="flex items-start justify-end">
         {inDev || isAuthenticated ? (
           <div>
             <Link to="/calendar" data-testid="calendar-link">
@@ -39,21 +39,25 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div className="text-right">
-            <button
-              onClick={() => login()}
-              type="button"
-              className="btn text-sm md:text-xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
-            >
-              Sign In
-            </button>
-            <button
-              onClick={() => register()}
-              type="button"
-              className="btn text-sm md:text-xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
-            >
-              Sign Up
-            </button>
+          <div className="flex divide-x-2 text-right my-4">
+            <div>
+              <button
+                onClick={() => login()}
+                type="button"
+                className="btn px-2 text-xs text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+              >
+                Sign In
+              </button>
+            </div>
+            <div>
+              <button
+                onClick={() => register()}
+                type="button"
+                className="btn px-2 text-xs text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         )}
       </div>
