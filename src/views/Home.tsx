@@ -8,6 +8,11 @@ import Card from '../components/Card';
 // Importing the completedChallenge variable
 import { completedChallenge } from '../components/Card'; // Importing completedChallenge variable
 
+// import { userInput } from '../components/Card'; 
+
+
+
+
 const Home: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<'home' | 'completion' | 'confirmation'>('home');
 
