@@ -1,32 +1,30 @@
-import { Link } from 'react-router-dom';
-import { BsCalendar4, BsPersonCircle } from 'react-icons/bs';
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
-
-
+import { Link } from "react-router-dom";
+import { BsCalendar4, BsPersonCircle } from "react-icons/bs";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const Navbar = () => {
-  const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
+  const inDev = import.meta.env.VITE_ENVIRONMENT === "dev";
 
   const { login, register, isAuthenticated } = useKindeAuth();
 
   return (
     <nav
       className="flex w-full text-2xl px-5 bg-kindly-blue justify-between items-center"
-      style={{ color: '#ffffff' }}
+      style={{ color: "#ffffff" }}
     >
       <Link
         to="/home"
         className="flex items-center hover:bg-transparent p-2 rounded-lg w-20 h-20"
       >
-      <div>
-        <img
-          className="border-none hover:opacity-75"
-          src={'assets/bekindlyblue.svg'}
-          alt="logo"
-        />
-      </div>
+        <div>
+          <img
+            className="border-none hover:opacity-75"
+            src={"assets/bekindlyblue.svg"}
+            alt="logo"
+          />
+        </div>
       </Link>
-      <h1 className="text-4xl md:text-5xl">BeKindly</h1>
+      <h1 className="text-4xl md:text-5xl justify-self-center">BeKindly</h1>
       <div className="flex items-center">
         {inDev || isAuthenticated ? (
           <div>
