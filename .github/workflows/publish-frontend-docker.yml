@@ -46,3 +46,6 @@ jobs:
 
       - name: Redeploy on Render
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+
+      - name: Tests
+        run: npm run test
