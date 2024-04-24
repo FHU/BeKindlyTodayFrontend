@@ -61,7 +61,7 @@ async function deleteCompletion(id: number) {
  * A function to get a boolean that is true if the logged in user has completed today's challenge
  * @returns Promise<CompletionStatus>The state of the current challenge for the logged in user
  */
-async function getHasCompleted(): Promise<CompletionStats> {
+async function getHasCompleted(): Promise<CompletionStatus> {
   return await fancyFetch("/completions/has_completed", "GET");
 }
 
