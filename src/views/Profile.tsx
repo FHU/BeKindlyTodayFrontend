@@ -13,7 +13,7 @@ interface ProfilePicture {
 
 function Profile() {
     const { logout} = useKindeAuth();
-    const [showDropdown, setShowDropdown] = useState<boolean>(false);
+    const [profilePictureClicked, setProfilePictureClicked] = useState<boolean>(false);
     const [selectedProfilePicture, setSelectedProfilePicture] = useState<ProfilePicture>({
         name: 'Blue Profile',
         path: '../../public/images/Blue_Profile.png'
@@ -28,9 +28,13 @@ function Profile() {
         { name: 'Purple Profile', path: '../../public/images/Purple_Profile.png' }
     ];
 
+    const handleProfilePictureClick = () => {
+        setProfilePictureClicked(true);
+    };
+
     const handleProfilePictureChange = (profilePicture: ProfilePicture) => {
         setSelectedProfilePicture(profilePicture);
-        setShowDropdown(false);
+        setProfilePictureClicked(false); // Reset profilePictureClicked state after selecting new profile picture
     };
 
     return (
@@ -38,7 +42,7 @@ function Profile() {
             <Navbar />
 
             <div className="profile-picture-container mt-6 flex flex-col items-center relative">
-                <div className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative" onClick={() => setShowDropdown(!showDropdown)}>
+                <div className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative" onClick={() => handleProfilePictureClick()}>
                     <img
                         src={selectedProfilePicture.path}
                         alt="Profile"
@@ -47,17 +51,17 @@ function Profile() {
                     />
                     <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
                 </div>
-                {showDropdown && (
-                    <div className="dropdown-menu absolute top-12 right-5 bg-white shadow rounded-md">
-                        <ul className="py-2">
-                            {profilePictures.map((picture, index) => (
-                                <li key={index} onClick={() => handleProfilePictureChange(picture)} className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center">
-                                    <img src={picture.path} alt={picture.name} className="w-12 h-12 mr-2 rounded-full" />
-                                </li>
-                            ))}
-                        </ul>
+
+                {profilePictureClicked && (
+                    <div className="carousel carousel-center rounded-box">
+                        {profilePictures.map((profilePicture, index) => (
+                            <div className="carousel-item rounded-full bg-white m-3 w-40 h-40 flex items-center justify-center mb-2 cursor-pointer" key={index} onClick={() => handleProfilePictureChange(profilePicture)}>
+                                <img src={profilePicture.path} alt={profilePicture.name} className="rounded-full w-full h-full" />
+                            </div>
+                        ))}
                     </div>
                 )}
+
                 <div className="text-center">
                     <h2 className="text-xl font-semibold text-white">Sam Flowers</h2>
                 </div>
