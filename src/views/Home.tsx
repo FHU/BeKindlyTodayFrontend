@@ -49,11 +49,7 @@ const Home: React.FC = () => {
           <h2 className="text-3xl py-3 text-white w-96 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
           </h2>
-          <Card
-            layoutType={currentPage}
-            handleButtonClick={handleOnClick}
-            completedChallenge={completedChallenge} // Pass completion status as prop
-          />
+          <Card layoutType={currentPage} handleButtonClick={handleOnClick} />
         </div>
       </div>
       {currentPage === "confirmation" && <Feed />}
