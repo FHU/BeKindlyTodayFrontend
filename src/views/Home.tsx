@@ -41,20 +41,22 @@ const Home: React.FC = () => {
     <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite">
       <Navbar />
 
-      <div>
+      <div className="w-fit">
         {/* Stats Section */}
         <div className="flex justify-center pb-6">
           <Stats />
         </div>
         <CountdownTimer />
-        <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
-          Today's Challenge
-        </h2>
-        <Card
-          layoutType={currentPage}
-          handleButtonClick={handleOnClick}
-          completedChallenge={completedChallenge}
-        />
+        <div className="mx-auto w-fit">
+          <h2 className="text-3xl py-3 text-white w-96 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
+            Today's Challenge
+          </h2>
+          <Card
+            layoutType={currentPage}
+            handleButtonClick={handleOnClick}
+            completedChallenge={completedChallenge}
+          />
+        </div>
       </div>
       {currentPage === "confirmation" && <Feed />}
       <Footer />
