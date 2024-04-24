@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { BsCalendar4, BsPersonCircle } from 'react-icons/bs';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
+
+
 const Navbar = () => {
   const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
 
@@ -9,24 +11,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className="flex w-full h-24 text-2xl px-5 justify-between items-center bg-kindly-blue"
-      style={{ color: '#ffffff' }}
+      className="flex w-full text-2xl px-5 justify-between items-center"
+      style={{ backgroundColor: '#2485A9', color: '#ffffff' }}
     >
       <Link
         to="/home"
-        className="inline-block border-none hover:bg-transparent p-2 rounded-lg"
+        className="flex items-center hover:bg-transparent p-2 rounded-lg w-20 h-20"
       >
+      <div>
         <img
           className="border-none hover:opacity-75"
-          style={{ width: '80px', height: '80px' }}
-          src={'assets/bekindlyblue.svg'}
+          src={'assets/logo.png'}
           alt="logo"
         />
+      </div>
       </Link>
-      <h1 className="text-5xl">BeKindly</h1>
+      <h1 className="text-4xl md:text-5xl">BeKindly</h1>
       <div className="flex items-center">
         {inDev || isAuthenticated ? (
-          <>
+          <div>
             <Link to="/calendar" data-testid="calendar-link">
               <div className="btn text-5xl text-white pr-4 pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
                 <BsCalendar4 />
@@ -37,24 +40,24 @@ const Navbar = () => {
                 <BsPersonCircle />
               </div>
             </Link>
-          </>
+          </div>
         ) : (
-          <>
+          <div className="text-right">
             <button
               onClick={() => login()}
               type="button"
-              className="btn text-xl text-white pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+              className="btn text-sm md:text-xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
             >
               Sign In
             </button>
             <button
               onClick={() => register()}
               type="button"
-              className="btn text-xl text-white pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+              className="btn text-sm md:text-xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
             >
               Sign Up
             </button>
-          </>
+          </div>
         )}
       </div>
     </nav>

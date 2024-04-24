@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             {currentPage === 'home' && (
                 <div>
                     {/* Stats Section */}
-                    <Stats />
+                    <div className='flex justify-center pb-6'><Stats /></div>
                     <CountdownTimer />
                     <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
                         Today's Challenge
@@ -51,7 +51,6 @@ const Home: React.FC = () => {
                 <div className="flex flex-col gap-y-10 items-center text-black bg-kindly-offWhite">
                     <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
                         {/* Stats Section */}
-                        <Stats />
                         <CountdownTimer />
                         <div>
                             <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
@@ -64,6 +63,7 @@ const Home: React.FC = () => {
             )}
             {currentPage === 'confirmation' && (
                 <div className="flex flex-col gap-y-10 items-center pb-10 bg-kindly-offWhite">
+                    <Stats />
                     <div>
                         <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
                             Completed Challenge
