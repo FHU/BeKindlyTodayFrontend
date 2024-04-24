@@ -3,6 +3,8 @@ import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
 import { BiMessageSquareEdit } from "react-icons/bi";
+import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
+
 
 interface ProfilePicture {
     name: string;
@@ -10,6 +12,7 @@ interface ProfilePicture {
 }
 
 function Profile() {
+    const { logout} = useKindeAuth();
     const [showDropdown, setShowDropdown] = useState<boolean>(false);
     const [selectedProfilePicture, setSelectedProfilePicture] = useState<ProfilePicture>({
         name: 'Blue Profile',
@@ -35,7 +38,7 @@ function Profile() {
             <Navbar />
 
             <div className="profile-picture-container mt-6 flex flex-col items-center relative">
-                <div className="profile-picture bg-gray-300 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative" onClick={() => setShowDropdown(!showDropdown)}>
+                <div className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative" onClick={() => setShowDropdown(!showDropdown)}>
                     <img
                         src={selectedProfilePicture.path}
                         alt="Profile"
@@ -56,7 +59,7 @@ function Profile() {
                     </div>
                 )}
                 <div className="text-center">
-                    <h2 className="text-xl font-semibold">Sam Flowers</h2>
+                    <h2 className="text-xl font-semibold text-white">Sam Flowers</h2>
                 </div>
             </div>
 
@@ -75,6 +78,14 @@ function Profile() {
                     </div>
                 </div>
             </div>
+            <br />
+            <button
+              onClick={() => logout()}
+              type="button"
+              className="btn text-xl text-white pt-2 bg-blue-500 border-hidden"
+            >
+              Logout
+            </button>
         </div>
     );
 }

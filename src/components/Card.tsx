@@ -4,7 +4,7 @@ import Feed from '../components/Feed';
 import 'daisyui/dist/full.css';
 
 export let completedChallenge = false;
-let userInput = ''; // Define userInput variable to store user input
+let userInput = '';
 interface Post{
   challenge: string;
   visual: string;
