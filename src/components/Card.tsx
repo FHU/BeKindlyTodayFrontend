@@ -3,13 +3,13 @@ import { BsCheckCircle, BsCheck2, BsCheck2All } from 'react-icons/bs';
 import Feed from '../components/Feed';
 import 'daisyui/dist/full.css';
 
-export let completedChallenge = false; 
-
-interface Post {
+export let completedChallenge = false;
+let userInput = ''; // Define userInput variable to store user input
+interface Post{
   challenge: string;
   visual: string;
   experience: string;
-}
+};
 
 interface CardProps {
   layoutType: 'home' | 'completion' | 'confirmation' | 'staticFeed';
@@ -34,11 +34,14 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
   const post: Post = {
     challenge: 'Send a text to a loved one to show your appreciation.',
     visual: 'images/phone.jpg',
-    experience: 'I sent a mom a text and she really appreciated it',
+    experience: userInput,
   };
 
-  const handleTextChange = (event: { target: { value: string } }) => {
-    setTextValue(event.target.value.slice(0, 250));
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = event.target;
+    setTextValue(value.slice(0, 250)); // Limiting to 250 characters
+    console.log('User input:', value); // Logging user input
+    userInput = value; // Exporting user input by assigning it to userInput variable
   };
 
   const handleButtonClickInternal = () => {
