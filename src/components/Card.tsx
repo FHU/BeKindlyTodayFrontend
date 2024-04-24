@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
 import "daisyui/dist/full.css";
+import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
 let userInput = "";
 interface Post {
@@ -15,6 +16,9 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
+  const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
+
+  const {  register, isAuthenticated } = useKindeAuth();
   const [showShadow, setShowShadow] = useState<boolean>(false);
   const [textValue, setTextValue] = useState("");
 
@@ -55,15 +59,28 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
             </p>
           </div>
           <div className="card-actions justify-center pt-4">
-            <button
-              onClick={handleButtonClick} // Changed to handleButtonClickInternal
-              className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
-            >
-              <div>
-                <BsCheckCircle />
-              </div>
-              Complete
-            </button>
+        {inDev || isAuthenticated ? (
+                    <button
+                    onClick={handleButtonClick} // Changed to handleButtonClickInternal
+                    className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+                  >
+                    <div>
+                      <BsCheckCircle />
+                    </div>
+                    Complete
+                  </button>
+        ) : (
+          <button
+          onClick={() => register()} 
+          className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+        >
+          <div>
+            <BsCheckCircle />
+          </div>
+          Complete
+        </button>
+        )}
+
           </div>
         </div>
       );
@@ -113,22 +130,22 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
           </div>
           <div className="card-actions justify-center">
             <div className="my-6">
-              <h2 className="text-2xl self-start">Experience</h2>
+              <h2 className="text-2xl self-start text-black">Experience</h2>
               <div className="relative">
                 <form action="#" method="post" className="flex flex-col">
                   <textarea
-                    className="w-80 border-2 border-black rounded-lg p-3 h-32 bg-kindly-offWhite"
+                    className="w-80 border-2 border-black rounded-lg p-3 h-32 text-black bg-kindly-offWhite"
                     value={textValue}
                     onChange={handleTextChange}
                     placeholder="Write your experience here..."
                   ></textarea>
                 </form>
               </div>
-              <div className="text-right p-1 text-sm">
+              <div className="text-right p-1 text-sm text-black">
                 {`${textValue.length} / 250`}
               </div>
             </div>
-            <button
+          <button
               onClick={handleButtonClick}
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
               name="completeChallenge"
@@ -139,6 +156,7 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
               </div>
               Complete
             </button>
+
           </div>
         </div>
       );

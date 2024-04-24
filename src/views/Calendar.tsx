@@ -9,10 +9,11 @@ const monthNames = [
 ];
 
 const MonthName = ({ monthIndex, year }: { monthIndex: number, year: number }) => (
-  <div className="text-center text-lg font-bold mb-3 border-white text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue" style={{ padding: '8px' }}>
+  <div className="text-center text-3xl font-bold mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue" style={{ padding: '8px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
     {monthNames[monthIndex]} {year}
   </div>
 );
+
 
 const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, daysInMonth: number }) => {
   let startingOffset = new Date(year, month, 1).getDay();
@@ -46,7 +47,7 @@ const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, d
   );
 };
 
-const CalendarPage: React.FC = () => {
+const CalendarPage = () => {
   const initialYear = new Date().getFullYear();
   const initialMonth = new Date().getMonth();
 
@@ -78,7 +79,7 @@ const CalendarPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-kindly-offWhite text-white min-h-screen">
+    <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
       <Navbar />
       <div className="flex items-center max-w-screen-sm mt-16">
         <button onClick={goToPreviousMonth} className="carousel-control left-control larger-button text-kindly-blue" style={{ marginRight: '8px' }}>
@@ -86,7 +87,7 @@ const CalendarPage: React.FC = () => {
         </button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
-            <div className="calendar-container rounded-lg shadow-lg p-4 bg-gray-3" style={{ borderRadius: '20px', maxWidth: '800px' }}>
+            <div className="calendar-container rounded-lg shadow-lg p-4 bg-white" style={{ borderRadius: '20px', maxWidth: '800px' }}>
               <MonthName monthIndex={currentMonth} year={currentYear} />
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
@@ -97,7 +98,7 @@ const CalendarPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <button onClick={goToNextMonth} className="carousel-control right-control larger-button  text-kindly-blue" style={{ marginLeft: '8px' }}>
+        <button onClick={goToNextMonth} className="carousel-control right-control larger-button text-kindly-blue" style={{ marginLeft: '8px' }}>
           {'>'}
         </button>
       </div>
