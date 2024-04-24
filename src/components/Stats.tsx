@@ -64,9 +64,9 @@ function Stats() {
 {/* bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue */}
     return(
         
-        <div className="stats place-items-center bg-kindly-offWhite stats-vertical w-[24rem] lg:stats-horizontal text-white">
+        <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-vertical md:stats-horizontal text-white">
   
-            <div className="stat place-items-center w-[8rem] p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+            <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                 <div className="flex flex-row">
                     <motion.div className="stat-value">{roundedGlobal}</motion.div>
                     <div className="stat-desc text-3xl text-white"> {KConvert(statbar.Global)}</div>
@@ -76,9 +76,9 @@ function Stats() {
                     
             </div>
             
-            <div className="stat place-items-center w-[8rem] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+            <div className="stat rounded-lg place-items-center bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                 <div className="flex flex-row">
-                    <motion.div className="stat-value">{roundedGlobalDaily}</motion.div>
+                    <motion.div className="flex stat-value">{roundedGlobalDaily}</motion.div>
                     <div className="stat-desc text-3xl text-white"> {KConvert(statbar.GlobalDaily)}</div>
                 </div>
                 <div className="stat-title text-white">Globally</div>
@@ -86,7 +86,7 @@ function Stats() {
                 
             </div>
             
-            <div className="stat place-items-center w-[8rem] p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+            <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                 <div className="flex flex-row">
                     <motion.div className="stat-value">{roundedPersonal}</motion.div>
                     <div className="stat-desc text-3xl text-white"> {KConvert(statbar.Personal)}</div>
