@@ -34,7 +34,7 @@ function Profile() {
     };
 
     return (
-        <div className='flex flex-col items-center pb-10 bg-kindly-offWhite'>
+        <div className='flex flex-col items-center pb-10 bg-kindly-offWhite min-h-screen'>
             <Navbar />
 
             <div className="profile-picture-container mt-6 flex flex-col items-center relative">
