@@ -11,7 +11,7 @@ interface Post {
 }
 
 interface CardProps {
-  layoutType: "home" | "completion" | "confirmation" | "staticFeed";
+  layoutType: "home" | "completion" | "confirmation" | "staticFeed" | undefined;
   handleButtonClick: () => void;
   completedChallenge: boolean;
 }
@@ -60,6 +60,28 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
             <button
               onClick={handleButtonClick} // Changed to handleButtonClickInternal
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+            >
+              <div>
+                <BsCheckCircle />
+              </div>
+              Complete
+            </button>
+          </div>
+        </div>
+      );
+      break;
+
+    case undefined:
+      cardBody = (
+        <div className="card-body">
+          <div className="flex justify-center items-center h-40">
+            <p className="text-center">Loading Challenge...</p>
+          </div>
+          <div className="card-actions justify-center pt-4">
+            <button
+              onClick={handleButtonClick} // Changed to handleButtonClickInternal
+              className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+              disabled
             >
               <div>
                 <BsCheckCircle />
