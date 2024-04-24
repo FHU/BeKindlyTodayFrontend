@@ -14,9 +14,8 @@ const MonthName = ({ monthIndex, year }: { monthIndex: number, year: number }) =
   </div>
 );
 
-const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, daysInMonth: number[] }) => {
+const Calendar = ({ month, year, daysInMonth, currentDay }: { month: number, year: number, daysInMonth: number[], currentDay: number }) => {
   const today = new Date();
-  const currentDay = today.getDate();
   const currentMonth = today.getMonth();
   const currentYear = today.getFullYear();
 
@@ -29,7 +28,7 @@ const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, d
           -  {/* Placeholder for empty grid items before the first day of the month */}
         </div>
       ))}
-      {[...Array(daysInMonth)].map((_, index) => {
+      {[...Array(daysInMonth[month])].map((_, index) => {
         const dayOfMonth = index + 1;
         let dayStyle = 'day-number';  // Base styling for day numbers
 
@@ -51,9 +50,10 @@ const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, d
   );
 };
 
-const CalendarPage = () => {
+const CalendarPage = ({ currentDay }: { currentDay: number }) => {
   const initialYear = new Date().getFullYear();
   const initialMonth = new Date().getMonth();
+  const initialDay = new Date().getDate();
 
   const [currentYear, setCurrentYear] = useState(initialYear);
   const [currentMonth, setCurrentMonth] = useState(initialMonth);
@@ -63,6 +63,9 @@ const CalendarPage = () => {
     (currentYear % 4 === 0 && (currentYear % 100 !== 0 || currentYear % 400 === 0)) ? 29 : 28,
     31, 30, 31, 30, 31, 31, 30, 31, 30, 31
   ];
+
+  const streakDays = calculateStreak(currentDay, initialMonth, initialYear);
+  const streakTitle = `Current Streak is ${streakDays} Days`;
 
   const goToNextMonth = () => {
     if (currentMonth === 11) {
@@ -85,7 +88,8 @@ const CalendarPage = () => {
   return (
     <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
       <Navbar />
-      <div className="flex items-center max-w-screen-sm mt-16">
+      <h1 className="text-3xl font-bold mt-4">{streakTitle}</h1>
+      <div className="flex items-center max-w-screen-sm mt-4">
         <button onClick={goToPreviousMonth} className="carousel-control left-control larger-button text-kindly-blue" style={{ marginRight: '8px' }}>
           {'<'}
         </button>
@@ -98,7 +102,7 @@ const CalendarPage = () => {
                   <div key={index} className="text-center font-bold">{day}</div>
                 ))}
               </div>
-              <Calendar month={currentMonth} year={currentYear} daysInMonth={daysInMonth[currentMonth]} />
+              <Calendar month={currentMonth} year={currentYear} daysInMonth={daysInMonth} currentDay={initialDay} />
             </div>
           </div>
         </div>
@@ -108,6 +112,16 @@ const CalendarPage = () => {
       </div>
     </div>
   );
+};
+
+const calculateStreak = (currentDay: number, initialMonth: number, initialYear: number): number => {
+  const today = new Date();
+  const todayTimestamp = today.getTime();
+  const initialDate = new Date(initialYear, initialMonth, currentDay);
+  const initialTimestamp = initialDate.getTime();
+  const differenceInTime = todayTimestamp - initialTimestamp;
+  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+  return differenceInDays;
 };
 
 export default CalendarPage;
