@@ -49,7 +49,7 @@ const Home: React.FC = () => {
         <CountdownTimer />
         <div className="mx-auto w-fit">
           <h2 className="text-3xl py-3 text-white w-96 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
-            Today's Challenge
+            {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
           </h2>
           <Card
             layoutType={currentPage}
