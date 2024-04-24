@@ -49,7 +49,7 @@ const Home: React.FC = () => {
       {inDev || isAuthenticated ? (
         <>
           {/* Stats Section */}
-          <div className="flex justify-center pb-6">
+          <div className="flex justify-center pb-8">
           <Stats />
         </div>
         </>
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
         </>
         )}
 
-        <CountdownTimer />
+        {(currentPage === "home" || currentPage === "completion") && <CountdownTimer/>}
         <div className="mx-auto w-fit">
           <h2 className="text-3xl py-3 text-white w-96 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
