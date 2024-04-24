@@ -39,7 +39,7 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div className="flex divide-x-2 text-right my-4">
+          <div className="flex text-right my-4 items-center">
             <div>
               <button
                 onClick={() => login()}
@@ -49,6 +49,7 @@ const Navbar = () => {
                 Sign In
               </button>
             </div>
+            <div className="text-xl">/</div>
             <div>
               <button
                 onClick={() => register()}
