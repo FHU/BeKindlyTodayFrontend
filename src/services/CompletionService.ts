@@ -1,4 +1,4 @@
-import fancyFetch from './fetchData';
+import fancyFetch from "./fetchData";
 
 /** The shape of the stats returned from the backend */
 interface CompletionStats {
@@ -17,13 +17,17 @@ interface Completion {
   completed_twist: boolean;
 }
 
+interface CompletionStatus {
+  completed: boolean;
+}
+
 /**
  * A function to make a new completion in the backend
  * @param description The content of the post to be persistend in the backend
  * @returns Promise<Completion>
  */
 async function makeNewCompletion(description: string): Promise<Completion> {
-  return await fancyFetch('/completions', 'POST', {
+  return await fancyFetch("/completions", "POST", {
     description,
   });
 }
@@ -33,7 +37,7 @@ async function makeNewCompletion(description: string): Promise<Completion> {
  * @returns Promise<Completion[]> (array of all completions in backend)
  */
 async function getAllCompletions(): Promise<Completion[]> {
-  return await fancyFetch('/completions', 'GET');
+  return await fancyFetch("/completions", "GET");
 }
 
 /**
@@ -41,7 +45,7 @@ async function getAllCompletions(): Promise<Completion[]> {
  * @returns Promise<CompletionStats>The completion stats for the current logged in user for the day
  */
 async function getCompletionStats(): Promise<CompletionStats> {
-  return await fancyFetch('/completions/stats', 'GET');
+  return await fancyFetch("/completions/stats", "GET");
 }
 
 /**
@@ -50,7 +54,15 @@ async function getCompletionStats(): Promise<CompletionStats> {
  * @returns nothing :)
  */
 async function deleteCompletion(id: number) {
-  return await await fancyFetch(`/completions/${id}}`, 'DELETE');
+  return await await fancyFetch(`/completions/${id}}`, "DELETE");
+}
+
+/**
+ * A function to get a boolean that is true if the logged in user has completed today's challenge
+ * @returns Promise<CompletionStatus>The state of the current challenge for the logged in user
+ */
+async function getHasCompleted(): Promise<CompletionStats> {
+  return await fancyFetch("/completions/has_completed", "GET");
 }
 
 export {
@@ -58,4 +70,5 @@ export {
   getCompletionStats,
   makeNewCompletion,
   deleteCompletion,
+  getHasCompleted,
 };
