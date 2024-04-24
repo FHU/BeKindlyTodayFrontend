@@ -13,7 +13,6 @@ function Profile() {
                 </div>
                 <div className="text-center">
                     <h2 className="text-xl font-semibold">Sam Flowers</h2>
-                    <p className="text-sm text-gray-600">I just lost the game</p>
                 </div>
             </div>
 
