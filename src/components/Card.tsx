@@ -87,52 +87,55 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
       break;
 
     case 'completion':
+      const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
       cardBody = (
-        <div className="card-body bg-white rounded-2xl">
-          <div className="flex flex-row">
-            <div className="text-3xl text-kindly-blue pr-2 pt-3">
-              <BsCheck2 />
-            </div>
-            <p className="font-bold text-lg text-kindly-blue">
-              {post.challenge}
-            </p>
+      <div className="card-body bg-white rounded-2xl">
+        <div className="flex flex-row">
+        <div className="text-3xl text-kindly-blue pr-2 pt-3">
+          <BsCheck2 />
+        </div>
+        <p className="font-bold text-lg text-kindly-blue">
+          {post.challenge}
+        </p>
+        </div>
+        <div className="flex flex-row ">
+        <div className="text-3xl text-kindly-blue pr-2 pt-1">
+          <BsCheck2All />
+        </div>
+        <p className="font-semibold text-black">
+          Make it a video or audio message instead of a regular text.
+        </p>
+        </div>
+        <div className="card-actions justify-center">
+        <div className="my-6">
+          <h2 className="text-2xl self-start">Experience</h2>
+          <div className="relative">
+          <form action="#" method="post" className="flex flex-col">
+            <textarea
+            className="w-80 border-2 border-black rounded-lg p-3 h-32 bg-kindly-offWhite"
+            value={textValue}
+            onChange={handleTextChange}
+            placeholder="Write your experience here..."
+            ></textarea>
+          </form>
           </div>
-          <div className="flex flex-row ">
-            <div className="text-3xl text-kindly-blue pr-2 pt-1">
-              <BsCheck2All />
-            </div>
-            <p className="font-semibold text-black">
-              Make it a video or audio message instead of a regular text.
-            </p>
-          </div>
-          <div className="card-actions justify-center">
-            <div className="my-6">
-              <h2 className="text-2xl self-start">Experience</h2>
-              <div className="relative">
-                <form action="#" method="post" className="flex flex-col">
-                  <textarea
-                    className="w-80 border-2 border-black rounded-lg p-3 h-32 bg-kindly-offWhite"
-                    value={textValue}
-                    onChange={handleTextChange}
-                  ></textarea>
-                </form>
-              </div>
-              <div className="text-right p-1 text-sm">
-                {`${textValue.length} / 250`}
-              </div>
-            </div>
-            <button 
-              onClick={handleButtonClickInternal} // Changed to handleButtonClickInternal
-              className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
-              name="completeChallenge"
-            >
-              <div>
-                <BsCheckCircle />
-              </div>
-              Complete
-            </button>
+          <div className="text-right p-1 text-sm">
+          {`${textValue.length} / 250`}
           </div>
         </div>
+        <button
+          onClick={handleButtonClickInternal} // Changed to handleButtonClickInternal
+          className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+          name="completeChallenge"
+          disabled={isButtonDisabled} // Disable the button if textValue is empty
+        >
+          <div>
+          <BsCheckCircle />
+          </div>
+          Complete
+        </button>
+        </div>
+      </div>
       );
       break;
 

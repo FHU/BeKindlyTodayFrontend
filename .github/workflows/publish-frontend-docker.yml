@@ -44,5 +44,10 @@ jobs:
           tags: evandvance/bekindlytodayfrontend:dev
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Run tests
+        run: |
+          npm install
+          npm test
+
       - name: Redeploy on Render
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}

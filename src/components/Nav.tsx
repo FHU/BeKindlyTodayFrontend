@@ -19,7 +19,7 @@ const Navbar = () => {
         <img
           className="border-none hover:opacity-75"
           style={{ width: '80px', height: '80px' }}
-          src={'assets/logo.png'}
+          src={'assets/bekindlyblue.svg'}
           alt="logo"
         />
       </Link>
