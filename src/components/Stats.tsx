@@ -64,32 +64,32 @@ function Stats() {
 {/* bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue */}
     return(
         
-        <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-vertical md:stats-horizontal text-white">
+        <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-horizontal text-white">
   
-            <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[120px] w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+            <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                 <div className="flex flex-row items-end">
-                    <motion.div className="stat-value">{roundedGlobal}</motion.div>
-                    <div className="stat-desc text-3xl text-white"> {KConvert(statbar.Global)}</div>
+                    <motion.div className="stat-value md:text-4xl text-3xl">{roundedGlobal}</motion.div>
+                    <div className="stat-desc md:text-3xl text-2xl text-white"> {KConvert(statbar.Global)}</div>
                 </div>
                 <div className="stat-title text-white">Globally</div>
                 
                     
             </div>
             
-            <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[120px] w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+            <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                 <div className="flex flex-row items-end">
-                    <motion.div className="flex stat-value">{roundedGlobalDaily}</motion.div>
-                    <div className="stat-desc text-3xl text-white"> {KConvert(statbar.GlobalDaily)}</div>
+                    <motion.div className="flex stat-value md:text-4xl text-3xl">{roundedGlobalDaily}</motion.div>
+                    <div className="stat-desc md:text-3xl text-2xl text-white"> {KConvert(statbar.GlobalDaily)}</div>
                 </div>
                 <div className="stat-title text-white">Globally</div>
                 <div className="stat-title text-white">Daily</div>
                 
             </div>
             
-            <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[120px] w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+            <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
                 <div className="flex flex-row items-end">
-                    <motion.div className="stat-value">{roundedPersonal}</motion.div>
-                    <div className="stat-desc text-3xl text-white"> {KConvert(statbar.Personal)}</div>
+                    <motion.div className="stat-value md:text-4xl text-3xl">{roundedPersonal}</motion.div>
+                    <div className="stat-desc md:text-3xl text-2xl text-white"> {KConvert(statbar.Personal)}</div>
                 </div>
                 <div className="stat-title text-white">Personal</div>
                 

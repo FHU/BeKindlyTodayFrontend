@@ -28,12 +28,12 @@ const Navbar = () => {
         {inDev || isAuthenticated ? (
           <div>
             <Link to="/calendar" data-testid="calendar-link">
-              <div className="btn text-5xl text-white pr-4 pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
+              <div className="btn md:px-4 px-2 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
                 <BsCalendar4 />
               </div>
             </Link>
             <Link to="/profile" data-testid="profile-link">
-              <div className="btn text-5xl text-white pt-2 bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
+              <div className="btn md:px-4 px-2 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
                 <BsPersonCircle />
               </div>
             </Link>
