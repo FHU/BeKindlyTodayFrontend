@@ -7,8 +7,6 @@ import Card from "../components/Card";
 import Feed from "../components/Feed";
 import { getHasCompleted } from "../services/CompletionService";
 
-// import { userInput } from '../components/Card';
-
 const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<
     "home" | "completion" | "confirmation"
@@ -51,11 +49,7 @@ const Home: React.FC = () => {
           <h2 className="text-3xl py-3 text-white w-96 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
           </h2>
-          <Card
-            layoutType={currentPage}
-            handleButtonClick={handleOnClick}
-            completedChallenge={completedChallenge}
-          />
+          <Card layoutType={currentPage} handleButtonClick={handleOnClick} />
         </div>
       </div>
       {currentPage === "confirmation" && <Feed />}

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
-import Feed from "../components/Feed";
 import "daisyui/dist/full.css";
 
 let userInput = "";
@@ -13,7 +12,6 @@ interface Post {
 interface CardProps {
   layoutType: "home" | "completion" | "confirmation" | "staticFeed" | undefined;
   handleButtonClick: () => void;
-  completedChallenge: boolean;
 }
 
 const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
