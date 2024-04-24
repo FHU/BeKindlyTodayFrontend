@@ -8,10 +8,7 @@ const Navbar = () => {
   const { login, register, isAuthenticated } = useKindeAuth();
 
   return (
-    <nav
-      className="flex w-full text-2xl px-5 bg-kindly-blue justify-between items-center"
-      style={{ color: "#ffffff" }}
-    >
+    <nav className="grid grid-cols-3 w-full text-2xl px-5 bg-kindly-blue text-kindly-offWhite">
       <Link
         to="/home"
         className="flex items-center hover:bg-transparent p-2 rounded-lg w-20 h-20"
@@ -24,8 +21,10 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <h1 className="text-4xl md:text-5xl justify-self-center">BeKindly</h1>
-      <div className="flex items-center">
+      <h1 className="text-4xl md:text-5xl my-auto justify-self-center">
+        BeKindly
+      </h1>
+      <div className="flex items-center justify-end">
         {inDev || isAuthenticated ? (
           <div>
             <Link to="/calendar" data-testid="calendar-link">
