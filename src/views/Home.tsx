@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             {currentPage === 'home' && (
                 <div>
                     {/* Stats Section */}
-                    <div className='pb-6'><Stats /></div>
+                    <div className='flex justify-center pb-6'><Stats /></div>
                     <CountdownTimer />
                     <h2 className="text-3xl py-3 text-white text-center font-extrabold bg-kindly-blue rounded-t-2xl">
                         Today's Challenge
