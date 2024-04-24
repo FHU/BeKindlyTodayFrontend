@@ -17,7 +17,7 @@ body {
 }
 
 .streak-highlight {
-  background-color: rgba(128, 0, 128, 0.3); /* Purple color with transparency */
+  background-color: #00a6ff; /* Purple color with transparency */
   border-radius: 120%; /* Make it a slightly larger circle */
   display: inline-flex;
   align-items: center;
@@ -26,7 +26,7 @@ body {
 }
 
 .current-day-highlight {
-  background-color: rgba(79, 79, 79, 0.3); /* Purple color with transparency */
+  background-color: #0f47b9; /* Purple color with transparency */
   border-radius: 120%; /* Make it a slightly larger circle */
   display: inline-flex;
   align-items: center;

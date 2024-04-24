@@ -78,7 +78,7 @@ const CalendarPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
+    <div className="flex flex-col items-center bg-kindly-offWhite text-white min-h-screen">
       <Navbar />
       <div className="flex items-center max-w-screen-sm mt-16">
         <button onClick={goToPreviousMonth} className="carousel-control left-control larger-button text-kindly-blue" style={{ marginRight: '8px' }}>
@@ -86,7 +86,7 @@ const CalendarPage: React.FC = () => {
         </button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
-            <div className="calendar-container rounded-lg shadow-lg p-4 bg-white" style={{ borderRadius: '20px', maxWidth: '800px' }}>
+            <div className="calendar-container rounded-lg shadow-lg p-4 bg-gray-3" style={{ borderRadius: '20px', maxWidth: '800px' }}>
               <MonthName monthIndex={currentMonth} year={currentYear} />
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
