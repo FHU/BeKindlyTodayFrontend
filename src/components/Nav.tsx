@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { BsCalendar4, BsPersonCircle } from 'react-icons/bs';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
-
-
 const Navbar = () => {
   const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
 
@@ -11,8 +9,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className="flex w-full h-24 text-2xl px-5 justify-between items-center"
-      style={{ backgroundColor: '#1964de', color: '#ffffff' }}
+      className="flex w-full h-24 text-2xl px-5 justify-between items-center bg-kindly-blue"
+      style={{ color: '#ffffff' }}
     >
       <Link
         to="/home"
