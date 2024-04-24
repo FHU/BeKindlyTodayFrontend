@@ -9,13 +9,17 @@ const monthNames = [
 ];
 
 const MonthName = ({ monthIndex, year }: { monthIndex: number, year: number }) => (
-  <div className="text-center text-3xl font-bold mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue" style={{ padding: '8px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+  <div className="text-center text-3xl font-bold mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue" style={{ padding: '20px 0', width: '100%' }}>
     {monthNames[monthIndex]} {year}
   </div>
 );
 
+const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, daysInMonth: number[] }) => {
+  const today = new Date();
+  const currentDay = today.getDate();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
 
-const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, daysInMonth: number }) => {
   let startingOffset = new Date(year, month, 1).getDay();
 
   return (
@@ -33,8 +37,8 @@ const Calendar = ({ month, year, daysInMonth }: { month: number, year: number, d
           dayStyle += ' special-day streak-highlight';  // Additional styling for special days
         }
 
-        if ([7].includes(dayOfMonth)) {
-          dayStyle += ' special-day current-day-highlight';  // Additional styling for the current day
+        if (dayOfMonth === currentDay && month === currentMonth && year === currentYear) {
+          dayStyle += ' current-day';  // Applying current-day style
         }
 
         return (

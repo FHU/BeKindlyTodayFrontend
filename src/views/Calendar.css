@@ -18,21 +18,13 @@ body {
 
 .streak-highlight {
   background-color: #00a6ff; /* Purple color with transparency */
-  border-radius: 120%; /* Make it a slightly larger circle */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1rem; /* Increase padding */
-}
-
-.current-day-highlight {
-  background-color: #0f47b9; /* Purple color with transparency */
-  border-radius: 120%; /* Make it a slightly larger circle */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1rem; /* Increase padding */
-  font-weight: none;
+  border-radius: 50%; /* Creates a circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em; /* Set a fixed width for the circle */
+    height: 2em; /* Set a fixed height for the circle */
+    font-weight: bold; /* Adjust as needed */
 }
 
 
@@ -52,4 +44,24 @@ body {
     line-height: 27.03px;
     text-align: center;
   }
+
+  .current-day {
+    background-color: #007bff; /* This should be your 'kindly-blue' color. */
+    border-radius: 50%; /* Creates a circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color set to white */
+    width: 2em; /* Set a fixed width for the circle */
+    height: 2em; /* Set a fixed height for the circle */
+    font-weight: bold; /* Adjust as needed */
+  }
+  
+  .day-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
   
