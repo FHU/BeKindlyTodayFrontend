@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { BsCalendar4, BsPersonCircle } from 'react-icons/bs';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
-
-
 const Navbar = () => {
   const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
 
