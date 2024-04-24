@@ -26,7 +26,7 @@ function feed() {
                 <div className="chat-header">
                     {userfeed.user}
                 </div>
-                <div className="chat-bubble shadow-md bg-white">{userfeed.kindness}</div>
+                <div className="chat-bubble shadow-md bg-white" style={{width:'23rem'}}>{userfeed.kindness}</div>
                 </div>
             </div>
     );
