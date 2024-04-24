@@ -11,8 +11,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className="flex w-full text-2xl px-5 justify-between items-center"
-      style={{ backgroundColor: '#2485A9', color: '#ffffff' }}
+      className="flex w-full text-2xl px-5 bg-kindly-blue justify-between items-center"
+      style={{ color: '#ffffff' }}
     >
       <Link
         to="/home"
@@ -21,7 +21,7 @@ const Navbar = () => {
       <div>
         <img
           className="border-none hover:opacity-75"
-          src={'assets/logo.png'}
+          src={'assets/bekindlyblue.svg'}
           alt="logo"
         />
       </div>
