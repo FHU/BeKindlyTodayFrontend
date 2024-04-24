@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
+import { BiMessageSquareEdit } from "react-icons/bi";
 
 interface ProfilePicture {
     name: string;
@@ -34,13 +35,14 @@ function Profile() {
             <Navbar />
 
             <div className="profile-picture-container mt-6 flex flex-col items-center relative">
-                <div className="profile-picture bg-gray-300 rounded-full w-30 h-30 flex items-center justify-center mb-2" onClick={() => setShowDropdown(!showDropdown)}>
+                <div className="profile-picture bg-gray-300 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative" onClick={() => setShowDropdown(!showDropdown)}>
                     <img
                         src={selectedProfilePicture.path}
                         alt="Profile"
                         className="rounded-full w-full h-full cursor-pointer"
                         style={{ maxWidth: '200px', maxHeight: '200px' }} // Set max width and max height
                     />
+                    <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
                 </div>
                 {showDropdown && (
                     <div className="dropdown-menu absolute top-12 right-5 bg-white shadow rounded-md">
