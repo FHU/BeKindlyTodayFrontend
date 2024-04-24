@@ -113,18 +113,18 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
           </div>
           <div className="card-actions justify-center">
             <div className="my-6">
-              <h2 className="text-2xl self-start">Experience</h2>
+              <h2 className="text-2xl self-start text-black">Experience</h2>
               <div className="relative">
                 <form action="#" method="post" className="flex flex-col">
                   <textarea
-                    className="w-80 border-2 border-black rounded-lg p-3 h-32 bg-kindly-offWhite"
+                    className="w-80 border-2 border-black rounded-lg p-3 h-32 text-black bg-kindly-offWhite"
                     value={textValue}
                     onChange={handleTextChange}
                     placeholder="Write your experience here..."
                   ></textarea>
                 </form>
               </div>
-              <div className="text-right p-1 text-sm">
+              <div className="text-right p-1 text-sm text-black">
                 {`${textValue.length} / 250`}
               </div>
             </div>
