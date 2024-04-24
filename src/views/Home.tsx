@@ -6,8 +6,14 @@ import CountdownTimer from "../components/Timer";
 import Card from "../components/Card";
 import Feed from "../components/Feed";
 import { getHasCompleted } from "../services/CompletionService";
+import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
 const Home: React.FC = () => {
+
+  const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
+
+  const { isAuthenticated } = useKindeAuth();
+
   const [currentPage, setCurrentPage] = useState<
     "home" | "completion" | "confirmation"
   >();
@@ -40,11 +46,20 @@ const Home: React.FC = () => {
       <Navbar />
 
       <div className="w-fit">
-        {/* Stats Section */}
-        <div className="flex justify-center pb-6">
+      {inDev || isAuthenticated ? (
+        <>
+          {/* Stats Section */}
+          <div className="flex justify-center pb-8">
           <Stats />
         </div>
-        <CountdownTimer />
+        </>
+        ) : (
+        <>
+        <div className="-m-6"></div>
+        </>
+        )}
+
+        {(currentPage === "home" || currentPage === "completion") && <CountdownTimer/>}
         <div className="mx-auto w-fit">
           <h2 className="text-3xl py-3 text-white w-96 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
