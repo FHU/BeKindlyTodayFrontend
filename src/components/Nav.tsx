@@ -28,7 +28,7 @@ const Navbar = () => {
         {inDev || isAuthenticated ? (
           <div>
             <Link to="/calendar" data-testid="calendar-link">
-              <div className="btn md:px-4 px-2 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
+              <div className="btn md:px-2 p-4 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
                 <BsCalendar4 />
               </div>
             </Link>
