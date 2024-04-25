@@ -1,10 +1,11 @@
+// Profile.tsx
 import { useState } from 'react';
 import 'daisyui/dist/full.css';
 import '../index.css';
 import Navbar from '../components/Nav';
 import { BiMessageSquareEdit } from 'react-icons/bi';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
-
+import Carousel from '../components/Carousel';
 interface ProfilePicture {
   name: string;
   path: string;
@@ -45,7 +46,7 @@ function Profile() {
       <div className="profile-picture-container mt-6 flex flex-col items-center relative">
         <div
           className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative"
-          onClick={() => handleProfilePictureClick()}
+          onClick={handleProfilePictureClick}
         >
           <img
             src={selectedProfilePicture.path}
@@ -57,21 +58,10 @@ function Profile() {
         </div>
 
         {profilePictureClicked && (
-          <div className="carousel carousel-center rounded-box">
-            {profilePictures.map((profilePicture, index) => (
-              <div
-                className="carousel-item rounded-full bg-white m-3 w-40 h-40 flex items-center justify-center mb-2 cursor-pointer"
-                key={index}
-                onClick={() => handleProfilePictureChange(profilePicture)}
-              >
-                <img
-                  src={profilePicture.path}
-                  alt={profilePicture.name}
-                  className="rounded-full w-full h-full"
-                />
-              </div>
-            ))}
-          </div>
+          <Carousel
+            profilePictures={profilePictures}
+            onProfilePictureChange={handleProfilePictureChange}
+          />
         )}
 
         <div className="text-center">
@@ -100,7 +90,7 @@ function Profile() {
       </div>
       <br />
       <button
-        onClick={() => logout()}
+        onClick={logout}
         type="button"
         className="btn text-xl text-white pt-2 bg-blue-500 border-hidden"
       >
