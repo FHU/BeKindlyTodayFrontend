@@ -1,7 +1,7 @@
 import fancyFetch from "./fetchData";
 
 /** The shape of the stats returned from the backend */
-interface CompletionStats {
+export interface CompletionStats {
   user_completions_count: number;
   world_completions_count: number;
   world_daily_completions_count: number;

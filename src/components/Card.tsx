@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
 import "daisyui/dist/full.css";
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 let userInput = "";
 interface Post {
@@ -16,13 +16,10 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
-  const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
+  const inDev = import.meta.env.VITE_ENVIRONMENT === "dev";
 
-  const {  register, isAuthenticated } = useKindeAuth();
-  const [showShadow, setShowShadow] = useState<boolean>(false);
+  const { register, isAuthenticated } = useKindeAuth();
   const [textValue, setTextValue] = useState("");
-
-  console.log(showShadow);
 
   const post: Post = {
     challenge: "Send a text to a loved one to show your appreciation.",
@@ -59,28 +56,27 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
             </p>
           </div>
           <div className="card-actions justify-center pt-4">
-        {inDev || isAuthenticated ? (
-                    <button
-                    onClick={handleButtonClick} // Changed to handleButtonClickInternal
-                    className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
-                  >
-                    <div>
-                      <BsCheckCircle />
-                    </div>
-                    Complete
-                  </button>
-        ) : (
-          <button
-          onClick={() => register()} 
-          className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
-        >
-          <div>
-            <BsCheckCircle />
-          </div>
-          Complete
-        </button>
-        )}
-
+            {inDev || isAuthenticated ? (
+              <button
+                onClick={handleButtonClick} // Changed to handleButtonClickInternal
+                className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+              >
+                <div>
+                  <BsCheckCircle />
+                </div>
+                Complete
+              </button>
+            ) : (
+              <button
+                onClick={() => register()}
+                className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+              >
+                <div>
+                  <BsCheckCircle />
+                </div>
+                Complete
+              </button>
+            )}
           </div>
         </div>
       );
@@ -145,7 +141,7 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
                 {`${textValue.length} / 250`}
               </div>
             </div>
-          <button
+            <button
               onClick={handleButtonClick}
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
               name="completeChallenge"
@@ -156,7 +152,6 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
               </div>
               Complete
             </button>
-
           </div>
         </div>
       );
@@ -189,8 +184,6 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
       className={`card card-compact md:w-96 w-80 bg-base-100 bg-white ${
         layoutType === "completion" ? "custom-class" : ""
       }`}
-      onMouseEnter={() => setShowShadow(true)}
-      onMouseLeave={() => setShowShadow(false)}
     >
       {image}
       {cardBody}
