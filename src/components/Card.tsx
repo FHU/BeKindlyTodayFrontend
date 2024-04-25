@@ -180,13 +180,13 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
 
   const image = (
     <figure className="rounded-none">
-      <img src={post.visual} alt="Challenges" />
+      <img src={post.visual} alt="Challenges"/>
     </figure>
   );
 
   return (
     <div
-      className={`card card-compact w-96 bg-base-100 bg-white ${
+      className={`card card-compact md:w-96 w-80 bg-base-100 bg-white ${
         layoutType === "completion" ? "custom-class" : ""
       }`}
       onMouseEnter={() => setShowShadow(true)}
