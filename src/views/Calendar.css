@@ -3,80 +3,102 @@ body {
   font-family: 'Comfortaa', cursive;
 }
 
+/* Calendar.css */
+
+/* Calendar.css */
+
 .larger-button {
-  font-size: 3rem;
-  width: 4rem;
-  height: 3rem;
+  font-size: 3rem; /* 3 times larger font size */
+  width: 4rem; /* 3 times larger width */
+  height: 3rem; /* 3 times larger height */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .streak-highlight {
-  background-color: #00a6ff;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2em;
-  height: 2em;
-  font-weight: bold;
+  background-color: #00a6ff; /* Purple color with transparency */
+  border-radius: 50%; /* Creates a circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em; /* Set a fixed width for the circle */
+    height: 2em; /* Set a fixed height for the circle */
+    font-weight: bold; /* Adjust as needed */
 }
+
 
 .calendar-container {
-  font-family: 'Lato', sans-serif;
-  font-size: 27.72px;
-  font-weight: normal;
-  line-height: 33.27px;
-  text-align: center;
-}
+    font-family: 'Lato', sans-serif;
+    font-size: 27.72px;
+    font-weight: normal;
+    line-height: 33.27px;
 
-.day-number {
-  font-family: 'Lato', sans-serif;
-  font-size: 22.53px;
-  font-weight: 700;
-  line-height: 27.03px;
-  text-align: center;
-}
+    text-align: center;
+  }
+  
+  .day-number {
+    font-family: 'Lato', sans-serif;
+    font-size: 22.53px;
+    font-weight: 700;
+    line-height: 27.03px;
+    text-align: center;
+  }
 
-.current-day {
-  background-color: #007bff;
-  border-radius: 50%;
-  color: white;
-  width: 2em;
-  height: 2em;
-  font-weight: bold;
-}
+  .current-day {
+    background-color: #007bff; /* This should be your 'kindly-blue' color. */
+    border-radius: 50%; /* Creates a circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color set to white */
+    width: 2em; /* Set a fixed width for the circle */
+    height: 2em; /* Set a fixed height for the circle */
+    font-weight: bold; /* Adjust as needed */
+  }
+  
+  .day-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 
-.streak-counter {
-  background: linear-gradient(90deg, rgba(30, 115, 250, 1) 0%, rgba(90, 180, 250, 1) 100%);
-  border-radius: 20px;
-  color: white;
-  width: 300px;
-  padding: 10px;
-  box-sizing: border-box;
-}
+  .streak-counter {
+    background: linear-gradient(90deg, rgba(30, 115, 250, 1) 0%, rgba(90, 180, 250, 1) 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    width: 300px; /* or 100% if you want it to be full width */
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .streak-number {
+    font-size: 2.5em; /* large number */
+    font-weight: 600; /* semi-bold */
+    margin-bottom: 0.2em; /* spacing between number and label */
+  }
+  
+  .streak-label {
+    font-size: 1em; /* smaller text */
+    font-weight: 400; /* regular weight */
+  }
 
-.streak-number {
-  font-size: 2.5em;
-  font-weight: 600;
-  margin-bottom: 0.2em;
-}
-
-.streak-label {
-  font-size: 1em;
-  font-weight: 400;
-}
-
-/* New styles for MonthName */
-.month-name {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(to right, #1e73fa, #5ab4fa);
-  padding: 20px 0;
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .month-name {
+    text-align: center;
+    font-size: 3rem; /* Adjust the size as needed */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: white;
+    background: linear-gradient(to right, #1e73fa, #5ab4fa); /* Gradient background */
+    padding: 20px 0;
+    width: 100%;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  
