@@ -30,9 +30,11 @@ const Home: React.FC = () => {
 
   const [token, setToken] = useState<string | undefined>();
 
-  const { getToken } = useKindeAuth();
+  const { getToken, isAuthenticated, getUser } = useKindeAuth();
 
-  getToken().then((token) => setToken(token));
+  useEffect(() => {
+    isAuthenticated && getToken().then((token) => setToken(token));
+  });
 
   useEffect(() => {
     getCompletionStats(token).then((stats) => setCompletionStats(stats));
@@ -42,7 +44,7 @@ const Home: React.FC = () => {
       setCompletedChallenge(response.completed)
     );
     console.log(token);
-  }, [token]);
+  }, []);
 
   // Update current page based on completedChallenge
   useEffect(() => {
