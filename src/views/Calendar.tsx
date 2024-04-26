@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import './Calendar.css';
-import Navbar from '../components/Nav';
+import { useState } from "react";
+import "./Calendar.css";
+import Navbar from "../components/Nav";
 
-const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 const monthNames = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 const MonthName = ({
@@ -27,7 +27,7 @@ const MonthName = ({
 }) => (
   <div
     className="text-center text-3xl font-bold mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
-    style={{ padding: '20px 0', width: '100%' }}
+    style={{ padding: "20px 0", width: "100%" }}
   >
     {monthNames[monthIndex]} {year}
   </div>
@@ -57,16 +57,16 @@ const Calendar = ({
           key={`empty-${index}`}
           className="text-center text-xl text-gray-400"
         >
-          -{' '}
+          -{" "}
           {/* Placeholder for empty grid items before the first day of the month */}
         </div>
       ))}
       {[...Array(daysInMonth[month])].map((_, index) => {
         const dayOfMonth = index + 1;
-        let dayStyle = 'day-number'; // Base styling for day numbers
+        let dayStyle = "day-number"; // Base styling for day numbers
 
         if ([3, 4, 5, 6].includes(dayOfMonth)) {
-          dayStyle += ' special-day streak-highlight'; // Additional styling for special days
+          dayStyle += " special-day streak-highlight"; // Additional styling for special days
         }
 
         if (
@@ -74,7 +74,7 @@ const Calendar = ({
           month === currentMonth &&
           year === currentYear
         ) {
-          dayStyle += ' current-day'; // Applying current-day style
+          dayStyle += " current-day"; // Applying current-day style
         }
 
         return (
@@ -117,7 +117,7 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
   const streakTitle = (
     <div
       className="text-center text-3xl font-bold text-white py-4 w-full rounded-lg bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
-      style={{ maxWidth: '800px' }}
+      style={{ maxWidth: "800px" }}
     >
       Current Streak: {streakDays} Days
     </div>
@@ -149,15 +149,15 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
         <button
           onClick={goToPreviousMonth}
           className="carousel-control left-control larger-button text-kindly-blue"
-          style={{ marginRight: '8px' }}
+          style={{ marginRight: "8px" }}
         >
-          {'<'}
+          {"<"}
         </button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
             <div
               className="calendar-container rounded-lg shadow-lg p-4 bg-white"
-              style={{ borderRadius: '20px', maxWidth: '800px' }}
+              style={{ borderRadius: "20px", maxWidth: "800px" }}
             >
               <MonthName monthIndex={currentMonth} year={currentYear} />
               <div className="grid grid-cols-7 gap-4 mb-4">
@@ -179,9 +179,9 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
         <button
           onClick={goToNextMonth}
           className="carousel-control right-control larger-button text-kindly-blue"
-          style={{ marginLeft: '8px' }}
+          style={{ marginLeft: "8px" }}
         >
-          {'>'}
+          {">"}
         </button>
       </div>
     </div>
