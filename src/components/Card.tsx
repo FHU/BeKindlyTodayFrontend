@@ -2,41 +2,31 @@ import React, { useState } from "react";
 import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
 import "daisyui/dist/full.css";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { Challenge } from "../services";
+import { Challenge, Completion } from "../services";
 
 let userInput = "";
-interface Post {
-  challenge: string;
-  visual: string;
-  experience: string;
-}
 
 interface CardProps {
   layoutType: "home" | "completion" | "confirmation" | "staticFeed" | undefined;
-  handleButtonClick: () => void;
+  handleButtonClick: (description?: string) => void;
   challenge?: Challenge;
+  completion?: Completion;
 }
 
 const Card: React.FC<CardProps> = ({
   layoutType,
   handleButtonClick,
   challenge,
+  completion,
 }) => {
   const inDev = import.meta.env.VITE_ENVIRONMENT === "dev";
 
   const { register, isAuthenticated } = useKindeAuth();
   const [textValue, setTextValue] = useState("");
 
-  const post: Post = {
-    challenge: "Send a text to a loved one to show your appreciation.",
-    visual: "images/phone.jpg",
-    experience: userInput,
-  };
-
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target;
     setTextValue(value.slice(0, 250)); // Limiting to 250 characters
-    console.log("User input:", value); // Logging user input
     userInput = value; // Exporting user input by assigning it to userInput variable
   };
 
@@ -45,8 +35,8 @@ const Card: React.FC<CardProps> = ({
     case "home":
       cardBody = (
         <div className="card-body">
-          <div className="flex flex-row">
-            <div className="text-3xl text-kindly-blue pr-2 pt-3">
+          <div className="flex flex-row items-center">
+            <div className="text-3xl text-kindly-blue pr-2">
               <BsCheck2 />
             </div>
             <p className="font-bold text-lg text-kindly-blue">
@@ -62,7 +52,7 @@ const Card: React.FC<CardProps> = ({
           <div className="card-actions justify-center pt-4">
             {inDev || isAuthenticated ? (
               <button
-                onClick={handleButtonClick} // Changed to handleButtonClickInternal
+                onClick={() => handleButtonClick()} // Changed to handleButtonClickInternal
                 className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
               >
                 <div>
@@ -94,7 +84,7 @@ const Card: React.FC<CardProps> = ({
           </div>
           <div className="card-actions justify-center pt-4">
             <button
-              onClick={handleButtonClick} // Changed to handleButtonClickInternal
+              onClick={() => handleButtonClick()} // Changed to handleButtonClickInternal
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
               disabled
             >
@@ -112,21 +102,19 @@ const Card: React.FC<CardProps> = ({
       const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
       cardBody = (
         <div className="card-body bg-white rounded-2xl">
-          <div className="flex flex-row">
-            <div className="text-3xl text-kindly-blue pr-2 pt-3">
+          <div className="flex flex-row items-center">
+            <div className="text-3xl text-kindly-blue pr-2">
               <BsCheck2 />
             </div>
             <p className="font-bold text-lg text-kindly-blue">
-              {post.challenge}
+              {challenge?.prompt}
             </p>
           </div>
           <div className="flex flex-row ">
             <div className="text-3xl text-kindly-blue pr-2 pt-1">
               <BsCheck2All />
             </div>
-            <p className="font-semibold text-black">
-              Make it a video or audio message instead of a regular text.
-            </p>
+            <p className="font-semibold text-black">{challenge?.twist}</p>
           </div>
           <div className="card-actions justify-center">
             <div className="my-6">
@@ -146,7 +134,7 @@ const Card: React.FC<CardProps> = ({
               </div>
             </div>
             <button
-              onClick={handleButtonClick}
+              onClick={() => handleButtonClick(textValue)}
               className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
               name="completeChallenge"
               disabled={isButtonDisabled} // Disable the button if textValue is empty
@@ -166,7 +154,7 @@ const Card: React.FC<CardProps> = ({
         <div className="card-body">
           <div className="text-black text-center py-6">
             <p className="text-lg font-semibold leading-tight">
-              {post.experience}
+              {completion?.description}
             </p>
           </div>
         </div>
@@ -179,7 +167,8 @@ const Card: React.FC<CardProps> = ({
 
   const image = (
     <figure className="rounded-none">
-      <img src={post.visual} alt="Challenges" />
+      <img src={challenge?.image} alt="Challenges" />{" "}
+      {/* FIXME need to implement images on the backend */}
     </figure>
   );
 

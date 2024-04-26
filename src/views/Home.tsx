@@ -10,10 +10,11 @@ import {
   getCompletionStats,
   getTodaysChallenge,
   CompletionStats,
+  Completion,
   Challenge,
+  makeNewCompletion,
 } from "../services";
-import { RootState } from "../store";
-import { useSelector } from "react-redux";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<
@@ -23,11 +24,15 @@ const Home: React.FC = () => {
   const [completionStats, setCompletionStats] = useState<
     CompletionStats | undefined
   >();
+  const [completion, setCompletion] = useState<Completion | undefined>();
 
   const [challenge, setChallenge] = useState<Challenge>();
 
-  // Set completedChallenge using the getHasCompleted Service
-  const token = useSelector((state: RootState) => state.auth.token);
+  const [token, setToken] = useState<string | undefined>();
+
+  const { getToken } = useKindeAuth();
+
+  getToken().then((token) => setToken(token));
 
   useEffect(() => {
     getCompletionStats(token).then((stats) => setCompletionStats(stats));
@@ -36,6 +41,7 @@ const Home: React.FC = () => {
     getHasCompleted(token).then((response) =>
       setCompletedChallenge(response.completed)
     );
+    console.log(token);
   }, [token]);
 
   // Update current page based on completedChallenge
@@ -44,18 +50,24 @@ const Home: React.FC = () => {
     setCurrentPage(page);
   }, [completedChallenge]);
 
-  useEffect(() => {});
-
-  const handleOnClick = () => {
+  const handleOnClick = (description?: string) => {
     if (currentPage === "home") {
       setCurrentPage("completion");
     } else if (currentPage === "completion") {
-      setCompletedChallenge(true);
+      console.log(description);
+      console.log(token);
+      description !== undefined &&
+        token !== undefined &&
+        makeNewCompletion(description, token).then((completion): void => {
+          console.log(completion);
+          setCompletion(completion);
+          setCompletedChallenge(true);
+        });
     }
   };
 
   return (
-    <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite">
+    <div className="flex flex-col gap-y-10 items-center justify-between bg-kindly-offWhite min-h-screen">
       <Navbar />
       <div className="w-fit">
         {/* Stats Section */}
@@ -71,6 +83,7 @@ const Home: React.FC = () => {
             layoutType={currentPage}
             handleButtonClick={handleOnClick}
             challenge={challenge}
+            completion={completion}
           />
         </div>
       </div>

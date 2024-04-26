@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
-import { KindeProvider } from '@kinde-oss/kinde-auth-react';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 
 const inDev = import.meta.env.VITE_ENVIRONMENT;
 
-if (inDev !== 'dev') {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
+if (inDev !== "dev") {
+  ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
       <KindeProvider
         clientId={import.meta.env.VITE_KINDE_FRONTEND_CLIENT_ID}
@@ -20,7 +20,7 @@ if (inDev !== 'dev') {
     </React.StrictMode>
   );
 } else {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
+  ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
       <App />
     </React.StrictMode>

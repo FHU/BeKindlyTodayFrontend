@@ -12,13 +12,6 @@ import TestCompletion from "./otherPages/TestCompletion";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Provider } from "react-redux";
-import store from "./store";
-import authSlice from "./store/slices/auth";
-
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { useEffect } from "react";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,24 +50,5 @@ const router = createBrowserRouter([
   },
 ]);
 export default function App() {
-  const { getToken, isAuthenticated } = useKindeAuth();
-
-  useEffect(() => {
-    getToken().then(
-      (token) => {
-        token !== undefined
-          ? authSlice.actions.setToken({ token })
-          : console.log("No token");
-      },
-      () => {
-        console.log("get token rejected");
-      }
-    );
-  }, [isAuthenticated]);
-
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  return <RouterProvider router={router} />;
 }
