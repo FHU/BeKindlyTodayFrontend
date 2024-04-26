@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
 import "daisyui/dist/full.css";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { Challenge } from "../services";
 
 let userInput = "";
 interface Post {
@@ -13,9 +14,14 @@ interface Post {
 interface CardProps {
   layoutType: "home" | "completion" | "confirmation" | "staticFeed" | undefined;
   handleButtonClick: () => void;
+  challenge?: Challenge;
 }
 
-const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
+const Card: React.FC<CardProps> = ({
+  layoutType,
+  handleButtonClick,
+  challenge,
+}) => {
   const inDev = import.meta.env.VITE_ENVIRONMENT === "dev";
 
   const { register, isAuthenticated } = useKindeAuth();
@@ -44,16 +50,14 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
               <BsCheck2 />
             </div>
             <p className="font-bold text-lg text-kindly-blue">
-              {post.challenge}
+              {challenge?.prompt}
             </p>
           </div>
           <div className="flex flex-row ">
             <div className="text-3xl text-kindly-blue pr-2 pt-1">
               <BsCheck2All />
             </div>
-            <p className="font-semibold text-black">
-              Make it a video or audio message instead of a regular text.
-            </p>
+            <p className="font-semibold text-black">{challenge?.twist}</p>
           </div>
           <div className="card-actions justify-center pt-4">
             {inDev || isAuthenticated ? (
@@ -175,7 +179,7 @@ const Card: React.FC<CardProps> = ({ layoutType, handleButtonClick }) => {
 
   const image = (
     <figure className="rounded-none">
-      <img src={post.visual} alt="Challenges"/>
+      <img src={post.visual} alt="Challenges" />
     </figure>
   );
 
