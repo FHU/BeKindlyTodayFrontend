@@ -1,11 +1,11 @@
 import fancyFetch from "./fetchData";
 
 /** The shape of the challenges returned from the backend */
-interface Challenge {
+export interface Challenge {
   date: string;
   id: number;
   image: string;
-  promt: string;
+  prompt: string;
   rating: number;
   source: string;
   spanishPrompt: string;
