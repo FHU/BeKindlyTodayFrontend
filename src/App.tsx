@@ -57,7 +57,7 @@ const router = createBrowserRouter([
   },
 ]);
 export default function App() {
-  const { getToken, register, isAuthenticated } = useKindeAuth();
+  const { getToken, isAuthenticated } = useKindeAuth();
 
   useEffect(() => {
     getToken().then(
