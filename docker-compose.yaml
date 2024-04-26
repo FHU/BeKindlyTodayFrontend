@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   db:
     container_name: db_c
@@ -15,7 +15,7 @@ services:
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - PORT=${BACKEND_PORT}
-      - ENVIRONMENT=dev
+      - ENVIRONMENT=${ENVIRONMENT}
     ports:
       - ${BACKEND_PORT}:${BACKEND_PORT}
   frontend:
