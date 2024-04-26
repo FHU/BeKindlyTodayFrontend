@@ -25,7 +25,7 @@ const Navbar = () => {
         BeKindly
       </h1>
       <div className="flex justify-end items-center">
-        {/* {inDev || isAuthenticated ? ( */}
+        {inDev || isAuthenticated ? (
           <div>
             <Link to="/calendar" data-testid="calendar-link">
               <div className="btn md:px-2 px-1 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
@@ -38,7 +38,7 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
-        {/* ) : (
+        ) : (
           <div className="flex text-right my-4 items-center">
             <div>
               <button
@@ -60,7 +60,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-        )} */}
+        )}
       </div>
     </nav>
   );
