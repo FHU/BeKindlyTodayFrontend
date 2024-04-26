@@ -20,7 +20,6 @@ const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<
     "home" | "completion" | "confirmation"
   >();
-  const [completedChallenge, setCompletedChallenge] = useState<boolean>(false);
   const [completionStats, setCompletionStats] = useState<
     CompletionStats | undefined
   >();
@@ -47,7 +46,7 @@ const Home: React.FC = () => {
     } else {
       getCompletionStats().then((stats) => setCompletionStats(stats));
     }
-  }, []);
+  }, [isAuthenticated]);
 
   // Update current page based on completedChallenge
   useEffect(() => {
@@ -59,11 +58,12 @@ const Home: React.FC = () => {
     if (currentPage === "home") {
       setCurrentPage("completion");
     } else if (currentPage === "completion") {
+      console.log(description);
+      console.log(savedToken !== undefined);
       description !== undefined &&
         savedToken !== undefined &&
         makeNewCompletion(description, savedToken).then((completion): void => {
           setCompletion(completion);
-          setCompletedChallenge(true);
         });
     }
   };
@@ -79,7 +79,9 @@ const Home: React.FC = () => {
         <CountdownTimer />
         <div className="mx-auto w-fit">
           <h2 className="text-3xl py-3 text-white sm:w-96 w-80 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
-            {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
+            {completion !== undefined
+              ? "Completed Challenge"
+              : "Today's Challenge"}
           </h2>
           <Card
             layoutType={currentPage}
