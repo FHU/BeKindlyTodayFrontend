@@ -21,7 +21,7 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <h1 className="text-3xl md:text-5xl my-auto justify-self-center">
+      <h1 className="text-3xl md:text-5xl my-auto md:justify-self-center justify-self-start">
         BeKindly
       </h1>
       <div className="flex items-start justify-end">
