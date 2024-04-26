@@ -5,9 +5,14 @@ import Footer from "../components/Footer";
 import CountdownTimer from "../components/Timer";
 import Card from "../components/Card";
 import Feed from "../components/Feed";
-import { getHasCompleted, getCompletionStats } from "../services";
+import {
+  getHasCompleted,
+  getCompletionStats,
+  getTodaysChallenge,
+  CompletionStats,
+  Challenge,
+} from "../services";
 import { RootState } from "../store";
-import { CompletionStats } from "../services";
 import { useSelector } from "react-redux";
 
 const Home: React.FC = () => {
@@ -19,11 +24,14 @@ const Home: React.FC = () => {
     CompletionStats | undefined
   >();
 
+  const [challenge, setChallenge] = useState<Challenge>();
+
   // Set completedChallenge using the getHasCompleted Service
   const token = useSelector((state: RootState) => state.auth.token);
 
   useEffect(() => {
     getCompletionStats(token).then((stats) => setCompletionStats(stats));
+    getTodaysChallenge().then((challenge) => setChallenge(challenge));
     if (token === undefined) return;
     getHasCompleted(token).then((response) =>
       setCompletedChallenge(response.completed)
@@ -49,7 +57,6 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col gap-y-10 items-center bg-kindly-offWhite">
       <Navbar />
-
       <div className="w-fit">
         {/* Stats Section */}
         <div className="flex justify-center pb-6">
@@ -60,7 +67,11 @@ const Home: React.FC = () => {
           <h2 className="text-3xl py-3 text-white md:w-96 w-80 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
           </h2>
-          <Card layoutType={currentPage} handleButtonClick={handleOnClick} />
+          <Card
+            layoutType={currentPage}
+            handleButtonClick={handleOnClick}
+            challenge={challenge}
+          />
         </div>
       </div>
       {currentPage === "confirmation" && <Feed />}
