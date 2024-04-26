@@ -17,10 +17,6 @@ export interface Completion {
   completed_twist: boolean;
 }
 
-interface CompletionStatus {
-  completed: boolean;
-}
-
 /**
  * A function to make a new completion in the backend
  * @param description The content of the post to be persistend in the backend
@@ -78,9 +74,9 @@ async function deleteCompletion(id: number, token: string) {
  * A function to get a boolean that is true if the logged in user has completed today's challenge
  * @returns Promise<CompletionStatus>The state of the current challenge for the logged in user
  */
-async function getHasCompleted(token: string): Promise<CompletionStatus> {
+async function getTodaysCompletion(token: string): Promise<Completion> {
   return await fancyFetch({
-    endpoint: "/completions/has_completed",
+    endpoint: "/completions/today",
     method: "GET",
     token,
   });
@@ -91,5 +87,5 @@ export {
   getCompletionStats,
   makeNewCompletion,
   deleteCompletion,
-  getHasCompleted,
+  getTodaysCompletion,
 };
