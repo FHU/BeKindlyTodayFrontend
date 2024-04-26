@@ -7,23 +7,6 @@ interface Props {
 }
 
 function Stats({ stats }: Readonly<Props>) {
-  if (stats === undefined) {
-    return (
-      <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-horizontal text-white">
-        <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
-          <p>...</p>
-        </div>
-
-        <div className="stat rounded-lg place-items-center bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
-          <p>...</p>
-        </div>
-
-        <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
-          <p>...</p>
-        </div>
-      </div>
-    );
-  }
   const convertToK = (num: number) => {
     if (num >= 1000 && num <= 999999) {
       return num / 1000;
@@ -61,33 +44,34 @@ function Stats({ stats }: Readonly<Props>) {
   );
 
   useEffect(() => {
-    const animationGlobal = animate(
-      countGlobal,
-      convertToK(stats.world_completions_count),
-      {
-        duration: 2,
-      }
-    );
-    const animationGlobalDaily = animate(
-      countGlobalDaily,
-      convertToK(stats.world_daily_completions_count),
-      { duration: 2.5, delay: 0.5 }
-    );
-    const animationPersonal = animate(
-      countPersonal,
-      convertToK(stats.user_completions_count),
-      {
-        duration: 2.75,
-        delay: 1,
-      }
-    );
-
-    return () => {
-      animationGlobal.stop();
-      animationGlobalDaily.stop();
-      animationPersonal.stop();
-    };
-  }, []);
+    if (stats !== undefined) {
+      const animationGlobal = animate(
+        countGlobal,
+        convertToK(stats.world_completions_count),
+        {
+          duration: 2,
+        }
+      );
+      const animationGlobalDaily = animate(
+        countGlobalDaily,
+        convertToK(stats.world_daily_completions_count),
+        { duration: 2.5, delay: 0.5 }
+      );
+      const animationPersonal = animate(
+        countPersonal,
+        convertToK(stats.user_completions_count),
+        {
+          duration: 2.75,
+          delay: 1,
+        }
+      );
+      return () => {
+        animationGlobal.stop();
+        animationGlobalDaily.stop();
+        animationPersonal.stop();
+      };
+    }
+  }, [stats]);
 
   {
     /* bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue */
@@ -96,38 +80,56 @@ function Stats({ stats }: Readonly<Props>) {
     <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-horizontal text-white">
       <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
         <div className="flex flex-row items-end">
-          <motion.div className="stat-value">{roundedGlobal}</motion.div>
+          <motion.div className="stat-value">
+            {stats !== undefined && roundedGlobal}
+          </motion.div>
           <div className="stat-desc text-3xl text-white">
             {" "}
-            {KConvert(stats.world_completions_count)}
+            {stats === undefined
+              ? ". . ."
+              : KConvert(stats.world_completions_count)}
           </div>
         </div>
-        <div className="stat-title text-white">Globally</div>
+        <div className="stat-title text-white">
+          {stats !== undefined && "Globally"}
+        </div>
       </div>
 
       <div className="stat rounded-lg place-items-center bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
         <div className="flex flex-row items-end">
           <motion.div className="flex stat-value">
-            {roundedGlobalDaily}
+            {stats !== undefined && roundedGlobalDaily}
           </motion.div>
           <div className="stat-desc text-3xl text-white">
             {" "}
-            {KConvert(stats.world_daily_completions_count)}
+            {stats === undefined
+              ? ". . ."
+              : KConvert(stats.world_daily_completions_count)}
           </div>
         </div>
-        <div className="stat-title text-white">Globally</div>
-        <div className="stat-title text-white">Daily</div>
+        <div className="stat-title text-white">
+          {stats !== undefined && "Globally"}
+        </div>
+        <div className="stat-title text-white">
+          {stats !== undefined && "Daily"}
+        </div>
       </div>
 
       <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
         <div className="flex flex-row items-end">
-          <motion.div className="stat-value">{roundedPersonal}</motion.div>
+          <motion.div className="stat-value">
+            {stats !== undefined && roundedPersonal}
+          </motion.div>
           <div className="stat-desc text-3xl text-white">
             {" "}
-            {KConvert(stats.user_completions_count)}
+            {stats === undefined
+              ? ". . ."
+              : KConvert(stats.user_completions_count)}
           </div>
         </div>
-        <div className="stat-title text-white">Personal</div>
+        <div className="stat-title text-white">
+          {stats !== undefined && "Personal"}
+        </div>
       </div>
     </div>
   );
