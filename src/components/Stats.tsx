@@ -3,19 +3,11 @@ import { useEffect } from "react";
 import { CompletionStats } from "../services/CompletionService";
 
 interface Props {
-  stats: CompletionStats;
-  hasLoaded: boolean;
+  stats?: CompletionStats;
 }
 
-function Stats({
-  stats: {
-    world_completions_count,
-    world_daily_completions_count,
-    user_completions_count,
-  },
-  hasLoaded,
-}: Readonly<Props>) {
-  if (!hasLoaded) {
+function Stats({ stats }: Readonly<Props>) {
+  if (stats === undefined) {
     return (
       <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-horizontal text-white">
         <div className="stat rounded-lg place-items-center p-7 bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
@@ -71,19 +63,19 @@ function Stats({
   useEffect(() => {
     const animationGlobal = animate(
       countGlobal,
-      convertToK(world_completions_count),
+      convertToK(stats.world_completions_count),
       {
         duration: 2,
       }
     );
     const animationGlobalDaily = animate(
       countGlobalDaily,
-      convertToK(world_daily_completions_count),
+      convertToK(stats.world_daily_completions_count),
       { duration: 2.5, delay: 0.5 }
     );
     const animationPersonal = animate(
       countPersonal,
-      convertToK(user_completions_count),
+      convertToK(stats.user_completions_count),
       {
         duration: 2.75,
         delay: 1,
@@ -107,7 +99,7 @@ function Stats({
           <motion.div className="stat-value">{roundedGlobal}</motion.div>
           <div className="stat-desc text-3xl text-white">
             {" "}
-            {KConvert(world_completions_count)}
+            {KConvert(stats.world_completions_count)}
           </div>
         </div>
         <div className="stat-title text-white">Globally</div>
@@ -120,7 +112,7 @@ function Stats({
           </motion.div>
           <div className="stat-desc text-3xl text-white">
             {" "}
-            {KConvert(world_daily_completions_count)}
+            {KConvert(stats.world_daily_completions_count)}
           </div>
         </div>
         <div className="stat-title text-white">Globally</div>
@@ -132,7 +124,7 @@ function Stats({
           <motion.div className="stat-value">{roundedPersonal}</motion.div>
           <div className="stat-desc text-3xl text-white">
             {" "}
-            {KConvert(user_completions_count)}
+            {KConvert(stats.user_completions_count)}
           </div>
         </div>
         <div className="stat-title text-white">Personal</div>
