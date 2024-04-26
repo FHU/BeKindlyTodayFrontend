@@ -116,7 +116,7 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
   const streakDays = calculateStreak(currentDay, initialMonth, initialYear);
   const streakTitle = (
     <div
-      className="text-center text-3xl font-bold text-white py-4 w-full rounded-lg bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
+      className="text-center text-3xl font-bold text-white py-4 w-full rounded-xl bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
       style={{ maxWidth: "800px" }}
     >
       Current Streak: {streakDays} Days
