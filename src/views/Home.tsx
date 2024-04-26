@@ -6,7 +6,7 @@ import CountdownTimer from "../components/Timer";
 import Card from "../components/Card";
 import Feed from "../components/Feed";
 import {
-  getHasCompleted,
+  getTodaysCompletion,
   getCompletionStats,
   getTodaysChallenge,
   CompletionStats,
@@ -33,24 +33,23 @@ const Home: React.FC = () => {
   const { getToken, isAuthenticated } = useKindeAuth();
 
   useEffect(() => {
-    isAuthenticated && getToken().then((token) => setToken(token));
-  });
-
-  useEffect(() => {
-    getCompletionStats(token).then((stats) => setCompletionStats(stats));
-    getTodaysChallenge().then((challenge) => setChallenge(challenge));
-    if (token === undefined) return;
-    getHasCompleted(token).then((response) =>
-      setCompletedChallenge(response.completed)
-    );
-    console.log(token);
+    if (isAuthenticated) {
+      getTodaysChallenge().then((challenge) => setChallenge(challenge));
+      getToken().then((token) => {
+        if (token !== undefined) {
+          getTodaysCompletion(token).then((completion) =>
+            setCompletion(completion)
+          );
+        }
+      });
+    }
   }, []);
 
   // Update current page based on completedChallenge
   useEffect(() => {
-    const page = completedChallenge ? "confirmation" : "home";
+    const page = completion !== undefined ? "confirmation" : "home";
     setCurrentPage(page);
-  }, [completedChallenge]);
+  }, [completion]);
 
   const handleOnClick = (description?: string) => {
     if (currentPage === "home") {
