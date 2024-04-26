@@ -74,7 +74,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </Provider>
   );
 }
