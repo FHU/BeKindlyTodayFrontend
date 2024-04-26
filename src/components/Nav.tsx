@@ -39,7 +39,7 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div className="flex text-right my-4 items-center">
+          <div className="flex md:flex-row flex-col text-right my-4 items-center">
             <div>
               <button
                 onClick={() => login()}
@@ -49,7 +49,8 @@ const Navbar = () => {
                 Sign In
               </button>
             </div>
-            <div className="text-xl">/</div>
+            <div className="text-xl hidden md:block">/</div>
+            <div className="text-xl block md:hidden md:border-0 border-b-2 w-10"></div>
             <div>
               <button
                 onClick={() => register()}
