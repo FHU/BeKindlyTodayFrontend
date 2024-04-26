@@ -6,29 +6,29 @@ import CountdownTimer from "../components/Timer";
 import Card from "../components/Card";
 import Feed from "../components/Feed";
 import { getHasCompleted, getCompletionStats } from "../services";
+import { RootState } from "../store";
 import { CompletionStats } from "../services";
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { useSelector } from "react-redux";
 
 const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<
     "home" | "completion" | "confirmation"
   >();
   const [completedChallenge, setCompletedChallenge] = useState<boolean>(false);
-  const [completionStats, setCompletionStats] = UseState<CompletionStats>({
-    world_completions_count: 0,
-    world_daily_completions_count: 0,
-    user_completions_count: 0,
-  });
-
-  const { isAuthenticated } = useKindeAuth;
+  const [completionStats, setCompletionStats] = useState<
+    CompletionStats | undefined
+  >();
 
   // Set completedChallenge using the getHasCompleted Service
+  const token = useSelector((state: RootState) => state.auth.token);
+
   useEffect(() => {
-    (async () => {
-      const completion_response = await getHasCompleted();
-      setCompletedChallenge(completion_response.completed);
-    })();
-  }, []);
+    getCompletionStats(token).then((stats) => setCompletionStats(stats));
+    if (token === undefined) return;
+    getHasCompleted(token).then((response) =>
+      setCompletedChallenge(response.completed)
+    );
+  }, [token]);
 
   // Update current page based on completedChallenge
   useEffect(() => {
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
       <div className="w-fit">
         {/* Stats Section */}
         <div className="flex justify-center pb-6">
-          <Stats stats={} />
+          <Stats stats={completionStats} />
         </div>
         <CountdownTimer />
         <div className="mx-auto w-fit">
