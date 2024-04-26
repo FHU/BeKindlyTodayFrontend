@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { BsCheckCircle, BsCheck2, BsCheck2All } from "react-icons/bs";
-import "daisyui/dist/full.css";
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { Challenge, Completion } from "../services";
+import React, { useState } from 'react';
+import { BsCheckCircle, BsCheck2, BsCheck2All } from 'react-icons/bs';
+import 'daisyui/dist/full.css';
+import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
+import { Challenge, Completion } from '../services';
 
-let userInput = "";
+// let userInput = '';
 
 interface CardProps {
-  layoutType: "home" | "completion" | "confirmation" | "staticFeed" | undefined;
+  layoutType: 'home' | 'completion' | 'confirmation' | 'staticFeed' | undefined;
   handleButtonClick: (description?: string) => void;
   challenge?: Challenge;
   completion?: Completion;
@@ -19,20 +19,20 @@ const Card: React.FC<CardProps> = ({
   challenge,
   completion,
 }) => {
-  const inDev = import.meta.env.VITE_ENVIRONMENT === "dev";
+  const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
 
   const { register, isAuthenticated } = useKindeAuth();
-  const [textValue, setTextValue] = useState("");
+  const [textValue, setTextValue] = useState('');
 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target;
     setTextValue(value.slice(0, 250)); // Limiting to 250 characters
-    userInput = value; // Exporting user input by assigning it to userInput variable
+    // userInput = value; // Exporting user input by assigning it to userInput variable
   };
 
   let cardBody;
   switch (layoutType) {
-    case "home":
+    case 'home':
       cardBody = (
         <div className="card-body">
           <div className="flex flex-row items-center">
@@ -98,7 +98,7 @@ const Card: React.FC<CardProps> = ({
       );
       break;
 
-    case "completion":
+    case 'completion':
       const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
       cardBody = (
         <div className="card-body bg-white rounded-2xl">
@@ -149,7 +149,7 @@ const Card: React.FC<CardProps> = ({
       );
       break;
 
-    case "confirmation":
+    case 'confirmation':
       cardBody = (
         <div className="card-body">
           <div className="text-black text-center py-6">
@@ -167,7 +167,7 @@ const Card: React.FC<CardProps> = ({
 
   const image = (
     <figure className="rounded-none">
-      <img src={challenge?.image} alt="Challenges" />{" "}
+      <img src={challenge?.image} alt="Challenges" />{' '}
       {/* FIXME need to implement images on the backend */}
     </figure>
   );
@@ -175,7 +175,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       className={`card card-compact md:w-96 w-80 bg-base-100 bg-white ${
-        layoutType === "completion" ? "custom-class" : ""
+        layoutType === 'completion' ? 'custom-class' : ''
       }`}
     >
       {image}
