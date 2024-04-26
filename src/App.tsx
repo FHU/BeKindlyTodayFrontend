@@ -1,23 +1,31 @@
 //import Login from "./otherPages/Login"
 //import Signup from "./otherPages/Signup"
-import Option from './views/Option';
-import Home from './views/Home';
+import Option from "./views/Option";
+import Home from "./views/Home";
 //import Completion from "./views/Completion"
-import Calendar from './views/Calendar';
+import Calendar from "./views/Calendar";
 //import Confirmation from "./views/Confirmation";
-import Profile from './views/Profile';
-import TestConfirmation from './otherPages/TestConfirmation';
-import TestCompletion from './otherPages/TestCompletion';
+import Profile from "./views/Profile";
+import TestConfirmation from "./otherPages/TestConfirmation";
+import TestCompletion from "./otherPages/TestCompletion";
 //import Main from "./Index"
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import store from "./store";
+import authSlice from "./store/slices/auth";
+
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { useEffect } from "react";
+
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Option />,
   },
   {
-    path: '/home',
+    path: "/home",
     element: <Home />,
   },
   // {
@@ -25,8 +33,8 @@ const router = createBrowserRouter([
   //   element: <Completion/>
   // },
   {
-    path: '/calendar',
-    element: <Calendar />,
+    path: "/calendar",
+    element: <Calendar currentDay={10} />,
   },
   // {
   //   path: "/confirmation",
@@ -34,21 +42,39 @@ const router = createBrowserRouter([
   // }
   // ,
   {
-    path: '/profile',
+    path: "/profile",
     element: <Profile />,
   },
 
   {
-    path: '/testconfirmation',
+    path: "/testconfirmation",
     element: <TestConfirmation />,
   },
 
   {
-    path: '/testcompletion',
+    path: "/testcompletion",
     element: <TestCompletion />,
   },
 ]);
-
 export default function App() {
-  return <RouterProvider router={router} />;
+  const { getToken, register, isAuthenticated } = useKindeAuth();
+
+  useEffect(() => {
+    getToken().then(
+      (token) => {
+        token !== undefined
+          ? authSlice.actions.setToken({ token })
+          : console.log("No token");
+      },
+      () => {
+        console.log("get token rejected");
+      }
+    );
+  }, [isAuthenticated]);
+
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />;
+    </Provider>
+  );
 }
