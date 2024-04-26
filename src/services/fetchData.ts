@@ -1,40 +1,45 @@
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
-
 /**
  * A fancy Fetch abstraction for DRY principles
  * @param endpoint The endpoint on the backend the fetch is ran against
  * @param method The method used in the request
  * @param data If a method requires body data, this is that data
+ * @param token The access token for validation provided by Kinde
  * @returns Returns are dynamic depending on method.
  */
-export default async function fancyFetch(
-  endpoint: string,
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE',
-  data?: object
-) {
-  const inDev = import.meta.env.VITE_ENVIRONMENT === 'dev';
+export default async function fancyFetch(options: {
+  endpoint: string;
+  method: "GET" | "POST" | "PUT" | "DELETE";
+  data?: object;
+  token?: string;
+}) {
+  const { endpoint, method, data, token } = options;
+  const inDev = import.meta.env.VITE_ENVIRONMENT === "dev";
 
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const API_VERSION = '/api/v1';
+  const API_VERSION = "/api/v1";
   const url = BACKEND_URL + API_VERSION + endpoint;
 
   if (!inDev) {
-    const { getToken } = useKindeAuth();
     try {
-      const accessToken = await getToken();
-
+      const headers: HeadersInit =
+        token !== undefined
+          ? {
+              Authorization: `Bearer ${token}`,
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Headers":
+                "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization",
+              "Access-Control-Allow-Methods":
+                "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            }
+          : {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            };
       const res: any = await fetch(url, {
         method,
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers':
-            'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization',
-          'Access-Control-Allow-Methods':
-            'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
+        headers,
         body: JSON.stringify(data),
       });
 
@@ -44,7 +49,7 @@ export default async function fancyFetch(
 
       return await res.json();
     } catch (err) {
-      console.error('Error fetching data:', err);
+      console.error("Error fetching data:", err);
     }
   } else {
     const res = await fetch(url, { method, body: JSON.stringify(data) });
