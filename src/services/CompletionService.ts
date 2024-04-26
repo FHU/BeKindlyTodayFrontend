@@ -8,7 +8,7 @@ export interface CompletionStats {
 }
 
 /**The shape of the completions returned from the backend */
-interface Completion {
+export interface Completion {
   id: number;
   description: string;
   date: string;
