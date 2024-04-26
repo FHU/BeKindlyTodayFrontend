@@ -78,7 +78,7 @@ function Stats({ stats }: Readonly<Props>) {
   }
   return (
     <div className="stats rounded-none place-items-center gap-4 bg-kindly-offWhite stats-horizontal text-white">
-        <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+        <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
             <div className="flex flex-row items-end">
             <motion.div className="stat-value">
                 {stats !== undefined && roundedGlobal}
@@ -95,7 +95,7 @@ function Stats({ stats }: Readonly<Props>) {
             </div>
       </div>
 
-      <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+      <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
         <div className="flex flex-row items-end">
           <motion.div className="flex stat-value">
             {stats !== undefined && roundedGlobalDaily}
@@ -115,7 +115,7 @@ function Stats({ stats }: Readonly<Props>) {
         </div>
       </div>
 
-      <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
+      <div className="stat flex flex-col justify-center rounded-lg place-items-center h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
         <div className="flex flex-row items-end">
           <motion.div className="stat-value">
             {stats !== undefined && roundedPersonal}

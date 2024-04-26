@@ -75,7 +75,7 @@ const Home: React.FC = () => {
         </div>
         <CountdownTimer />
         <div className="mx-auto w-fit">
-          <h2 className="text-3xl py-3 text-white md:w-96 w-80 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
+          <h2 className="text-3xl py-3 text-white sm:w-96 w-80 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
             {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
           </h2>
           <Card

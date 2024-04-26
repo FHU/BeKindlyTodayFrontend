@@ -174,7 +174,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className={`card card-compact md:w-96 w-80 bg-base-100 bg-white ${
+      className={`card card-compact sm:w-96 w-80 bg-base-100 bg-white ${
         layoutType === 'completion' ? 'custom-class' : ''
       }`}
     >
