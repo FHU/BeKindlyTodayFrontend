@@ -28,19 +28,21 @@ const Home: React.FC = () => {
 
   const [challenge, setChallenge] = useState<Challenge>();
 
-  const [token, setToken] = useState<string | undefined>();
+  const [savedToken, setSavedToken] = useState<string | undefined>();
 
   const { getToken, isAuthenticated } = useKindeAuth();
 
   useEffect(() => {
+    getTodaysChallenge().then((challenge) => setChallenge(challenge));
     if (isAuthenticated) {
-      getTodaysChallenge().then((challenge) => setChallenge(challenge));
       getToken().then((token) => {
         if (token !== undefined) {
+          setSavedToken(token);
           getTodaysCompletion(token).then((completion) =>
             setCompletion(completion)
           );
         }
+        getCompletionStats(token).then((stats) => setCompletionStats(stats));
       });
     }
   }, []);
@@ -56,8 +58,8 @@ const Home: React.FC = () => {
       setCurrentPage("completion");
     } else if (currentPage === "completion") {
       description !== undefined &&
-        token !== undefined &&
-        makeNewCompletion(description, token).then((completion): void => {
+        savedToken !== undefined &&
+        makeNewCompletion(description, savedToken).then((completion): void => {
           setCompletion(completion);
           setCompletedChallenge(true);
         });
