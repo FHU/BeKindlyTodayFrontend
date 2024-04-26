@@ -44,7 +44,7 @@ const Navbar = () => {
               <button
                 onClick={() => login()}
                 type="button"
-                className="btn px-2 text-xs text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+                className="btn shadow-none px-2 text-xs text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
               >
                 Sign In
               </button>
@@ -55,7 +55,7 @@ const Navbar = () => {
               <button
                 onClick={() => register()}
                 type="button"
-                className="btn px-2 text-xs text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
+                className="btn shadow-none px-2 text-xs text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75"
               >
                 Sign Up
               </button>
