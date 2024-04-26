@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Nav';
-import Stats from '../components/Stats';
-import Footer from '../components/Footer';
-import CountdownTimer from '../components/Timer';
-import Card from '../components/Card';
-import Feed from '../components/Feed';
+import React, { useState, useEffect } from "react";
+import Navbar from "../components/Nav";
+import Stats from "../components/Stats";
+import Footer from "../components/Footer";
+import CountdownTimer from "../components/Timer";
+import Card from "../components/Card";
+import Feed from "../components/Feed";
 import {
   getHasCompleted,
   getCompletionStats,
@@ -13,12 +13,12 @@ import {
   Completion,
   Challenge,
   makeNewCompletion,
-} from '../services';
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
+} from "../services";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<
-    'home' | 'completion' | 'confirmation'
+    "home" | "completion" | "confirmation"
   >();
   const [completedChallenge, setCompletedChallenge] = useState<boolean>(false);
   const [completionStats, setCompletionStats] = useState<
@@ -48,16 +48,14 @@ const Home: React.FC = () => {
 
   // Update current page based on completedChallenge
   useEffect(() => {
-    const page = completedChallenge ? 'confirmation' : 'home';
+    const page = completedChallenge ? "confirmation" : "home";
     setCurrentPage(page);
   }, [completedChallenge]);
 
   const handleOnClick = (description?: string) => {
-    if (currentPage === 'home') {
-      setCurrentPage('completion');
-    } else if (currentPage === 'completion') {
-      console.log(description);
-      console.log(token);
+    if (currentPage === "home") {
+      setCurrentPage("completion");
+    } else if (currentPage === "completion") {
       description !== undefined &&
         token !== undefined &&
         makeNewCompletion(description, token).then((completion): void => {
@@ -79,7 +77,7 @@ const Home: React.FC = () => {
         <CountdownTimer />
         <div className="mx-auto w-fit">
           <h2 className="text-3xl py-3 text-white md:w-96 w-80 text-center font-extrabold bg-kindly-blue rounded-t-2xl">
-            {completedChallenge ? 'Completed Challenge' : "Today's Challenge"}
+            {completedChallenge ? "Completed Challenge" : "Today's Challenge"}
           </h2>
           <Card
             layoutType={currentPage}
@@ -89,7 +87,7 @@ const Home: React.FC = () => {
           />
         </div>
       </div>
-      {currentPage === 'confirmation' && <Feed />}
+      {currentPage === "confirmation" && <Feed />}
       <Footer />
     </div>
   );
