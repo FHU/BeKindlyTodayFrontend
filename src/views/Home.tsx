@@ -59,7 +59,6 @@ const Home: React.FC = () => {
       description !== undefined &&
         token !== undefined &&
         makeNewCompletion(description, token).then((completion): void => {
-          console.log(completion);
           setCompletion(completion);
           setCompletedChallenge(true);
         });
