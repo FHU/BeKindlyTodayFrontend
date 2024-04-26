@@ -24,21 +24,21 @@ const Navbar = () => {
       <h1 className="text-3xl md:text-5xl my-auto md:justify-self-center justify-self-start">
         BeKindly
       </h1>
-      <div className="flex items-start justify-end">
-        {inDev || isAuthenticated ? (
+      <div className="flex justify-end items-center">
+        {/* {inDev || isAuthenticated ? ( */}
           <div>
             <Link to="/calendar" data-testid="calendar-link">
-              <div className="btn md:px-2 p-4 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
+              <div className="btn md:px-2 px-1 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
                 <BsCalendar4 />
               </div>
             </Link>
             <Link to="/profile" data-testid="profile-link">
-              <div className="btn md:px-4 px-2 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
+              <div className="btn md:px-2 px-1 text-3xl md:text-5xl text-white bg-transparent border-hidden hover:bg-transparent hover:opacity-75">
                 <BsPersonCircle />
               </div>
             </Link>
           </div>
-        ) : (
+        {/* ) : (
           <div className="flex text-right my-4 items-center">
             <div>
               <button
@@ -60,7 +60,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </nav>
   );
