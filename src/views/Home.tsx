@@ -30,19 +30,23 @@ const Home: React.FC = () => {
 
   const [savedToken, setSavedToken] = useState<string | undefined>();
 
-  const { getToken } = useKindeAuth();
+  const { getToken, isAuthenticated } = useKindeAuth();
 
   useEffect(() => {
     getTodaysChallenge().then((challenge) => setChallenge(challenge));
-    getToken().then((token) => {
-      if (token !== undefined) {
-        setSavedToken(token);
-        getTodaysCompletion(token).then((completion) =>
-          setCompletion(completion)
-        );
-      }
-      getCompletionStats(token).then((stats) => setCompletionStats(stats));
-    });
+    if (isAuthenticated) {
+      getToken().then((token) => {
+        if (token !== undefined) {
+          setSavedToken(token);
+          getTodaysCompletion(token).then((completion) =>
+            setCompletion(completion)
+          );
+        }
+        getCompletionStats(token).then((stats) => setCompletionStats(stats));
+      });
+    } else {
+      getCompletionStats().then((stats) => setCompletionStats(stats));
+    }
   }, []);
 
   // Update current page based on completedChallenge
