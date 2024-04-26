@@ -1,4 +1,4 @@
-import fancyFetch from './fetchData';
+import fancyFetch from "./fetchData";
 
 /**
  * The shape of the users being returned from the backend
@@ -15,8 +15,8 @@ interface User {
  * A function to fetch the user information from our backend for the current logged in user
  * @returns Our backend information for the current logged in user
  */
-async function getLoggedInUser(): Promise<User> {
-  return await fancyFetch('/users', 'GET');
+async function getLoggedInUser(token: string): Promise<User> {
+  return await fancyFetch({ endpoint: "/users", method: "GET", token });
 }
 
 /**
@@ -24,8 +24,8 @@ async function getLoggedInUser(): Promise<User> {
  * @param id the ID of the user in our backend
  * @returns Promise<User>
  */
-async function getUserByID(id: number): Promise<User> {
-  return await fancyFetch(`/users/${id}`, 'GET');
+async function getUserByID(id: number, token: string): Promise<User> {
+  return await fancyFetch({ endpoint: `/users/${id}`, method: "GET", token });
 }
 
 /**
@@ -33,8 +33,13 @@ async function getUserByID(id: number): Promise<User> {
  * @param bio The bio to be updated to
  * @returns the new user object
  */
-async function updateUserBio(bio: string): Promise<User> {
-  return await fancyFetch('/users/bio', 'PUT', { bio });
+async function updateUserBio(bio: string, token: string): Promise<User> {
+  return await fancyFetch({
+    endpoint: "/users/bio",
+    method: "PUT",
+    data: { bio },
+    token,
+  });
 }
 
 /**
@@ -42,8 +47,16 @@ async function updateUserBio(bio: string): Promise<User> {
  * @param profilePicture the profile pictures name to be updated to
  * @returns the new user object
  */
-async function updateUserProfilePicture(profilePicture: string): Promise<User> {
-  return await fancyFetch('/users/bio', 'PUT', { profilePicture });
+async function updateUserProfilePicture(
+  profilePicture: string,
+  token: string
+): Promise<User> {
+  return await fancyFetch({
+    endpoint: "/users/bio",
+    method: "PUT",
+    data: { profilePicture },
+    token,
+  });
 }
 
 /**
@@ -51,8 +64,13 @@ async function updateUserProfilePicture(profilePicture: string): Promise<User> {
  * @param username the new username
  * @returns the new user object
  */
-async function updateUsername(username: string): Promise<User> {
-  return await fancyFetch('/users/bio', 'PUT', { username });
+async function updateUsername(username: string, token: string): Promise<User> {
+  return await fancyFetch({
+    endpoint: "/users/bio",
+    method: "PUT",
+    data: { username },
+    token,
+  });
 }
 
 export {

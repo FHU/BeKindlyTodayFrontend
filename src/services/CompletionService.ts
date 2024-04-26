@@ -26,9 +26,17 @@ interface CompletionStatus {
  * @param description The content of the post to be persistend in the backend
  * @returns Promise<Completion>
  */
-async function makeNewCompletion(description: string): Promise<Completion> {
-  return await fancyFetch("/completions", "POST", {
-    description,
+async function makeNewCompletion(
+  description: string,
+  token: string
+): Promise<Completion> {
+  return await fancyFetch({
+    endpoint: "/completions",
+    method: "POST",
+    data: {
+      description,
+    },
+    token: token,
   });
 }
 
@@ -36,16 +44,21 @@ async function makeNewCompletion(description: string): Promise<Completion> {
  * A function to get all completions from the backend
  * @returns Promise<Completion[]> (array of all completions in backend)
  */
-async function getAllCompletions(): Promise<Completion[]> {
-  return await fancyFetch("/completions", "GET");
+async function getAllCompletions(token: string): Promise<Completion[]> {
+  return await fancyFetch({ endpoint: "/completions", method: "GET", token });
 }
 
 /**
  * A function to get the completion stats for the logged in user
  * @returns Promise<CompletionStats>The completion stats for the current logged in user for the day
  */
-async function getCompletionStats(): Promise<CompletionStats> {
-  return await fancyFetch("/completions/stats", "GET");
+async function getCompletionStats(token?: string): Promise<CompletionStats> {
+  return await fancyFetch({
+    endpoint:
+      token === undefined ? "/completions/unauth_stats" : "/completions/stats",
+    method: "GET",
+    token,
+  });
 }
 
 /**
@@ -53,16 +66,24 @@ async function getCompletionStats(): Promise<CompletionStats> {
  * @param id the id of the completion to delete
  * @returns nothing :)
  */
-async function deleteCompletion(id: number) {
-  return await await fancyFetch(`/completions/${id}}`, "DELETE");
+async function deleteCompletion(id: number, token: string) {
+  return await await fancyFetch({
+    endpoint: `/completions/${id}}`,
+    method: "DELETE",
+    token,
+  });
 }
 
 /**
  * A function to get a boolean that is true if the logged in user has completed today's challenge
  * @returns Promise<CompletionStatus>The state of the current challenge for the logged in user
  */
-async function getHasCompleted(): Promise<CompletionStatus> {
-  return await fancyFetch("/completions/has_completed", "GET");
+async function getHasCompleted(token: string): Promise<CompletionStatus> {
+  return await fancyFetch({
+    endpoint: "/completions/has_completed",
+    method: "GET",
+    token,
+  });
 }
 
 export {

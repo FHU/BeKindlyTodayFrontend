@@ -1,4 +1,4 @@
-import fancyFetch from './fetchData';
+import fancyFetch from "./fetchData";
 
 /** The shape of the challenges returned from the backend */
 interface Challenge {
@@ -19,7 +19,7 @@ interface Challenge {
  * @returns Promise<Challenge>
  */
 async function getTodaysChallenge(): Promise<Challenge> {
-  return await fancyFetch('/challenges/today', 'GET');
+  return await fancyFetch({ endpoint: "/challenges/today", method: "GET" });
 }
 
 export { getTodaysChallenge };
