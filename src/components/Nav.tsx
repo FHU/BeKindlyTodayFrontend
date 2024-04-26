@@ -8,7 +8,7 @@ const Navbar = () => {
   const { login, register, isAuthenticated } = useKindeAuth();
 
   return (
-    <nav className="grid grid-cols-3 w-full text-2xl px-2 md:px-5 bg-kindly-blue text-kindly-offWhite">
+    <nav className="grid grid-cols-3 w-full text-2xl px-2 md:px-5 items-center bg-kindly-blue text-kindly-offWhite">
       <Link
         to="/home"
         className="flex items-center hover:bg-transparent p-2 rounded-lg w-20 h-20"
