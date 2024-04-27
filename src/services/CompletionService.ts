@@ -17,6 +17,11 @@ export interface Completion {
   completed_twist: boolean;
 }
 
+export interface CalendarResponse {
+  user_completions: Completion[];
+  user_streak: number;
+}
+
 /**
  * A function to make a new completion in the backend
  * @param description The content of the post to be persistend in the backend
@@ -82,10 +87,19 @@ async function getTodaysCompletion(token: string): Promise<Completion> {
   });
 }
 
+async function getCalendarPage(token: string): Promise<CalendarResponse> {
+  return await fancyFetch({
+    endpoint: "/completions/calendar",
+    method: "GET",
+    token,
+  });
+}
+
 export {
   getAllCompletions,
   getCompletionStats,
   makeNewCompletion,
   deleteCompletion,
   getTodaysCompletion,
+  getCalendarPage,
 };
