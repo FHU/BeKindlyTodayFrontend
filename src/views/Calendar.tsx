@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Calendar.css";
 import Navbar from "../components/Nav";
+import { getCalendarInfo } from "../services";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 const monthNames = [
@@ -38,11 +40,13 @@ const Calendar = ({
   year,
   daysInMonth,
   currentDay,
+  completedDays,
 }: {
   month: number;
   year: number;
   daysInMonth: number[];
   currentDay: number;
+  completedDays: number[];
 }) => {
   const today = new Date();
   const currentMonth = today.getMonth();
@@ -65,7 +69,7 @@ const Calendar = ({
         const dayOfMonth = index + 1;
         let dayStyle = "day-number"; // Base styling for day numbers
 
-        if ([3, 4, 5, 6].includes(dayOfMonth)) {
+        if (completedDays.includes(dayOfMonth)) {
           dayStyle += " special-day streak-highlight"; // Additional styling for special days
         }
 
@@ -87,13 +91,52 @@ const Calendar = ({
   );
 };
 
-const CalendarPage = ({ currentDay }: { currentDay: number }) => {
+function mapDates(options: { dates: Date[]; month: number; year: number }) {
+  const { dates, month, year } = options;
+  const days = dates
+    .filter((date) => {
+      return date.getFullYear() === year && date.getMonth() === month;
+    })
+    .map((date) => date.getDate());
+
+  return days;
+}
+
+const CalendarPage = () => {
   const initialYear = new Date().getFullYear();
   const initialMonth = new Date().getMonth();
   const initialDay = new Date().getDate();
 
+  const [completionDates, setCompletionDates] = useState<Date[]>([]);
+  const [userStreak, setUserStreak] = useState(0);
+  const [showLogin, setShowLogin] = useState(true);
+
+  const { isLoading, isAuthenticated, getToken } = useKindeAuth();
+
   const [currentYear, setCurrentYear] = useState(initialYear);
   const [currentMonth, setCurrentMonth] = useState(initialMonth);
+  const [completedDays, setCompletedDays] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setShowLogin(false);
+      getToken().then((token) => {
+        if (token !== undefined) {
+          getCalendarInfo(token).then((info) => {
+            setCompletionDates(info.completion_dates);
+            setUserStreak(info.user_streak);
+            setCompletedDays(
+              mapDates({
+                dates: completionDates,
+                year: currentYear,
+                month: currentMonth,
+              })
+            );
+          });
+        }
+      });
+    }
+  }, [isLoading]);
 
   const daysInMonth = [
     31,
@@ -113,13 +156,12 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
     31,
   ];
 
-  const streakDays = calculateStreak(currentDay, initialMonth, initialYear);
   const streakTitle = (
     <div
       className="text-center text-3xl font-bold text-white py-4 w-full rounded-xl bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
       style={{ maxWidth: "800px" }}
     >
-      Current Streak: {streakDays} Days
+      Current Streak: {userStreak} Days
     </div>
   );
 
@@ -143,7 +185,7 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
 
   return (
     <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
-      <Navbar />
+      <Navbar showLogin={showLogin} />
       <h1 className="text-3xl font-bold mt-4">{streakTitle}</h1>
       <div className="flex items-center max-w-screen-sm mt-4">
         <button
@@ -172,6 +214,7 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
                 year={currentYear}
                 daysInMonth={daysInMonth}
                 currentDay={initialDay}
+                completedDays={completedDays}
               />
             </div>
           </div>
@@ -186,20 +229,6 @@ const CalendarPage = ({ currentDay }: { currentDay: number }) => {
       </div>
     </div>
   );
-};
-
-const calculateStreak = (
-  currentDay: number,
-  initialMonth: number,
-  initialYear: number
-): number => {
-  const today = new Date();
-  const todayTimestamp = today.getTime();
-  const initialDate = new Date(initialYear, initialMonth, currentDay);
-  const initialTimestamp = initialDate.getTime();
-  const differenceInTime = todayTimestamp - initialTimestamp;
-  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
-  return differenceInDays;
 };
 
 export default CalendarPage;
