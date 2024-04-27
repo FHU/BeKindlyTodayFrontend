@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   // },
   {
     path: "/calendar",
-    element: <Calendar currentDay={10} />,
+    element: <Calendar />,
   },
   // {
   //   path: "/confirmation",

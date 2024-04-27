@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from '../components/Nav';
-import CountdownTimer from '../components/Timer';
-import Card from '../components/Card';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Nav";
+import CountdownTimer from "../components/Timer";
+import Card from "../components/Card";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const TestCompletion: React.FC = () => {
-  const [textValue, setTextValue] = useState('');
+  const [textValue, setTextValue] = useState("");
+  const [showLogin, setShowLogin] = useState(true);
 
   const handleTextChange = (event: { target: { value: string } }) => {
     setTextValue(event.target.value.slice(0, 250));
   };
 
+  const { isAuthenticated, isLoading } = useKindeAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setShowLogin(false);
+    }
+  }, [isLoading]);
+
   return (
     <div className="flex flex-col gap-y-10 items-center text-black bg-kindly-offWhite">
-      <Navbar />
+      <Navbar showLogin={showLogin} />
       <div className="flex flex-col items-center gap-4 pb-10 bg-kindly-backgroundColor">
         <CountdownTimer />
         <div>
@@ -21,8 +31,8 @@ const TestCompletion: React.FC = () => {
             Today's Challenge
           </h2>
           <Card
-            handleButtonClick={() => console.log('Clicked')}
-            layoutType={'home'}
+            handleButtonClick={() => console.log("Clicked")}
+            layoutType={"home"}
           />
         </div>
         <div className="my-6">
