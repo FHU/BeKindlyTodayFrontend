@@ -18,7 +18,7 @@ export interface Completion {
 }
 
 export interface CalendarResponse {
-  user_completions: Completion[];
+  completion_dates: Date[];
   user_streak: number;
 }
 
@@ -87,7 +87,7 @@ async function getTodaysCompletion(token: string): Promise<Completion> {
   });
 }
 
-async function getCalendarPage(token: string): Promise<CalendarResponse> {
+async function getCalendarInfo(token: string): Promise<CalendarResponse> {
   return await fancyFetch({
     endpoint: "/completions/calendar",
     method: "GET",
@@ -101,5 +101,5 @@ export {
   makeNewCompletion,
   deleteCompletion,
   getTodaysCompletion,
-  getCalendarPage,
+  getCalendarInfo,
 };

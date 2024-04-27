@@ -31,9 +31,12 @@ const Home: React.FC = () => {
 
   const { getToken, isAuthenticated, isLoading } = useKindeAuth();
 
+  const [showLogin, setShowLogin] = useState(true);
+
   useEffect(() => {
     getTodaysChallenge().then((challenge) => setChallenge(challenge));
     if (isAuthenticated) {
+      setShowLogin(false);
       getToken().then((token) => {
         if (token !== undefined) {
           setSavedToken(token);
@@ -70,7 +73,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-y-10 items-center justify-between bg-kindly-offWhite min-h-screen">
-      <Navbar />
+      <Navbar showLogin={showLogin} />
       <div className="w-fit">
         {/* Stats Section */}
         <div className="flex justify-center pb-6">

@@ -1,33 +1,41 @@
 // Profile.tsx
-import { useState } from 'react';
-import 'daisyui/dist/full.css';
-import '../index.css';
-import Navbar from '../components/Nav';
-import { BiMessageSquareEdit } from 'react-icons/bi';
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
-import Carousel from '../components/Carousel';
+import { useEffect, useState } from "react";
+import "daisyui/dist/full.css";
+import "../index.css";
+import Navbar from "../components/Nav";
+import { BiMessageSquareEdit } from "react-icons/bi";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import Carousel from "../components/Carousel";
 interface ProfilePicture {
   name: string;
   path: string;
 }
 
 function Profile() {
-  const { logout } = useKindeAuth();
+  const { logout, isAuthenticated, isLoading } = useKindeAuth();
   const [profilePictureClicked, setProfilePictureClicked] =
     useState<boolean>(false);
   const [selectedProfilePicture, setSelectedProfilePicture] =
     useState<ProfilePicture>({
-      name: 'Blue Profile',
-      path: 'images/Blue_Profile.png',
+      name: "Blue Profile",
+      path: "images/Blue_Profile.png",
     });
 
+  const [showLogin, setShowLogin] = useState(true);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setShowLogin(false);
+    }
+  }, [isLoading]);
+
   const profilePictures: ProfilePicture[] = [
-    { name: 'Blue Profile', path: 'images/Blue_Profile.png' },
-    { name: 'Red Profile', path: 'images/Red_Profile.png' },
-    { name: 'Green Profile', path: 'images/Green_Profile.png' },
-    { name: 'Pink Profile', path: 'images/Pink_Profile.png' },
-    { name: 'Yellow Profile', path: 'images/Yellow_Profile.png' },
-    { name: 'Purple Profile', path: 'images/Purple_Profile.png' },
+    { name: "Blue Profile", path: "images/Blue_Profile.png" },
+    { name: "Red Profile", path: "images/Red_Profile.png" },
+    { name: "Green Profile", path: "images/Green_Profile.png" },
+    { name: "Pink Profile", path: "images/Pink_Profile.png" },
+    { name: "Yellow Profile", path: "images/Yellow_Profile.png" },
+    { name: "Purple Profile", path: "images/Purple_Profile.png" },
   ];
 
   const handleProfilePictureClick = () => {
@@ -41,7 +49,7 @@ function Profile() {
 
   return (
     <div className="flex flex-col items-center pb-10 bg-kindly-offWhite min-h-screen">
-      <Navbar />
+      <Navbar showLogin={showLogin} />
 
       <div className="profile-picture-container mt-6 flex flex-col items-center relative">
         <div
@@ -52,7 +60,7 @@ function Profile() {
             src={selectedProfilePicture.path}
             alt="Profile"
             className="rounded-full w-full h-full cursor-pointer"
-            style={{ maxWidth: '200px', maxHeight: '200px' }} // Set max width and max height
+            style={{ maxWidth: "200px", maxHeight: "200px" }} // Set max width and max height
           />
           <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
         </div>
