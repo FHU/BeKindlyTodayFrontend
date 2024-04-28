@@ -1,3 +1,4 @@
+import { User } from "./UserService";
 import fancyFetch from "./fetchData";
 
 /** The shape of the stats returned from the backend */
@@ -20,6 +21,10 @@ export interface Completion {
 export interface CalendarResponse {
   completion_dates: Date[];
   user_streak: number;
+}
+
+export interface CompletionUser extends Completion {
+  user: User;
 }
 
 /**
@@ -95,6 +100,16 @@ async function getCalendarInfo(token: string): Promise<CalendarResponse> {
   });
 }
 
+async function getAllCompletionsToday(
+  token: string
+): Promise<CompletionUser[]> {
+  return await fancyFetch({
+    endpoint: "/completions/all_today",
+    method: "GET",
+    token,
+  });
+}
+
 export {
   getAllCompletions,
   getCompletionStats,
@@ -102,4 +117,5 @@ export {
   deleteCompletion,
   getTodaysCompletion,
   getCalendarInfo,
+  getAllCompletionsToday,
 };
