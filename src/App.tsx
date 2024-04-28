@@ -6,8 +6,7 @@ import Home from "./views/Home";
 import Calendar from "./views/Calendar";
 //import Confirmation from "./views/Confirmation";
 import Profile from "./views/Profile";
-import TestConfirmation from "./otherPages/TestConfirmation";
-import TestCompletion from "./otherPages/TestCompletion";
+
 //import Main from "./Index"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -37,16 +36,6 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
-  },
-
-  {
-    path: "/testconfirmation",
-    element: <TestConfirmation />,
-  },
-
-  {
-    path: "/testcompletion",
-    element: <TestCompletion />,
   },
 ]);
 export default function App() {
