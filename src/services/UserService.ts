@@ -3,7 +3,7 @@ import fancyFetch from "./fetchData";
 /**
  * The shape of the users being returned from the backend
  */
-interface User {
+export interface User {
   bio?: string;
   id: number;
   kindId: string;
