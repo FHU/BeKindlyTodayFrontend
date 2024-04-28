@@ -52,7 +52,7 @@ async function updateUserProfilePicture(
   token: string
 ): Promise<User> {
   return await fancyFetch({
-    endpoint: "/users/bio",
+    endpoint: "/users/profilepicture",
     method: "PUT",
     data: { profilePicture },
     token,
@@ -66,7 +66,7 @@ async function updateUserProfilePicture(
  */
 async function updateUsername(username: string, token: string): Promise<User> {
   return await fancyFetch({
-    endpoint: "/users/bio",
+    endpoint: "/users/username",
     method: "PUT",
     data: { username },
     token,
