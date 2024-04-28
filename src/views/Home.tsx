@@ -53,7 +53,7 @@ const Home: React.FC = () => {
 
   // Update current page based on completedChallenge
   useEffect(() => {
-    const page = completion !== undefined ? "confirmation" : "home";
+    const page = completion !== null ? "confirmation" : "home";
     setCurrentPage(page);
   }, [completion]);
 
