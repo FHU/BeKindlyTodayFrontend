@@ -23,7 +23,7 @@ const Home: React.FC = () => {
   const [completionStats, setCompletionStats] = useState<
     CompletionStats | undefined
   >();
-  const [completion, setCompletion] = useState<Completion | undefined>();
+  const [completion, setCompletion] = useState<Completion | null>(null);
 
   const [challenge, setChallenge] = useState<Challenge>();
 
