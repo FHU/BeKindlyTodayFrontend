@@ -115,7 +115,6 @@ const CalendarPage = () => {
 
   const [currentYear, setCurrentYear] = useState(initialYear);
   const [currentMonth, setCurrentMonth] = useState(initialMonth);
-  const [completedDays, setCompletedDays] = useState<number[]>([]);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -125,13 +124,6 @@ const CalendarPage = () => {
           getCalendarInfo(token).then((info) => {
             setCompletionDates(info.completion_dates);
             setUserStreak(info.user_streak);
-            setCompletedDays(
-              mapDates({
-                dates: completionDates,
-                year: currentYear,
-                month: currentMonth,
-              })
-            );
           });
         }
       });
@@ -214,7 +206,11 @@ const CalendarPage = () => {
                 year={currentYear}
                 daysInMonth={daysInMonth}
                 currentDay={initialDay}
-                completedDays={completedDays}
+                completedDays={mapDates({
+                  dates: completionDates,
+                  year: currentYear,
+                  month: currentMonth,
+                })}
               />
             </div>
           </div>
