@@ -199,7 +199,7 @@ const CalendarPage = () => {
               <MonthName monthIndex={currentMonth} year={currentYear} />
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
-                  <div key={index} className="text-center font-bold">
+                  <div key={index} className="text-center ">
                     {day}
                   </div>
                 ))}
