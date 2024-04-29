@@ -65,7 +65,7 @@ function Profile() {
   ];
 
   const handleProfilePictureClick = () => {
-    setProfilePictureClicked(true);
+    setProfilePictureClicked(!profilePictureClicked);
   };
 
   const handleProfilePictureChange = (profilePicture: string) => {
@@ -103,7 +103,7 @@ function Profile() {
         )}
 
         <div className="text-center">
-          <h2 className="text-xl font-semibold text-white">
+          <h2 className="text-xl font-semibold text-black">
             {backendUser ? backendUser.username : "Loading Username..."}
           </h2>
         </div>
@@ -113,7 +113,7 @@ function Profile() {
         <div className="stats shadow bg-white">
           <div className="stat w-40 space-y-2">
             <div className="stat-value text-black pt-2">
-              {userCompletionsCount || "Loading..."}
+              {userCompletionsCount || "..."}
             </div>
             <div className="stat-title text-black whitespace-normal">
               Challenges Completed
@@ -124,7 +124,7 @@ function Profile() {
         <div className="stats shadow bg-white">
           <div className="stat w-40 space-y-2">
             <div className="stat-value text-black pt-2">
-              {userStreak || "Loading..."}
+              {userStreak || "..."}
             </div>
             <div className="stat-title text-black whitespace-normal">
               Current Streak

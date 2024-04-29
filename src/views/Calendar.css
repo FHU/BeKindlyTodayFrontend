@@ -19,13 +19,13 @@ body {
 .streak-highlight {
   background-color: #00a6ff; /* Purple color with transparency */
   border-radius: 50%; /* Creates a circle */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -2rem;
-    width: 2em; /* Set a fixed width for the circle */
-    height: 2em; /* Set a fixed height for the circle */
-    font-weight: bold; /* Adjust as needed */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em; /* Set a fixed width for the circle */
+  height: 1em; /* Set a fixed height for the circle */
+  font-weight: bold; /* Adjust as needed */
+  margin-left: -1em;
 }
 
 
