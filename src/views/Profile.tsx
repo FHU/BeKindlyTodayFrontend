@@ -118,7 +118,9 @@ function Profile() {
         <div className="stats shadow bg-white">
           <div className="stat w-40 space-y-2">
             <div className="stat-value text-black pt-2">
-              {userCompletionsCount || "..."}
+              {userCompletionsCount !== undefined
+                ? userCompletionsCount
+                : "..."}
             </div>
             <div className="stat-title text-black whitespace-normal">
               Challenges Completed
@@ -129,7 +131,7 @@ function Profile() {
         <div className="stats shadow bg-white">
           <div className="stat w-40 space-y-2">
             <div className="stat-value text-black pt-2">
-              {userStreak || "..."}
+              {userStreak !== undefined ? userStreak : "..."}
             </div>
             <div className="stat-title text-black whitespace-normal">
               Current Streak
