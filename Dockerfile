@@ -4,7 +4,7 @@ COPY ./package*.json .
 ENV FRONTEND_PORT=${FRONTEND_PORT}
 #This is not a secret talk to Casey
 ENV VITE_KINDE_FRONTEND_CLIENT_ID=c52ad20bbf7244a4b6bc8de92bcddf5f 
-ENV VITE_KINDE_DOMAIN=https://account.bekindly.today
+ENV VITE_KINDE_DOMAIN=https://freedhardemanuniversity.kinde.com
 EXPOSE ${FRONTEND_PORT}
 
 
