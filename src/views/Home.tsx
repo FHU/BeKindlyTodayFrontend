@@ -63,14 +63,14 @@ const Home: React.FC = () => {
             });
           }
           setSavedToken(token);
-          getTodaysCompletion(token).then((completion) =>
-            setCompletion(completion)
-          );
-          if (currentPage === "confirmation") {
-            getAllCompletionsToday(token).then((completions) => {
-              setTodaysCompletions(completions);
-            });
-          }
+          getTodaysCompletion(token).then((completion) => {
+            setCompletion(completion);
+            if (completion !== null) {
+              getAllCompletionsToday(token).then((completions) => {
+                setTodaysCompletions(completions);
+              });
+            }
+          });
         }
         getCompletionStats(token).then((stats) => setCompletionStats(stats));
       });
