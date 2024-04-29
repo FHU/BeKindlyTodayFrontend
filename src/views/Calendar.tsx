@@ -125,9 +125,13 @@ const CalendarPage = () => {
       getToken().then((token) => {
         if (token !== undefined) {
           getCalendarInfo(token).then((info) => {
-            const dates = info.completion_dates.map(
-              (date_string) => new Date(date_string)
-            );
+            const dates = info.completion_dates.map((date_string) => {
+              const t = new Date(date_string);
+              const utc_date = new Date(
+                Date.UTC(t.getFullYear(), t.getMonth(), t.getDate())
+              );
+              return utc_date;
+            });
             setCompletionDates(dates);
             setUserStreak(info.user_streak);
           });
@@ -157,17 +161,16 @@ const CalendarPage = () => {
   ];
 
   const streakTitle = (
-    <div className="streak-title text-center rounded-xl text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto" style={{ maxWidth: "800px" }}>
+    <div
+      className="streak-title text-center rounded-xl text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
+      style={{ maxWidth: "800px" }}
+    >
       <div className="text-3xl pb-2">
         {userStreak}&nbsp; {/* Non-breaking space */}
       </div>
-      <div className="text-xl ">
-        Day Streak!
-      </div>
+      <div className="text-xl ">Day Streak!</div>
     </div>
   );
-  
-  
 
   const goToNextMonth = () => {
     if (currentMonth === 11) {
