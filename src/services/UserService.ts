@@ -11,6 +11,11 @@ export interface User {
   username?: string;
 }
 
+interface UserStats {
+  user_completions_count: number;
+  user_streak: number;
+}
+
 /**
  * A function to fetch the user information from our backend for the current logged in user
  * @returns Our backend information for the current logged in user
@@ -73,10 +78,19 @@ async function updateUsername(username: string, token: string): Promise<User> {
   });
 }
 
+async function getUserStats(token: string): Promise<UserStats> {
+  return await fancyFetch({
+    endpoint: "/users/stats",
+    method: "GET",
+    token,
+  });
+}
+
 export {
   updateUserBio,
   updateUserProfilePicture,
   updateUsername,
   getLoggedInUser,
   getUserByID,
+  getUserStats,
 };
