@@ -7,12 +7,18 @@ import Card from "../components/Card";
 import Feed from "../components/Feed";
 import {
   getTodaysCompletion,
+  getAllCompletionsToday,
   getCompletionStats,
   getTodaysChallenge,
   CompletionStats,
   Completion,
+  CompletionUser,
   Challenge,
   makeNewCompletion,
+  getLoggedInUser,
+  updateUsername,
+  updateUserProfilePicture,
+  User,
 } from "../services";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
@@ -24,14 +30,19 @@ const Home: React.FC = () => {
     CompletionStats | undefined
   >();
   const [completion, setCompletion] = useState<Completion | null>(null);
+  const [todaysCompletions, setTodaysCompletions] = useState<CompletionUser[]>(
+    []
+  );
 
   const [challenge, setChallenge] = useState<Challenge>();
 
   const [savedToken, setSavedToken] = useState<string | undefined>();
 
-  const { getToken, isAuthenticated, isLoading } = useKindeAuth();
+  const { getToken, isAuthenticated, isLoading, getUser } = useKindeAuth();
 
   const [showLogin, setShowLogin] = useState(true);
+
+  const [backendUser, setBackendUser] = useState<User | undefined>();
 
   useEffect(() => {
     getTodaysChallenge().then((challenge) => setChallenge(challenge));
@@ -39,10 +50,26 @@ const Home: React.FC = () => {
       setShowLogin(false);
       getToken().then((token) => {
         if (token !== undefined) {
+          if (backendUser === undefined) {
+            getLoggedInUser(token).then((user) => {
+              if (user.username === undefined) {
+                const kindeUser = getUser();
+                const username = `${kindeUser.given_name}.${kindeUser.family_name}`;
+                const profilePicture = "images/Blue_Profile.png";
+                updateUsername(username, token);
+                updateUserProfilePicture(profilePicture, token);
+              }
+            });
+          }
           setSavedToken(token);
           getTodaysCompletion(token).then((completion) =>
             setCompletion(completion)
           );
+          if (currentPage === "confirmation") {
+            getAllCompletionsToday(token).then((completions) => {
+              setTodaysCompletions(completions);
+            });
+          }
         }
         getCompletionStats(token).then((stats) => setCompletionStats(stats));
       });
@@ -61,13 +88,18 @@ const Home: React.FC = () => {
     if (currentPage === "home") {
       setCurrentPage("completion");
     } else if (currentPage === "completion") {
-      console.log(description);
-      console.log(savedToken !== undefined);
-      description !== undefined &&
-        savedToken !== undefined &&
-        makeNewCompletion(description, savedToken).then((completion): void => {
-          setCompletion(completion);
-        });
+      if (savedToken !== undefined) {
+        if (description !== undefined) {
+          makeNewCompletion(description, savedToken).then(
+            (completion): void => {
+              setCompletion(completion);
+            }
+          );
+        }
+        getAllCompletionsToday(savedToken).then((completions) =>
+          setTodaysCompletions(completions)
+        );
+      }
     }
   };
 
@@ -94,7 +126,12 @@ const Home: React.FC = () => {
           />
         </div>
       </div>
-      {currentPage === "confirmation" && <Feed />}
+      <div className={currentPage !== "confirmation" ? "hidden" : ""}>
+        {currentPage === "confirmation" &&
+          todaysCompletions.map((completion_user) => {
+            return <Feed completion={completion_user} />;
+          })}
+      </div>
       <Footer />
     </div>
   );
