@@ -54,6 +54,14 @@ function Profile() {
     }
   }, [isLoading]);
 
+  useEffect(() => {
+    if (backendUser) {
+      console.log(backendUser.username);
+    } else {
+      console.log("User undefined");
+    }
+  }, [backendUser]);
+
   const profilePictures: ProfilePicture[] = [
     { name: "Blue Profile", path: "images/Blue_Profile.png" },
     { name: "Red Profile", path: "images/Red_Profile.png" },
