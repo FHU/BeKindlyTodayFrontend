@@ -94,7 +94,7 @@ function Stats({ stats }: Readonly<Props>) {
                 {stats !== undefined && "Global"}
             </div>
             <div className="stat-title text-white">
-                {stats !== undefined && "Completions"}
+                {stats !== undefined && "Completes"}
             </div>
       </div>
 
@@ -134,7 +134,7 @@ function Stats({ stats }: Readonly<Props>) {
           {stats !== undefined && "Personal"}
         </div>
         <div className="stat-title text-white">
-          {stats !== undefined && "Completions"}
+          {stats !== undefined && "Completes"}
         </div>
       </div>
     </div>
