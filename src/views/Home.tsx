@@ -48,7 +48,7 @@ const Home: React.FC = () => {
     getTodaysChallenge().then((challenge) => setChallenge(challenge));
     if (isAuthenticated) {
       setShowLogin(false);
-      getToken().then((token) => {
+      getToken().then((token): void => {
         if (token !== undefined) {
           if (backendUser === undefined) {
             getLoggedInUser(token).then((user) => {
@@ -58,6 +58,7 @@ const Home: React.FC = () => {
                 const profilePicture = "images/Blue_Profile.png";
                 updateUsername(username, token);
                 updateUserProfilePicture(profilePicture, token);
+                setBackendUser(user);
               }
             });
           }
@@ -133,9 +134,13 @@ const Home: React.FC = () => {
         }
       >
         {currentPage === "confirmation" &&
-          todaysCompletions.map((completion_user) => {
-            return <Feed completion={completion_user} />;
-          })}
+          todaysCompletions
+            .filter(
+              (completion_user) => completion_user.user_id !== backendUser?.id
+            )
+            .map((completion_user) => {
+              return <Feed completion={completion_user} />;
+            })}
       </div>
       <Footer />
     </div>
