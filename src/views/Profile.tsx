@@ -89,7 +89,7 @@ function Profile() {
 
       <div className="profile-picture-container justify-between mt-6 flex flex-col items-center relative">
         <div
-          className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative"
+          className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-4 relative"
           onClick={handleProfilePictureClick}
         >
           <img
@@ -108,7 +108,7 @@ function Profile() {
           />
         )}
 
-        <div className="text-center">
+        <div className="text-center mt-4">
           <h2 className="text-xl font-semibold text-black">
             {backendUser ? backendUser.username : "Loading Username..."}
           </h2>
