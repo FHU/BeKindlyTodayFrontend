@@ -32,7 +32,7 @@ body {
 .calendar-container {
     font-family: 'Lato', sans-serif;
     font-size: 27.72px;
-    font-weight: normal;
+    
     line-height: 33.27px;
 
     text-align: center;
@@ -41,7 +41,7 @@ body {
 .day-number {
   font-family: 'Lato', sans-serif;
   font-size: 22.53px;
-  font-weight: 300;
+  
   line-height: 27.03px;
   text-align: center;
 }
@@ -78,13 +78,13 @@ body {
   
 .streak-number {
   font-size: 2.5em; /* large number */
-  font-weight: 300; /* semi-bold */
+  
   margin-bottom: 0.2em; /* spacing between number and label */
 }
   
 .streak-label {
   font-size: 1em; /* smaller text */
-  font-weight: 300; /* regular weight */
+  
 }
 
 .month-name {
