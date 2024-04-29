@@ -7,3 +7,23 @@
 body {
   font-family: 'Comfortaa', cursive;
 }
+
+.carousel {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.carousel-item {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal; /* To allow for line breaks in case of long text */
+}
+
+@media (min-width: 640px) {
+  .carousel {
+    overflow-x: visible;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
