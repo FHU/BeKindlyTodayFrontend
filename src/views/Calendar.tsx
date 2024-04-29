@@ -123,7 +123,10 @@ const CalendarPage = () => {
       getToken().then((token) => {
         if (token !== undefined) {
           getCalendarInfo(token).then((info) => {
-            setCompletionDates(info.completion_dates);
+            const dates = info.completion_dates.map(
+              (date_string) => new Date(date_string)
+            );
+            setCompletionDates(dates);
             setUserStreak(info.user_streak);
           });
         }
