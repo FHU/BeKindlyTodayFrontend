@@ -7,3 +7,19 @@
 body {
   font-family: 'Comfortaa', cursive;
 }
+
+.carousel {
+  overflow-x: auto;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 640px) {
+  .carousel {
+    overflow-x: visible;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
