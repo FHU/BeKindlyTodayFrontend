@@ -43,7 +43,8 @@ function Profile() {
           setSavedToken(token);
           getLoggedInUser(token).then((user) => {
             setBackendUser(user);
-            setSelectedProfilePicture(user.profilePicture);
+            if (user.profilePicture !== null)
+              setSelectedProfilePicture(user.profilePicture);
           });
           getUserStats(token).then((stats) => {
             setUserCompletionsCount(stats.user_completions_count);

@@ -52,7 +52,7 @@ const Home: React.FC = () => {
         if (token !== undefined) {
           if (backendUser === undefined) {
             getLoggedInUser(token).then((user) => {
-              if (user.username === undefined) {
+              if (user.username === null) {
                 const kindeUser = getUser();
                 const username = `${kindeUser.given_name}.${kindeUser.family_name}`;
                 const profilePicture = "images/Blue_Profile.png";
