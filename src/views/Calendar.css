@@ -28,6 +28,23 @@ body {
   
 }
 
+.streak-title {
+  padding: 20px; /* Add padding inside the streak title */
+}
+
+.streak-title > div {
+  margin: 10px 0; /* Adjust margin to bring the streak title closer to the top and bottom */
+}
+
+.streak-title .text-3xl {
+  font-size: 4rem; /* Increase font size for user streak */
+}
+
+.streak-title .text-xl {
+  font-size: 2rem; /* Increase font size for "Day Streak!" */
+}
+
+
 
 .calendar-container {
     font-family: 'Lato', sans-serif;
