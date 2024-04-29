@@ -28,8 +28,8 @@ const MonthName = ({
   year: number;
 }) => (
   <div
-    className="text-center text-3xl font-bold mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
-    style={{ padding: " 0", width: "100%" }}
+    className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
+    style={{ padding: "0", width: "100%" }}
   >
     {monthNames[monthIndex]} {year}
   </div>
@@ -153,7 +153,7 @@ const CalendarPage = () => {
 
   const streakTitle = (
     <div
-      className="text-center text-3xl font-bold text-white py-4 w-full rounded-xl bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
+      className="text-center text-3xl  text-white py-4 w-full rounded-xl bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
       style={{ maxWidth: "800px" }}
     >
       Current Streak: {userStreak} Days
@@ -181,7 +181,7 @@ const CalendarPage = () => {
   return (
     <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
       <Navbar showLogin={showLogin} />
-      <h1 className="text-3xl font-bold mt-4">{streakTitle}</h1>
+      <h1 className="text-3xl  mt-4">{streakTitle}</h1>
       <div className="flex items-center max-w-screen-sm mt-4">
         <button
           onClick={goToPreviousMonth}
