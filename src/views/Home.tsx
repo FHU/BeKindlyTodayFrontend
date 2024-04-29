@@ -66,9 +66,7 @@ const Home: React.FC = () => {
           getTodaysCompletion(token).then((completion) => {
             setCompletion(completion);
             if (completion !== null) {
-              console.log("Getting Completions");
               getAllCompletionsToday(token).then((completions) => {
-                console.log(completions);
                 setTodaysCompletions(completions);
               });
             }
