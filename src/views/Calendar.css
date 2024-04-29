@@ -25,7 +25,7 @@ body {
   width: 2em; /* Set a fixed width for the circle */
   height: 2em; /* Set a fixed height for the circle */
   font-weight: bold; /* Adjust as needed */
-  margin-left: -2rem; /* Move the highlight to the left by 2rem */
+  margin-left: -1rem; /* Move the highlight to the left by 2rem */
 }
 
 
