@@ -87,7 +87,7 @@ function Profile() {
     <div className="flex flex-col items-center justify-between bg-kindly-offWhite min-h-screen">
       <Navbar showLogin={showLogin} />
 
-      <div className="profile-picture-container min-h-[260px] min-w-px justify-between mt-6 flex flex-col items-center relative">
+      <div className="profile-picture-container min-h-[260px] min-w-px max-w-full justify-between mt-6 flex flex-col items-center relative">
         <div
           className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-4 relative"
           onClick={handleProfilePictureClick}

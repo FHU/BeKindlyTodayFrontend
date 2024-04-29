@@ -12,7 +12,7 @@ const Carousel: React.FC<CarouselProps> = ({
   onProfilePictureChange,
 }) => {
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center max-w-full">
       <div
         id="carousel-container"
         className="carousel carousel-center rounded-box flex gap-2"
