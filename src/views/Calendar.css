@@ -29,12 +29,13 @@ body {
 }
 
 .streak-title {
-  padding: 20px; /* Add padding inside the streak title */
+  padding: 10px 20px; /* Adjust padding top and bottom */
 }
 
 .streak-title > div {
-  margin: 10px 0; /* Adjust margin to bring the streak title closer to the top and bottom */
+  margin: 5px 0; /* Adjust margin top and bottom */
 }
+
 
 .streak-title .text-3xl {
   font-size: 4rem; /* Increase font size for user streak */
