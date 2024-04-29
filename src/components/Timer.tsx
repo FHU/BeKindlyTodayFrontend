@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const CountdownTimer = () => {
-  // Initialize the countdown time to 24 hours from now
-  const targetTime = new Date().setHours(24, 0, 0, 0);
+  // Initialize the countdown time to 24 hours from now in UTC
+  const targetTime = new Date(Date.now() + 24 * 60 * 60 * 1000).setUTCHours(0, 0, 0, 0);
   
   // State to hold the remaining time
   const [timeLeft, setTimeLeft] = useState(targetTime - Date.now());
@@ -16,7 +16,8 @@ const CountdownTimer = () => {
 
       // If the countdown finishes, reset to 24 hours
       if (difference < 0) {
-        const newTargetTime = new Date().setHours(48, 0, 0, 0); // Set to next day
+        // Set the new target time to the next day in UTC
+        const newTargetTime = new Date(now + 24 * 60 * 60 * 1000).setUTCHours(0, 0, 0, 0);
         setTimeLeft(newTargetTime - now);
       }
     }, 1000);
