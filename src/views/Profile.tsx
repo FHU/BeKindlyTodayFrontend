@@ -55,6 +55,9 @@ function Profile() {
   };
 
   const handleProfilePictureChange = (profilePicture: string) => {
+    if (savedToken) {
+      updateUserProfilePicture(profilePicture, savedToken);
+    }
     setSelectedProfilePicture(profilePicture);
 
     setProfilePictureClicked(false); // Reset profilePictureClicked state after selecting new profile picture
@@ -86,7 +89,9 @@ function Profile() {
         )}
 
         <div className="text-center">
-          <h2 className="text-xl font-semibold text-white">Sam Flowers</h2>
+          <h2 className="text-xl font-semibold text-white">
+            {backendUser ? backendUser.username : "Loading Username..."}
+          </h2>
         </div>
       </div>
 
