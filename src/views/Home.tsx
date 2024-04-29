@@ -126,7 +126,12 @@ const Home: React.FC = () => {
           />
         </div>
       </div>
-      <div className={currentPage !== "confirmation" ? "hidden" : ""}>
+      <div
+        className={
+          "bg-kindly-offWhite text-black " +
+          (currentPage !== "confirmation" ? "hidden" : "")
+        }
+      >
         {currentPage === "confirmation" &&
           todaysCompletions.map((completion_user) => {
             return <Feed completion={completion_user} />;
