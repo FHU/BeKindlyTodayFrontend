@@ -92,13 +92,19 @@ function Profile() {
           className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-4 relative"
           onClick={handleProfilePictureClick}
         >
-          <img
-            src={selectedProfilePicture}
-            alt="Profile"
-            className="rounded-full w-full h-full cursor-pointer"
-            style={{ maxWidth: "200px", maxHeight: "200px" }} // Set max width and max height
-          />
-          <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
+          {!showLogin ? (
+            <>
+              <img
+                src={selectedProfilePicture}
+                alt="Profile"
+                className="rounded-full w-full h-full cursor-pointer"
+                style={{ maxWidth: "200px", maxHeight: "200px" }} // Set max width and max height
+              />
+              <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
+            </>
+          ) : (
+            <div className="height-[200px] aspect-square"></div>
+          )}
         </div>
 
         {profilePictureClicked && (
@@ -110,7 +116,7 @@ function Profile() {
 
         <div className="text-center mt-4">
           <h2 className="text-xl font-semibold text-black">
-            {backendUser ? backendUser.username : "Loading Username..."}
+            {backendUser ? backendUser.username : "Loading Username . . ."}
           </h2>
         </div>
       </div>
