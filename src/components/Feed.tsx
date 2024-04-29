@@ -5,13 +5,16 @@ interface Props {
 }
 
 const Feed = ({ completion }: Props) => {
+  const user_profile_picture =
+    completion.user.profilePicture || "images/Default_Profile.png";
+
   return (
     <div className="chat chat-start bg-kindly-offWhite">
       <div className="chat-image avatar">
         <div className="w-10 rounded-full">
           <img
             alt="Tailwind CSS chat bubble component"
-            src={completion.user.profilePicture}
+            src={user_profile_picture}
           />
         </div>
       </div>

@@ -55,6 +55,7 @@ function Profile() {
     }
   }, [isLoading]);
 
+  // Delete me
   useEffect(() => {
     if (backendUser) {
       console.log(backendUser.username);
