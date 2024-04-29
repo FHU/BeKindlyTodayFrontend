@@ -24,7 +24,7 @@ body {
   justify-content: center;
   width: 32px; /* Set a fixed width for the circle */
   height: 32px; /* Set a fixed height for the circle */
-  font-weight: bold; /* Adjust as needed */
+  
   
 }
 
@@ -53,9 +53,9 @@ body {
   align-items: center;
   justify-content: center;
   color: white; /* Text color set to white */
-  width: 2em; /* Set a fixed width for the circle */
-  height: 2em; /* Set a fixed height for the circle */
-  font-weight: bold; /* Adjust as needed */
+  width: 32px; /* Set a fixed width for the circle */
+  height: 32px; /* Set a fixed height for the circle */
+
 }
   
 .day-number {
@@ -90,7 +90,7 @@ body {
 .month-name {
   text-align: center;
   font-size: 3rem; /* Adjust the size as needed */
-  font-weight: bold;
+  
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   color: white;
   background: linear-gradient(to right, #1e73fa, #5ab4fa); /* Gradient background */
