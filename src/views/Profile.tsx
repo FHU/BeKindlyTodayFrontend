@@ -6,7 +6,12 @@ import Navbar from "../components/Nav";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import Carousel from "../components/Carousel";
-import { getLoggedInUser, updateUserProfilePicture, User } from "../services";
+import {
+  getLoggedInUser,
+  updateUserProfilePicture,
+  User,
+  getUserStats,
+} from "../services";
 
 export interface ProfilePicture {
   name: string;
@@ -23,6 +28,10 @@ function Profile() {
 
   const [backendUser, setBackendUser] = useState<User | undefined>();
   const [savedToken, setSavedToken] = useState<string | undefined>();
+  const [userCompletionsCount, setUserCompletionsCount] = useState<
+    number | undefined
+  >();
+  const [userStreak, setUserStreak] = useState<number | undefined>();
 
   const [showLogin, setShowLogin] = useState(true);
 
@@ -35,6 +44,10 @@ function Profile() {
           getLoggedInUser(token).then((user) => {
             setBackendUser(user);
             setSelectedProfilePicture(user.profilePicture);
+          });
+          getUserStats(token).then((stats) => {
+            setUserCompletionsCount(stats.user_completions_count);
+            setUserStreak(stats.user_streak);
           });
         }
       });
@@ -98,7 +111,9 @@ function Profile() {
       <div className="flex flex-row space-x-4 text-center mt-6">
         <div className="stats shadow bg-white">
           <div className="stat w-40 space-y-2">
-            <div className="stat-value text-black pt-2">1</div>
+            <div className="stat-value text-black pt-2">
+              {userCompletionsCount || "Loading..."}
+            </div>
             <div className="stat-title text-black whitespace-normal">
               Challenges Completed
             </div>
@@ -107,7 +122,9 @@ function Profile() {
 
         <div className="stats shadow bg-white">
           <div className="stat w-40 space-y-2">
-            <div className="stat-value text-black pt-2">1</div>
+            <div className="stat-value text-black pt-2">
+              {userStreak || "Loading..."}
+            </div>
             <div className="stat-title text-black whitespace-normal">
               Current Streak
             </div>
