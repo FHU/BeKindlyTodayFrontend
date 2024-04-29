@@ -103,7 +103,7 @@ function Profile() {
               <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
             </>
           ) : (
-            <div className="height-[200px] aspect-square"></div>
+            <div className="h-[200px] aspect-square"></div>
           )}
         </div>
 
