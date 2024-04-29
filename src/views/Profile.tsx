@@ -65,7 +65,7 @@ function Profile() {
   ];
 
   const handleProfilePictureClick = () => {
-    setProfilePictureClicked(true);
+    setProfilePictureClicked(!profilePictureClicked);
   };
 
   const handleProfilePictureChange = (profilePicture: string) => {
