@@ -4,11 +4,11 @@ import fancyFetch from "./fetchData";
  * The shape of the users being returned from the backend
  */
 export interface User {
-  bio?: string;
+  bio: string | null;
   id: number;
   kindId: string;
-  profilePicture?: string;
-  username?: string;
+  profilePicture: string | null;
+  username: string | null;
 }
 
 interface UserStats {
