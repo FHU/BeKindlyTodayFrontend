@@ -103,7 +103,7 @@ function Profile() {
         )}
 
         <div className="text-center">
-          <h2 className="text-xl font-semibold text-white">
+          <h2 className="text-xl font-semibold text-black">
             {backendUser ? backendUser.username : "Loading Username..."}
           </h2>
         </div>
