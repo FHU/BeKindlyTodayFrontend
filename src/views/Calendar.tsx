@@ -93,6 +93,7 @@ const Calendar = ({
 
 function mapDates(options: { dates: Date[]; month: number; year: number }) {
   const { dates, month, year } = options;
+  console.log(dates);
   const days = dates
     .filter((date) => {
       return date.getFullYear() === year && date.getMonth() === month;
