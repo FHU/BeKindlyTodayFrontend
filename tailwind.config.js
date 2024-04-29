@@ -15,7 +15,10 @@ export default {
           blue: '#1964de',
           lightBlue: '#00a6ff'
         },
-    },
+      },
+      fontFamily: {
+        fragMono: ['Fragment Mono', 'monospace'],
+      }
   },
 },
   plugins: [],
