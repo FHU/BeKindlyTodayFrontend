@@ -127,7 +127,7 @@ const CalendarPage = () => {
           getCalendarInfo(token).then((info) => {
             console.log(info.completion_dates);
             const dates = info.completion_dates.map(
-              (date_string) => new Date(date_string)
+              (date_string) => new Date(new Date(date_string).toUTCString())
             );
             setCompletionDates(dates);
             setUserStreak(info.user_streak);
