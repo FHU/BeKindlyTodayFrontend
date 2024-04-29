@@ -12,6 +12,7 @@ import {
   User,
   getUserStats,
 } from "../services";
+import { useNavigate } from "react-router-dom";
 
 export interface ProfilePicture {
   name: string;
@@ -35,6 +36,8 @@ function Profile() {
 
   const [showLogin, setShowLogin] = useState(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (isAuthenticated) {
       setShowLogin(false);
@@ -52,6 +55,8 @@ function Profile() {
           });
         }
       });
+    } else if (!isLoading) {
+      navigate("/");
     }
   }, [isLoading]);
 

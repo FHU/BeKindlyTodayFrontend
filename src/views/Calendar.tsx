@@ -3,6 +3,7 @@ import "./Calendar.css";
 import Navbar from "../components/Nav";
 import { getCalendarInfo } from "../services";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { useNavigate } from "react-router-dom";
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 const monthNames = [
@@ -115,6 +116,7 @@ const CalendarPage = () => {
 
   const [currentYear, setCurrentYear] = useState(initialYear);
   const [currentMonth, setCurrentMonth] = useState(initialMonth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -130,6 +132,8 @@ const CalendarPage = () => {
           });
         }
       });
+    } else if (!isLoading) {
+      navigate("/");
     }
   }, [isLoading]);
 
