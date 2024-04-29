@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 body {
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
 }
 
 /* Calendar.css */
@@ -24,8 +24,6 @@ body {
   justify-content: center;
   width: 32px; /* Set a fixed width for the circle */
   height: 32px; /* Set a fixed height for the circle */
-  
-  
 }
 
 .streak-title {
@@ -44,23 +42,26 @@ body {
   font-size: 2rem; /* Increase font size for "Day Streak!" */
 }
 
-
-
 .calendar-container {
-    font-family: 'Lato', sans-serif;
-    font-size: 27.72px;
-    
-    line-height: 33.27px;
+  font-family: "Lato", sans-serif;
+  font-size: 27.72px;
 
-    text-align: center;
+  line-height: 33.27px;
+
+  text-align: center;
 }
-  
+
 .day-number {
-  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Lato", sans-serif;
   font-size: 22.53px;
-  
+
   line-height: 27.03px;
   text-align: center;
+  min-height: 32px;
 }
 
 .current-day {
@@ -72,18 +73,14 @@ body {
   color: white; /* Text color set to white */
   width: 32px; /* Set a fixed width for the circle */
   height: 32px; /* Set a fixed height for the circle */
-
 }
-  
-.day-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-  
 
 .streak-counter {
-  background: linear-gradient(90deg, rgba(30, 115, 250, 1) 0%, rgba(90, 180, 250, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 115, 250, 1) 0%,
+    rgba(90, 180, 250, 1) 100%
+  );
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
@@ -92,35 +89,38 @@ body {
   padding: 10px;
   box-sizing: border-box;
 }
-  
+
 .streak-number {
   font-size: 2.5em; /* large number */
-  
+
   margin-bottom: 0.2em; /* spacing between number and label */
 }
-  
+
 .streak-label {
   font-size: 1em; /* smaller text */
-  
 }
 
 .month-name {
   text-align: center;
   font-size: 3rem; /* Adjust the size as needed */
-  
+
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   color: white;
-  background: linear-gradient(to right, #1e73fa, #5ab4fa); /* Gradient background */
+  background: linear-gradient(
+    to right,
+    #1e73fa,
+    #5ab4fa
+  ); /* Gradient background */
   padding: 20px 0;
   width: 100%;
   border-radius: 20px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-  
+
 @media only screen and (max-width: 480px) {
   .calendar-container {
     font-size: 18px;
-    line-height:22px;
+    line-height: 22px;
     width: 300px;
   }
 
@@ -141,4 +141,3 @@ body {
     padding: 10px;
   }
 }
-  
