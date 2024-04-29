@@ -97,9 +97,9 @@ function mapDates(options: { dates: Date[]; month: number; year: number }) {
   const { dates, month, year } = options;
   const days = dates
     .filter((date) => {
-      return date.getFullYear() === year && date.getMonth() === month;
+      return date.getUTCFullYear() === year && date.getUTCMonth() === month;
     })
-    .map((date) => date.getDate());
+    .map((date) => date.getUTCDate());
 
   return days;
 }
@@ -127,7 +127,7 @@ const CalendarPage = () => {
           getCalendarInfo(token).then((info) => {
             console.log(info.completion_dates);
             const dates = info.completion_dates.map(
-              (date_string) => new Date(new Date(date_string).toUTCString())
+              (date_string) => new Date(date_string)
             );
             setCompletionDates(dates);
             setUserStreak(info.user_streak);
