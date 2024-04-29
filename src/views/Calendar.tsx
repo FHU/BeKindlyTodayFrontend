@@ -157,7 +157,7 @@ const CalendarPage = () => {
   ];
 
   const streakTitle = (
-    <div className="streak-title text-center text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto" style={{ maxWidth: "800px" }}>
+    <div className="streak-title text-center rounded-xl text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto" style={{ maxWidth: "800px" }}>
       <div className="text-3xl">
         {userStreak}
       </div>
