@@ -119,7 +119,7 @@ const Card: React.FC<CardProps> = ({
           <div className="card-actions justify-center">
             <div className="my-6">
               <h2 className="text-2xl self-start text-black">Experience</h2>
-              <div className="relative">
+              <div className="">
                 <form action="#" method="post" className="flex flex-col sm:w-64">
                   <textarea
                     className="w-80 border-2 border-black rounded-lg p-3 h-32 text-black bg-kindly-offWhite"
