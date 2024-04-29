@@ -19,7 +19,7 @@ export interface Completion {
 }
 
 export interface CalendarResponse {
-  completion_dates: Date[];
+  completion_dates: string[];
   user_streak: number;
 }
 
