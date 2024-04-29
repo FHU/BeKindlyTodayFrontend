@@ -29,7 +29,7 @@ const MonthName = ({
 }) => (
   <div
     className="text-center text-3xl font-bold mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
-    style={{ padding: "20px 0", width: "100%" }}
+    style={{ padding: " 0", width: "100%" }}
   >
     {monthNames[monthIndex]} {year}
   </div>
