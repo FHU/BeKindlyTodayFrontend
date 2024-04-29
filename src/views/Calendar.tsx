@@ -186,6 +186,11 @@ const CalendarPage = () => {
     }
   };
 
+  const goToToday = () => {
+    const date = new Date();
+    setCurrentMonth(date.getMonth());
+  };
+
   return (
     <div className="flex flex-col items-center justify-between bg-kindly-offWhite text-black min-h-screen">
       <Navbar showLogin={showLogin} />
@@ -224,6 +229,14 @@ const CalendarPage = () => {
                 })}
               />
             </div>
+            {currentMonth !== new Date().getMonth() && (
+              <button
+                className="bg-kindly-blue text-white rounded-md"
+                onClick={goToToday}
+              >
+                Today
+              </button>
+            )}
           </div>
         </div>
         <button
