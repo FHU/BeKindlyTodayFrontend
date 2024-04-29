@@ -157,10 +157,7 @@ const CalendarPage = () => {
   ];
 
   const streakTitle = (
-    <div
-      className="text-center text-white py-4 w-full rounded-xl bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
-      style={{ maxWidth: "800px" }}
-    >
+    <div className="streak-title text-center text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto" style={{ maxWidth: "800px" }}>
       <div className="text-3xl">
         {userStreak}
       </div>
@@ -168,8 +165,8 @@ const CalendarPage = () => {
         Day Streak!
       </div>
     </div>
-
   );
+  
 
   const goToNextMonth = () => {
     if (currentMonth === 11) {
