@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Calendar.css";
 import Navbar from "../components/Nav";
+import Footer from "../components/Footer";
 import { getCalendarInfo } from "../services";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useNavigate } from "react-router-dom";
@@ -230,6 +231,7 @@ const CalendarPage = () => {
           {">"}
         </button>
       </div>
+      <Footer />
     </div>
   );
 };
