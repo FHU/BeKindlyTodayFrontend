@@ -125,14 +125,10 @@ const CalendarPage = () => {
       getToken().then((token) => {
         if (token !== undefined) {
           getCalendarInfo(token).then((info) => {
-            console.log(info);
-            const dates = info.completion_dates.map((date_string) => {
-              const t = new Date(date_string);
-              const utc_date = new Date(
-                Date.UTC(t.getFullYear(), t.getMonth(), t.getDate())
-              );
-              return utc_date;
-            });
+            console.log(info.completion_dates);
+            const dates = info.completion_dates.map(
+              (date_string) => new Date(date_string)
+            );
             setCompletionDates(dates);
             setUserStreak(info.user_streak);
           });
