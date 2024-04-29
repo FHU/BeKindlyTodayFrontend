@@ -22,8 +22,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px; /* Set a fixed width for the circle */
-  height: 24px; /* Set a fixed height for the circle */
+  width: 32px; /* Set a fixed width for the circle */
+  height: 32px; /* Set a fixed height for the circle */
   font-weight: bold; /* Adjust as needed */
   
 }
