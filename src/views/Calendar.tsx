@@ -184,7 +184,7 @@ const CalendarPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
+    <div className="flex flex-col items-center justify-between bg-kindly-offWhite text-black min-h-screen">
       <Navbar showLogin={showLogin} />
       <h1 className="text-3xl  mt-4">{streakTitle}</h1>
       <div className="flex items-center max-w-screen-sm mt-4">

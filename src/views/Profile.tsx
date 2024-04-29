@@ -84,7 +84,7 @@ function Profile() {
   };
 
   return (
-    <div className="flex flex-col items-center pb-10 bg-kindly-offWhite min-h-screen">
+    <div className="flex flex-col items-center justify-between pb-10 bg-kindly-offWhite min-h-screen">
       <Navbar showLogin={showLogin} />
 
       <div className="profile-picture-container mt-6 flex flex-col items-center relative">
