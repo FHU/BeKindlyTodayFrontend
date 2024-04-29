@@ -22,10 +22,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2em; /* Set a fixed width for the circle */
-  height: 2em; /* Set a fixed height for the circle */
+  width: 1em; /* Set a fixed width for the circle */
+  height: 1em; /* Set a fixed height for the circle */
   font-weight: bold; /* Adjust as needed */
-   
+  margin-left: -1em;
 }
 
 
