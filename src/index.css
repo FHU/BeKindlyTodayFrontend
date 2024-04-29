@@ -10,10 +10,13 @@ body {
 
 .carousel {
   overflow-x: auto;
+  white-space: nowrap;
 }
 
 .carousel-item {
-  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal; /* To allow for line breaks in case of long text */
 }
 
 @media (min-width: 640px) {
@@ -23,3 +26,4 @@ body {
     flex-wrap: nowrap;
   }
 }
+
