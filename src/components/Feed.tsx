@@ -10,7 +10,7 @@ const Feed = ({ completion }: Props) => {
 
   return (
     <div className="sm:items-start">
-      <div className="chat chat-start bg-kindly-offWhite w-80 sm:w-56 sm:overflow-y-auto">
+      <div className="chat chat-start bg-kindly-offWhite w-80 sm:w-96">
         <div className="chat-image avatar">
           <div className="w-10 rounded-full">
             <img
