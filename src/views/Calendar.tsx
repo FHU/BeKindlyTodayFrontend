@@ -125,6 +125,7 @@ const CalendarPage = () => {
       getToken().then((token) => {
         if (token !== undefined) {
           getCalendarInfo(token).then((info) => {
+            console.log(info);
             const dates = info.completion_dates.map((date_string) => {
               const t = new Date(date_string);
               const utc_date = new Date(
