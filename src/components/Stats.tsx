@@ -91,7 +91,10 @@ function Stats({ stats }: Readonly<Props>) {
             </div>
             </div>
             <div className="stat-title text-white">
-                {stats !== undefined && "Globally"}
+                {stats !== undefined && "Global"}
+            </div>
+            <div className="stat-title text-white">
+                {stats !== undefined && "Completions"}
             </div>
       </div>
 
@@ -108,7 +111,7 @@ function Stats({ stats }: Readonly<Props>) {
           </div>
         </div>
         <div className="stat-title text-white">
-          {stats !== undefined && "Globally"}
+          {stats !== undefined && "Global"}
         </div>
         <div className="stat-title text-white">
           {stats !== undefined && "Daily"}
@@ -129,6 +132,9 @@ function Stats({ stats }: Readonly<Props>) {
         </div>
         <div className="stat-title text-white">
           {stats !== undefined && "Personal"}
+        </div>
+        <div className="stat-title text-white">
+          {stats !== undefined && "Completions"}
         </div>
       </div>
     </div>
