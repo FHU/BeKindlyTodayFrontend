@@ -1,14 +1,10 @@
 // Carousel.tsx
-import React from 'react';
-
-interface ProfilePicture {
-  name: string;
-  path: string;
-}
+import React from "react";
+import { ProfilePicture } from "../views/Profile";
 
 interface CarouselProps {
   profilePictures: ProfilePicture[];
-  onProfilePictureChange: (profilePicture: ProfilePicture) => void;
+  onProfilePictureChange: (profilePicture: string) => void;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -21,7 +17,7 @@ const Carousel: React.FC<CarouselProps> = ({
         <div
           className="carousel-item rounded-full bg-white w-40 h-40 flex items-center justify-center cursor-pointer"
           key={index}
-          onClick={() => onProfilePictureChange(profilePicture)}
+          onClick={() => onProfilePictureChange(profilePicture.path)}
         >
           <img
             src={profilePicture.path}

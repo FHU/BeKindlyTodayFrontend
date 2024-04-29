@@ -6,26 +6,38 @@ import Navbar from "../components/Nav";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import Carousel from "../components/Carousel";
-interface ProfilePicture {
+import { getLoggedInUser, updateUserProfilePicture, User } from "../services";
+
+export interface ProfilePicture {
   name: string;
   path: string;
 }
 
 function Profile() {
-  const { logout, isAuthenticated, isLoading } = useKindeAuth();
+  const { logout, isAuthenticated, isLoading, getToken } = useKindeAuth();
   const [profilePictureClicked, setProfilePictureClicked] =
     useState<boolean>(false);
-  const [selectedProfilePicture, setSelectedProfilePicture] =
-    useState<ProfilePicture>({
-      name: "Blue Profile",
-      path: "images/Blue_Profile.png",
-    });
+  const [selectedProfilePicture, setSelectedProfilePicture] = useState<
+    string | undefined
+  >();
+
+  const [backendUser, setBackendUser] = useState<User | undefined>();
+  const [savedToken, setSavedToken] = useState<string | undefined>();
 
   const [showLogin, setShowLogin] = useState(true);
 
   useEffect(() => {
     if (isAuthenticated) {
       setShowLogin(false);
+      getToken().then((token) => {
+        if (token !== undefined) {
+          setSavedToken(token);
+          getLoggedInUser(token).then((user) => {
+            setBackendUser(user);
+            setSelectedProfilePicture(user.profilePicture);
+          });
+        }
+      });
     }
   }, [isLoading]);
 
@@ -42,8 +54,9 @@ function Profile() {
     setProfilePictureClicked(true);
   };
 
-  const handleProfilePictureChange = (profilePicture: ProfilePicture) => {
+  const handleProfilePictureChange = (profilePicture: string) => {
     setSelectedProfilePicture(profilePicture);
+
     setProfilePictureClicked(false); // Reset profilePictureClicked state after selecting new profile picture
   };
 
@@ -57,7 +70,7 @@ function Profile() {
           onClick={handleProfilePictureClick}
         >
           <img
-            src={selectedProfilePicture.path}
+            src={selectedProfilePicture}
             alt="Profile"
             className="rounded-full w-full h-full cursor-pointer"
             style={{ maxWidth: "200px", maxHeight: "200px" }} // Set max width and max height
