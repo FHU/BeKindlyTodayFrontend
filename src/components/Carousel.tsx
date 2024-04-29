@@ -15,7 +15,7 @@ const Carousel: React.FC<CarouselProps> = ({
     <div className="relative flex items-center">
       <div
         id="carousel-container"
-        className="carousel carousel-center rounded-box flex gap-2 overflow-x-auto"
+        className="carousel carousel-center rounded-box flex gap-2 overflow-x-scroll"
         style={{ scrollSnapType: "x mandatory" }}
       >
         {profilePictures.map((profilePicture, index) => (
