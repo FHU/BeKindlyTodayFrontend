@@ -212,28 +212,46 @@ const CalendarPage = () => {
           {"<"}
         </button>
         <div className="carousel w-full flex justify-center items-center">
-        <div className="carousel-item relative">
-          <div className="monthName absolute top-0 left-0 right-0 px-4 rounded-none">
-            <MonthName monthIndex={currentMonth} year={currentYear} />
-          </div>
-
-          <div
-            className="calendar-container rounded-lg shadow-lg p-4 bg-white relative z-10"
-            style={{ borderRadius: "20px", maxWidth: "800px" }}
-          >
-            {/* Calendar content */}
-          </div>
-          {/* "Today" button */}
-          {(currentMonth !== new Date().getMonth() || currentYear !== new Date().getFullYear()) && (
-            <button
-              className="bg-kindly-blue text-white p-1 rounded-md absolute bottom-0 left-0 right-0 mx-auto mb-4"
-              onClick={goToToday}
+          <div className="carousel-item">
+            <div className="monthName rounded-t-xl w-full h-full -mb-4 px-4">
+              <MonthName monthIndex={currentMonth} year={currentYear} />
+            </div>
+          
+            <div
+              className="calendar-container rounded-lg shadow-lg p-4 bg-white"
+              style={{ borderRadius: "20px", maxWidth: "800px" }}
             >
-              Today
-            </button>
-          )}
-        </div>
+              
+              <div className="grid grid-cols-7 gap-4 mb-4">
+                {daysOfWeek.map((day, index) => (
+                  <div key={index} className="text-center ">
+                    {day}
+                  </div>
+                ))}
+              </div>
+              <Calendar
+                month={currentMonth}
+                year={currentYear}
+                daysInMonth={daysInMonth}
+                currentDay={initialDay}
+                completedDays={mapDates({
+                  dates: completionDates,
+                  year: currentYear,
+                  month: currentMonth,
+                })}
+              />
+            </div>
+            {(currentMonth !== new Date().getMonth() || currentYear !== new Date().getFullYear()) && (
+                <button
+                  className="bg-kindly-blue text-white p-1 rounded-md"
+                  onClick={goToToday}
+                >
+                  Today
+                </button>
+              )}
 
+
+          </div>
         </div>
         <button
           onClick={goToNextMonth}
