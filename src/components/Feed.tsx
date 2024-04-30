@@ -9,7 +9,7 @@ const Feed = ({ completion }: Props) => {
     completion.user.profilePicture || "images/Default_Profile.png";
 
   return (
-    <div className="place-items-center">
+    <div className="place-items-center w-96">
       <div className="chat chat-start bg-kindly-offWhite">
         <div className="chat-image avatar">
           <div className="w-10 sm:w-7  rounded-full">
@@ -21,7 +21,7 @@ const Feed = ({ completion }: Props) => {
         </div>
         <div className="chat-header text-black">{completion.user.username}</div>
         <div
-          className="chat-bubble shadow-md w-80 sm:w-64 bg-white text-black"
+          className="chat-bubble shadow-md sm:w-64 bg-white text-black"
         >
           {completion.description}
         </div>
