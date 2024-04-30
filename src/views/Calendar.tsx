@@ -225,7 +225,6 @@ const CalendarPage = () => {
                   </div>
                 ))}
               </div>
-              </div>
               <Calendar
                 month={currentMonth}
                 year={currentYear}
@@ -247,7 +246,7 @@ const CalendarPage = () => {
               </button>
             )}
           </div>
-        
+        </div>
         <button
           onClick={goToNextMonth}
           className="carousel-control right-control larger-button text-kindly-blue"
