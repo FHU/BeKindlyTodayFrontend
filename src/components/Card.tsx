@@ -168,10 +168,10 @@ const Card: React.FC<CardProps> = ({
   }
 
   const image = (
-    <figure className="rounded-full">
+    <div className="rounded-full">
       <img src={challenge?.image} alt="Challenges" />{" "}
       {/* FIXME need to implement images on the backend */}
-    </figure>
+    </div>
   );
 
   return (
