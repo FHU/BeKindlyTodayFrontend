@@ -84,21 +84,27 @@ function Profile() {
   };
 
   return (
-    <div className="flex flex-col items-center pb-10 bg-kindly-offWhite min-h-screen">
+    <div className="flex flex-col items-center justify-between bg-kindly-offWhite min-h-screen">
       <Navbar showLogin={showLogin} />
 
-      <div className="profile-picture-container mt-6 flex flex-col items-center relative">
+      <div className="profile-picture-container min-h-[260px] min-w-px max-w-full justify-between mt-6 flex flex-col items-center relative">
         <div
-          className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-2 relative"
+          className="profile-picture bg-blue-500 rounded-full w-30 h-30 flex items-center justify-center mb-4 relative"
           onClick={handleProfilePictureClick}
         >
-          <img
-            src={selectedProfilePicture}
-            alt="Profile"
-            className="rounded-full w-full h-full cursor-pointer"
-            style={{ maxWidth: "200px", maxHeight: "200px" }} // Set max width and max height
-          />
-          <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
+          {!showLogin ? (
+            <>
+              <img
+                src={selectedProfilePicture}
+                alt="Profile"
+                className="rounded-full w-full h-full cursor-pointer"
+                style={{ maxWidth: "200px", maxHeight: "200px" }} // Set max width and max height
+              />
+              <BiMessageSquareEdit className="absolute bottom-1 right-1 text-white bg-gray-800 rounded-full p-1 cursor-pointer" />
+            </>
+          ) : (
+            <div className="h-[200px] aspect-square"></div>
+          )}
         </div>
 
         {profilePictureClicked && (
@@ -108,9 +114,9 @@ function Profile() {
           />
         )}
 
-        <div className="text-center">
+        <div className="text-center mt-4">
           <h2 className="text-xl font-semibold text-black">
-            {backendUser ? backendUser.username : "Loading Username..."}
+            {backendUser ? backendUser.username : "Loading Username . . ."}
           </h2>
         </div>
       </div>

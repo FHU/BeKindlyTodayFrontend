@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { getCalendarInfo } from "../services";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useNavigate } from "react-router-dom";
+import { BsFire } from "react-icons/bs";
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 const monthNames = [
@@ -29,11 +30,12 @@ const MonthName = ({
   monthIndex: number;
   year: number;
 }) => (
-  <div
-    className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
-    style={{ padding: "0", width: "100%" }}
-  >
-    {monthNames[monthIndex]} {year}
+  <div className="month-name-container">
+    <div
+      className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
+    >
+      {monthNames[monthIndex]} {year}
+    </div>
   </div>
 );
 
@@ -97,9 +99,9 @@ function mapDates(options: { dates: Date[]; month: number; year: number }) {
   const { dates, month, year } = options;
   const days = dates
     .filter((date) => {
-      return date.getFullYear() === year && date.getMonth() === month;
+      return date.getUTCFullYear() === year && date.getUTCMonth() === month;
     })
-    .map((date) => date.getDate());
+    .map((date) => date.getUTCDate());
 
   return days;
 }
@@ -158,10 +160,18 @@ const CalendarPage = () => {
 
   const streakTitle = (
     <div
-      className="text-center text-3xl  text-white py-4 w-full rounded-xl bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
+      className="streak-title text-center rounded-xl text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
       style={{ maxWidth: "800px" }}
     >
-      Current Streak: {userStreak} Days
+      <div className="flex flex-row">
+        <div className="flex flex-col pr-2">
+          <div className="text-4xl pb-2">
+            {userStreak}&nbsp; {/* Non-breaking space */}
+          </div>
+          <div className="text-2xl">Day Streak!</div>
+        </div>
+        <div className="text-white justify-center text-7xl"><BsFire/></div>
+      </div>
     </div>
   );
 
@@ -183,8 +193,14 @@ const CalendarPage = () => {
     }
   };
 
+  const goToToday = () => {
+    const date = new Date();
+    setCurrentMonth(date.getMonth());
+    setCurrentYear(date.getFullYear());
+  };
+
   return (
-    <div className="flex flex-col items-center bg-kindly-offWhite text-black min-h-screen">
+    <div className="flex flex-col items-center justify-between bg-kindly-offWhite text-black min-h-screen">
       <Navbar showLogin={showLogin} />
       <h1 className="text-3xl  mt-4">{streakTitle}</h1>
       <div className="flex items-center max-w-screen-sm mt-4">
@@ -197,11 +213,15 @@ const CalendarPage = () => {
         </button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
+            <div className="monthName rounded-t-xl w-full h-full -mb-4 px-4" style={{maxWidth:"900px"}}>
+              <MonthName monthIndex={currentMonth} year={currentYear} />
+            </div>
+          
             <div
               className="calendar-container rounded-lg shadow-lg p-4 bg-white"
               style={{ borderRadius: "20px", maxWidth: "800px" }}
             >
-              <MonthName monthIndex={currentMonth} year={currentYear} />
+              
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
                   <div key={index} className="text-center ">
@@ -221,6 +241,16 @@ const CalendarPage = () => {
                 })}
               />
             </div>
+            {(currentMonth !== new Date().getMonth() || currentYear !== new Date().getFullYear()) && (
+                <button
+                  className="bg-kindly-blue text-white p-1 rounded-md"
+                  onClick={goToToday}
+                >
+                  Today
+                </button>
+              )}
+
+
           </div>
         </div>
         <button

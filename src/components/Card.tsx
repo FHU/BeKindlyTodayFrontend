@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({
   switch (layoutType) {
     case "home":
       cardBody = (
-        <div className="card-body">
+        <div className="card-body bg-white">
           <div className="flex flex-row items-center">
             <div className="text-3xl text-kindly-blue pr-2">
               <BsCheck2 />
@@ -78,7 +78,7 @@ const Card: React.FC<CardProps> = ({
 
     case undefined:
       cardBody = (
-        <div className="card-body">
+        <div className="card-body bg-white">
           <div className="flex justify-center items-center h-40">
             <p className="text-center">Loading Challenge...</p>
           </div>
@@ -98,62 +98,62 @@ const Card: React.FC<CardProps> = ({
       );
       break;
 
-    case "completion":
-      const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
-      cardBody = (
-        <div className="card-body bg-white rounded-2xl">
-          <div className="flex flex-row items-center">
-            <div className="text-3xl text-kindly-blue pr-2">
-              <BsCheck2 />
+      case "completion":
+        const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
+        cardBody = (
+          <div className="card-body bg-white">
+            <div className="flex flex-row items-center">
+              <div className="text-3xl text-kindly-blue pr-2">
+                <BsCheck2 />
+              </div>
+              <p className="font-bold text-lg text-kindly-blue">
+                {challenge?.prompt}
+              </p>
             </div>
-            <p className="font-bold text-lg text-kindly-blue">
-              {challenge?.prompt}
-            </p>
-          </div>
-          <div className="flex flex-row ">
-            <div className="text-3xl text-kindly-blue pr-2 pt-1">
-              <BsCheck2All />
+            <div className="flex flex-row ">
+              <div className="text-3xl text-kindly-blue pr-2 pt-1">
+                <BsCheck2All />
+              </div>
+              <p className="font-semibold text-black">{challenge?.twist}</p>
             </div>
-            <p className="font-semibold text-black">{challenge?.twist}</p>
-          </div>
-          <div className="card-actions justify-center">
-            <div className="my-6">
-              <div className="items-start">
-                <h2 className="text-2xl text-black">Experience</h2>
+            <div className="card-actions justify-center">
+              <div className="my-6 w-80 mx-3 sm:mx-0">
+                <div className="flex justify-between items-start">
+                  <h2 className="text-2xl text-black">Experience</h2>
+                </div>
+                <div className="flex flex-col items-center">
+                  <form action="#" method="post" className="w-full">
+                    <textarea
+                      className="w-full border-2 border-black rounded-lg p-3 h-32 text-black bg-kindly-offWhite"
+                      value={textValue}
+                      onChange={handleTextChange}
+                      placeholder="Write your experience here..."
+                    ></textarea>
+                    <div className="text-right p-1 text-sm text-black">
+                      {`${textValue.length} / 250`}
+                    </div>
+                  </form>
+                </div>
               </div>
-              <div className="">
-                <form action="#" method="post" className="flex flex-col items-center sm:w-64">
-                  <textarea
-                    className="w-80 border-2 border-black rounded-lg p-3 h-32 text-black bg-kindly-offWhite"
-                    value={textValue}
-                    onChange={handleTextChange}
-                    placeholder="Write your experience here..."
-                  ></textarea>
-                </form>
-              </div>
-              <div className="text-right p-1 text-sm text-black">
-                {`${textValue.length} / 250`}
-              </div>
+              <button
+                onClick={() => handleButtonClick(textValue)}
+                className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
+                name="completeChallenge"
+                disabled={isButtonDisabled} // Disable the button if textValue is empty
+              >
+                <div>
+                  <BsCheckCircle />
+                </div>
+                Complete
+              </button>
             </div>
-            <button
-              onClick={() => handleButtonClick(textValue)}
-              className="btn btn-block rounded-full text-xl bg-kindly-blue text-white border-none transition-colors duration-300 hover:bg-kindly-royalBlue"
-              name="completeChallenge"
-              disabled={isButtonDisabled} // Disable the button if textValue is empty
-            >
-              <div>
-                <BsCheckCircle />
-              </div>
-              Complete
-            </button>
           </div>
-        </div>
-      );
-      break;
+        );
+        break;      
 
     case "confirmation":
       cardBody = (
-        <div className="card-body">
+        <div className="card-body bg-white">
           <div className="text-black text-center py-6">
             <p className="text-lg font-semibold leading-tight">
               {completion?.description}

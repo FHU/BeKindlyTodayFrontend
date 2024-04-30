@@ -1,9 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
+}
+
+.carousel {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.carousel-item {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal; /* To allow for line breaks in case of long text */
+}
+
+@media (min-width: 640px) {
+  .carousel {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }

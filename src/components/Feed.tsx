@@ -9,8 +9,9 @@ const Feed = ({ completion }: Props) => {
     completion.user.profilePicture || "images/Default_Profile.png";
 
   return (
-    <div className="sm:items-start">
-      <div className="chat chat-start bg-kindly-offWhite w-80 sm:w-56 sm:overflow-y-auto">
+    <div className="items-end w-80 sm:w-96 sm:overflow-x-hidden">
+      <div className="chat chat-start bg-kindly-offWhite">
+        {/* avatar image */}
         <div className="chat-image avatar">
           <div className="w-10 rounded-full">
             <img
@@ -19,10 +20,11 @@ const Feed = ({ completion }: Props) => {
             />
           </div>
         </div>
+        {/* username */}
         <div className="chat-header text-black">{completion.user.username}</div>
+        {/* chat bubble */}
         <div
           className="chat-bubble shadow-md bg-white text-black"
-          style={{ width: "23rem" }}
         >
           {completion.description}
         </div>
