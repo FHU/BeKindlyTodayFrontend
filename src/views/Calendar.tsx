@@ -213,11 +213,12 @@ const CalendarPage = () => {
         </button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
+          <MonthName monthIndex={currentMonth} year={currentYear} />
             <div
               className="calendar-container rounded-lg shadow-lg p-4 bg-white"
               style={{ borderRadius: "20px", maxWidth: "800px" }}
             >
-              <MonthName monthIndex={currentMonth} year={currentYear} />
+              
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
                   <div key={index} className="text-center ">
