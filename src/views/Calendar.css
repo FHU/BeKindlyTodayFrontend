@@ -78,10 +78,11 @@ body {
   text-align: center;
   min-height: 32px;
   min-width: 32px;
+  border-width: 2px;
 }
 
 .current-day {
-  background-color: #007bff; /* This should be your 'kindly-blue' color. */
+  border-color: #007bff; /* This should be your 'kindly-blue' color. */
   border-radius: 50%; /* Creates a circle */
   display: inline-flex;
   align-items: center;
@@ -127,7 +128,7 @@ body {
   ); /* Gradient background */
   padding: 20px 0;
   width: 100%;
-  
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
