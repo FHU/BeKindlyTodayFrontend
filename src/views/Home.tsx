@@ -97,9 +97,20 @@ const Home: React.FC = () => {
             }
           );
         }
-        getAllCompletionsToday(savedToken).then((completions) =>
-          setTodaysCompletions(completions)
-        );
+        getAllCompletionsToday(savedToken).then((completions) => {
+          setTodaysCompletions(completions);
+          if (completionStats) {
+            const new_completion_stats: CompletionStats = {
+              user_completions_count:
+                completionStats.user_completions_count + 1,
+              world_completions_count:
+                completionStats.world_completions_count + 1,
+              world_daily_completions_count:
+                completionStats.world_daily_completions_count + 1,
+            };
+            setCompletionStats(new_completion_stats);
+          }
+        });
       }
     }
   };
@@ -121,14 +132,12 @@ const Home: React.FC = () => {
           </h2>
           <div className="rounded-none">
             <Card
-            
               layoutType={currentPage}
               handleButtonClick={handleOnClick}
               challenge={challenge}
               completion={completion}
             />
           </div>
-          
         </div>
       </div>
       <div
