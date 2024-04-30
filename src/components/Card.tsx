@@ -168,11 +168,12 @@ const Card: React.FC<CardProps> = ({
   }
 
   const image = (
-    <div className="align-center">
-      <img src={challenge?.image} alt="Challenges" />{" "}
+    <div className="flex justify-center">
+      <img src={challenge?.image} alt="Challenges" className="max-w-full" />{" "}
       {/* FIXME need to implement images on the backend */}
     </div>
   );
+  
 
   return (
     <div
