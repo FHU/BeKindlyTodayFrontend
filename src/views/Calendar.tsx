@@ -163,13 +163,13 @@ const CalendarPage = () => {
       style={{ maxWidth: "800px" }}
     >
       <div className="flex flex-row">
-        <div className="flex flex-col">
+        <div className="flex flex-col pr-2">
           <div className="text-2xl pb-4">
             {userStreak}&nbsp; {/* Non-breaking space */}
           </div>
-          <div className="text-lg">Day Streak!</div>
+          <div className="text-2xl">Day Streak!</div>
         </div>
-        <div className="text-white justify-center text-5xl"><BsFire/></div>
+        <div className="text-white justify-center text-7xl"><BsFire/></div>
       </div>
     </div>
   );
