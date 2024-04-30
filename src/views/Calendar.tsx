@@ -30,11 +30,12 @@ const MonthName = ({
   monthIndex: number;
   year: number;
 }) => (
-  <div
-    className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
-    style={{ padding: "0", width: "100%" }}
-  >
-    {monthNames[monthIndex]} {year}
+  <div className="month-name-container">
+    <div
+      className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
+    >
+      {monthNames[monthIndex]} {year}
+    </div>
   </div>
 );
 

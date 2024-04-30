@@ -1,10 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+
+/* Apply Comfortaa font to the body */
 body {
   font-family: "Comfortaa", cursive;
 }
 
-/* Calendar.css */
+/* Your CSS */
+.month-name-container {
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+}
 
+.month-name-container > div {
+  padding: 10px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.bg-gradient-to-br {
+  border-radius: 20px;
+}
+
+/* Existing CSS below */
 /* Calendar.css */
 
 .larger-button {
@@ -45,9 +64,7 @@ body {
 .calendar-container {
   font-family: "Lato", sans-serif;
   font-size: 27.72px;
-
   line-height: 33.27px;
-
   text-align: center;
 }
 
@@ -55,10 +72,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-family: "Lato", sans-serif;
   font-size: 22.53px;
-
   line-height: 27.03px;
   text-align: center;
   min-height: 32px;
@@ -93,7 +108,6 @@ body {
 
 .streak-number {
   font-size: 2.5em; /* large number */
-
   margin-bottom: 0.2em; /* spacing between number and label */
 }
 
@@ -104,7 +118,6 @@ body {
 .month-name {
   text-align: center;
   font-size: 3rem; /* Adjust the size as needed */
-
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   color: white;
   background: linear-gradient(
