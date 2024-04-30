@@ -213,7 +213,10 @@ const CalendarPage = () => {
         </button>
         <div className="carousel w-full flex justify-center items-center">
           <div className="carousel-item">
-          <MonthName monthIndex={currentMonth} year={currentYear} />
+            <div style={{ borderRadius: "20px", maxWidth: "800px" }}>
+              <MonthName monthIndex={currentMonth} year={currentYear} />
+            </div>
+          
             <div
               className="calendar-container rounded-lg shadow-lg p-4 bg-white"
               style={{ borderRadius: "20px", maxWidth: "800px" }}
