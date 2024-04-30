@@ -10,9 +10,9 @@ const Feed = ({ completion }: Props) => {
 
   return (
     <div className="place-items-center">
-      <div className="chat chat-start bg-kindly-offWhite sm:w-96">
+      <div className="chat chat-start bg-kindly-offWhite">
         <div className="chat-image avatar">
-          <div className="w-12 sm:w-5  rounded-full">
+          <div className="w-10 sm:w-7  rounded-full">
             <img
               alt="Tailwind CSS chat bubble component"
               src={user_profile_picture}
@@ -21,8 +21,7 @@ const Feed = ({ completion }: Props) => {
         </div>
         <div className="chat-header text-black">{completion.user.username}</div>
         <div
-          className="chat-bubble shadow-md bg-white text-black"
-          style={{ width: "23rem" }}
+          className="chat-bubble shadow-md w-80 sm:w-64 bg-white text-black"
         >
           {completion.description}
         </div>
