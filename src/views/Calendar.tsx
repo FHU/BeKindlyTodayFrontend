@@ -238,7 +238,7 @@ const CalendarPage = () => {
                 })}
               />
             </div>
-            {currentMonth !== new Date().getMonth() && currentMonth !== new Date().getFullYear() && (
+            {currentMonth !== new Date().getMonth() && currentYear !== new Date().getFullYear() && (
               <button
                 className="bg-kindly-blue text-white p-1 rounded-md"
                 onClick={goToToday}
