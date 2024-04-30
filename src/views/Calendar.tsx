@@ -195,6 +195,7 @@ const CalendarPage = () => {
   const goToToday = () => {
     const date = new Date();
     setCurrentMonth(date.getMonth());
+    setCurrentYear(date.getFullYear());
   };
 
   return (
@@ -237,7 +238,7 @@ const CalendarPage = () => {
             </div>
             {currentMonth !== new Date().getMonth() && (
               <button
-                className="bg-kindly-blue text-white rounded-md"
+                className="bg-kindly-blue text-white p-1 rounded-md"
                 onClick={goToToday}
               >
                 Today
