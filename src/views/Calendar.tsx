@@ -203,7 +203,7 @@ const CalendarPage = () => {
     <div className="flex flex-col items-center justify-between bg-kindly-offWhite text-black min-h-screen">
       <Navbar showLogin={showLogin} />
       <h1 className="text-3xl  mt-4">{streakTitle}</h1>
-      <div className="flex items-center max-w-screen-sm mt-4">
+      <div className="flex items-center rounded-t-xl max-w-screen-sm mt-4">
         <button
           onClick={goToPreviousMonth}
           className="carousel-control left-control larger-button text-kindly-blue"
