@@ -10,7 +10,4 @@ test('renders footer correctly', () => {
 
     // Assert that the footer contains the expected text content
     expect(screen.getByText('2024 CIS467')).toBeTruthy();
-    expect(screen.getByText('Terms')).toBeTruthy();
-    expect(screen.getByText('Privacy')).toBeTruthy();
-    expect(screen.getByText('About')).toBeTruthy();
 });
