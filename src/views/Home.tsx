@@ -119,13 +119,16 @@ const Home: React.FC = () => {
               ? "Completed Challenge"
               : "Today's Challenge"}
           </h2>
-          <Card
+          <div className="rounded-none">
+            <Card
+            
+              layoutType={currentPage}
+              handleButtonClick={handleOnClick}
+              challenge={challenge}
+              completion={completion}
+            />
+          </div>
           
-            layoutType={currentPage}
-            handleButtonClick={handleOnClick}
-            challenge={challenge}
-            completion={completion}
-          />
         </div>
       </div>
       <div
