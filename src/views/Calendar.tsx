@@ -215,7 +215,7 @@ const CalendarPage = () => {
           className="carousel w-full flex justify-center rounded-t-xl items-center"
           style={{ maxWidth: "800px" }}
         >
-          <div className="carousel-item rounded-t-xl ">
+          <div className="carousel-item rounded-t-xl flex flex-col justify-center max-w-fit ">
             <div className="monthName w-full h-full rounded-full -mb-4">
               <MonthName monthIndex={currentMonth} year={currentYear} />
             </div>
