@@ -9,7 +9,7 @@ body {
 .month-name-container {
   display: flex;
   justify-content: center;
-  width: calc(100% - 32px);
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -18,10 +18,10 @@ body {
   width: 100%;
   max-width: 800px;
 }
-
+/* 
 .bg-gradient-to-br {
   border-radius: 20px;
-}
+} */
 
 /* Existing CSS below */
 /* Calendar.css */
@@ -127,7 +127,7 @@ body {
   ); /* Gradient background */
   padding: 20px 0;
   width: 100%;
-  border-radius: 20px; /* Rounded corners */
+  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
