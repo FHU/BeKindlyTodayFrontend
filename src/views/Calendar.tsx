@@ -169,7 +169,7 @@ const CalendarPage = () => {
           </div>
           <div className="text-xl ">Day Streak!</div>
         </div>
-        <div><BsFire/></div>
+        <div className="text-white text-2xl"><BsFire/></div>
       </div>
     </div>
   );
