@@ -101,7 +101,7 @@ const Card: React.FC<CardProps> = ({
       case "completion":
         const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
         cardBody = (
-          <div className="card-body bg-white">
+          <div className="card-body bg-white rounded-xl">
             <div className="flex flex-row items-center">
               <div className="text-3xl text-kindly-blue pr-2">
                 <BsCheck2 />
