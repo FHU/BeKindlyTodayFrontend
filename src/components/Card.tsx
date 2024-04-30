@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({
   switch (layoutType) {
     case "home":
       cardBody = (
-        <div className="card-body rounded-t-none">
+        <div className="card-body bg-white">
           <div className="flex flex-row items-center">
             <div className="text-3xl text-kindly-blue pr-2">
               <BsCheck2 />
@@ -78,7 +78,7 @@ const Card: React.FC<CardProps> = ({
 
     case undefined:
       cardBody = (
-        <div className="card-body rounded-t-none">
+        <div className="card-body bg-white">
           <div className="flex justify-center items-center h-40">
             <p className="text-center">Loading Challenge...</p>
           </div>
@@ -101,7 +101,7 @@ const Card: React.FC<CardProps> = ({
       case "completion":
         const isButtonDisabled = textValue.length === 0; // Check if textValue is empty
         cardBody = (
-          <div className="card-body bg-white rounded-tl-none">
+          <div className="card-body bg-white">
             <div className="flex flex-row items-center">
               <div className="text-3xl text-kindly-blue pr-2">
                 <BsCheck2 />
@@ -153,7 +153,7 @@ const Card: React.FC<CardProps> = ({
 
     case "confirmation":
       cardBody = (
-        <div className="bg-white rounded-t-none rounded-b-lg">
+        <div className="card-body bg-white">
           <div className="text-black text-center py-6">
             <p className="text-lg font-semibold leading-tight">
               {completion?.description}
