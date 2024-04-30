@@ -12,7 +12,7 @@ const Feed = ({ completion }: Props) => {
     <div className="place-items-center">
       <div className="chat chat-start bg-kindly-offWhite sm:w-fit">
         <div className="chat-image avatar">
-          <div className="w-10 sm:w-7  rounded-full">
+          <div className="w-10 sm:w-5  rounded-full">
             <img
               alt="Tailwind CSS chat bubble component"
               src={user_profile_picture}
