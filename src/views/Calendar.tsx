@@ -195,6 +195,7 @@ const CalendarPage = () => {
   const goToToday = () => {
     const date = new Date();
     setCurrentMonth(date.getMonth());
+    setCurrentYear(date.getFullYear());
   };
 
   return (
