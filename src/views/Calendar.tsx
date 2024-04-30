@@ -245,8 +245,8 @@ const CalendarPage = () => {
               className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
               onClick={goToToday}
               disabled={
-                currentMonth !== new Date().getMonth() ||
-                currentYear !== new Date().getFullYear()
+                currentMonth === new Date().getMonth() &&
+                currentYear === new Date().getFullYear()
               }
             >
               Today
