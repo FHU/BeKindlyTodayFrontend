@@ -162,8 +162,8 @@ const CalendarPage = () => {
       className="streak-title text-center rounded-xl text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
       style={{ maxWidth: "800px" }}
     >
-      <div className="flex flex-row space-x-2">
-        <div>
+      <div className="flex flex-row">
+        <div className="flex flex-col">
           <div className="text-3xl pb-2">
             {userStreak}&nbsp; {/* Non-breaking space */}
           </div>
