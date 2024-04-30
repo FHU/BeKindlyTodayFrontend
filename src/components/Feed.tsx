@@ -10,7 +10,7 @@ const Feed = ({ completion }: Props) => {
 
   return (
     <div className="">
-      <div className="chat chat-start bg-kindly-offWhite w-96 sm:w-80 sm:items-start">
+      <div className="chat chat-start bg-kindly-offWhite w-96">
         <div className="chat-image avatar">
           <div className="w-10 sm:w-7  rounded-full">
             <img
