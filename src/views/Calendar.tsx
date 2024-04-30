@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { getCalendarInfo } from "../services";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useNavigate } from "react-router-dom";
+import { BsFire } from "react-icons/bs";
 
 const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 const monthNames = [
@@ -161,10 +162,15 @@ const CalendarPage = () => {
       className="streak-title text-center rounded-xl text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue shadow-md max-w-screen-sm mx-auto"
       style={{ maxWidth: "800px" }}
     >
-      <div className="text-3xl pb-2">
-        {userStreak}&nbsp; {/* Non-breaking space */}
+      <div className="flex flex-col">
+        <div>
+          <div className="text-3xl pb-2">
+            {userStreak}&nbsp; {/* Non-breaking space */}
+          </div>
+          <div className="text-xl ">Day Streak!</div>
+        </div>
+        <div><BsFire/></div>
       </div>
-      <div className="text-xl ">Day Streak!</div>
     </div>
   );
 
