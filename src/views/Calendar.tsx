@@ -31,9 +31,7 @@ const MonthName = ({
   year: number;
 }) => (
   <div className="month-name-container">
-    <div
-      className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue"
-    >
+    <div className="text-center text-3xl mb-4 text-white bg-gradient-to-br from-kindly-royalBlue to-kindly-lightBlue">
       {monthNames[monthIndex]} {year}
     </div>
   </div>
@@ -170,7 +168,9 @@ const CalendarPage = () => {
           </div>
           <div className="text-2xl">Day Streak!</div>
         </div>
-        <div className="text-white justify-center text-7xl"><BsFire/></div>
+        <div className="text-white justify-center text-7xl">
+          <BsFire />
+        </div>
       </div>
     </div>
   );
@@ -211,17 +211,16 @@ const CalendarPage = () => {
         >
           {"<"}
         </button>
-        <div className="carousel w-full flex justify-center rounded-t-xl items-center" style={{ maxWidth: "800px" }}>
+        <div
+          className="carousel w-full flex justify-center rounded-t-xl items-center"
+          style={{ maxWidth: "800px" }}
+        >
           <div className="carousel-item rounded-t-xl ">
             <div className="monthName w-full h-full rounded-full -mb-4">
               <MonthName monthIndex={currentMonth} year={currentYear} />
             </div>
-          
-            <div
-              className="calendar-container rounded-b-lg shadow-xl p-4 bg-white"
-              
-            >
-              
+
+            <div className="calendar-container rounded-b-lg shadow-xl p-4 bg-white">
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
                   <div key={index} className="text-center ">
@@ -241,16 +240,17 @@ const CalendarPage = () => {
                 })}
               />
             </div>
-            {(currentMonth !== new Date().getMonth() || currentYear !== new Date().getFullYear()) && (
-                <button
-                  className="bg-kindly-blue text-white p-1 rounded-md"
-                  onClick={goToToday}
-                >
-                  Today
-                </button>
-              )}
 
-
+            <button
+              className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
+              onClick={goToToday}
+              disabled={
+                currentMonth !== new Date().getMonth() ||
+                currentYear !== new Date().getFullYear()
+              }
+            >
+              Today
+            </button>
           </div>
         </div>
         <button
