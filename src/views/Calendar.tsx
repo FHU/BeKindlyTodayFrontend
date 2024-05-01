@@ -249,7 +249,7 @@ const CalendarPage = () => {
           {">"}
         </button>
       </div>
-      <div style={{ maxWidth: "800px", width: '100%' }} className="mx-auto">
+      <div style={{ maxWidth: "350px", width: '100%' }} className="mx-auto">
         <button
           className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
           onClick={goToToday}
