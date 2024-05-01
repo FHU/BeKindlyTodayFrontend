@@ -130,7 +130,7 @@ const Home: React.FC = () => {
               ? "Completed Challenge"
               : "Today's Challenge"}
           </h2>
-          <div className="rounded-none">
+          <div className="rounded-b-none">
             <Card
               layoutType={currentPage}
               handleButtonClick={handleOnClick}

@@ -35,7 +35,7 @@ const Card: React.FC<CardProps> = ({
   switch (layoutType) {
     case 'home':
       cardBody = (
-        <div className="card-body bg-white rounded-b-xlcard">
+        <div className="card card-body bg-white rounded-b-xlcard">
           <div className="flex flex-row items-center">
             <div className="text-3xl text-kindly-blue pr-2">
               <BsCheck2 />
@@ -79,7 +79,7 @@ const Card: React.FC<CardProps> = ({
 
     case undefined:
       cardBody = (
-        <div className="card-body bg-white rounded-b-lg">
+        <div className="card card-body bg-white rounded-b-lg">
           <div className="flex justify-center items-center h-40">
             <p className="text-center">Loading Challenge...</p>
           </div>
@@ -154,7 +154,7 @@ const Card: React.FC<CardProps> = ({
 
     case 'confirmation':
       cardBody = (
-        <div className="rounded-b-xl bg-white">
+        <div className="card card-body bg-white">
           <div className="text-black text-center py-6">
             <p className="text-lg font-semibold leading-tight">
               {completion?.description}
