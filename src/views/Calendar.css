@@ -11,12 +11,14 @@ body {
   justify-content: center;
   width: 100%;
   margin: 0 auto;
+  border-radius: 20%;
 }
 
 .month-name-container > div {
   padding: 10px;
   width: 100%;
   max-width: 800px;
+  border-radius: 20%;
 }
 /* 
 .bg-gradient-to-br {
@@ -128,7 +130,7 @@ body {
   ); /* Gradient background */
   padding: 20px 0;
   width: 100%;
-
+  border-radius: 20%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -149,6 +151,7 @@ body {
     font-size: 2rem;
     padding: 15px 0;
     width: 5rem;
+    border-radius: 20%;
   }
 
   .streak-counter {
