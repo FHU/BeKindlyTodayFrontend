@@ -124,7 +124,7 @@ const Card: React.FC<CardProps> = ({
                 <div className="flex flex-col items-center">
                   <form action="#" method="post" className="w-full">
                     <textarea
-                      className="w-full border-2 border-black  p-3 h-32 text-black bg-kindly-offWhite"
+                      className="w-full border-2 border-black rounded-lg p-3 h-32 text-black bg-kindly-offWhite"
                       value={textValue}
                       onChange={handleTextChange}
                       placeholder="Write your experience here..."
@@ -177,7 +177,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className={`card card-compact sm:w-96 w-80 bg-base-100 rounded-none bg-white ${
+      className={`card card-compact sm:w-96 w-80 bg-base-100 rounded-b-xl bg-white ${
         layoutType === "completion" ? "custom-class" : ""
       }`}
     >
