@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({
   switch (layoutType) {
     case "home":
       cardBody = (
-        <div className="card-body bg-white">
+        <div className="card-body bg-white rounded-b-xlcard">
           <div className="flex flex-row items-center">
             <div className="text-3xl text-kindly-blue pr-2">
               <BsCheck2 />
