@@ -9,11 +9,11 @@ const Feed = ({ completion }: Props) => {
     completion.user.profilePicture || "images/Default_Profile.png";
 
   return (
-    <div className="w-22rem pl-6 sm:w-96 sm:pl-8 sm:overflow-x-hidden">
+    <div className="w-22rem pl-6 sm:w-96 sm:pl-4 sm:overflow-x-hidden">
       <div className="chat chat-start bg-kindly-offWhite">
         {/* avatar image */}
         <div className="chat-image avatar">
-          <div className="w-14 sm:w-24 rounded-full">
+          <div className="w-14 sm:w-32 rounded-full">
             <img
               alt="Tailwind CSS chat bubble component"
               src={user_profile_picture}
