@@ -154,8 +154,8 @@ const Card: React.FC<CardProps> = ({
 
     case 'confirmation':
       cardBody = (
-        <div className="card rounded-b-lg bg-white">
-          <div className="card-body text-black text-center py-6">
+        <div className="card card-body rounded-b-lg bg-white">
+          <div className="text-black text-center py-6">
             <p className="text-lg font-semibold leading-tight">
               {completion?.description}
             </p>
@@ -181,7 +181,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className={`card card-compact sm:w-96 w-80 bg-base-100 rounded-none bg-white ${
+      className={`card card-compact sm:w-96 w-80 bg-base-100 rounded-b-lg bg-white ${
         layoutType === 'completion' ? 'custom-class' : ''
       }`}
     >
