@@ -168,7 +168,7 @@ const Card: React.FC<CardProps> = ({
   }
 
   const image = (
-    <div className="flex justify-center rounded-b-full ">
+    <div className="flex justify-center rounded-none">
       <img src={challenge?.image} alt="Challenges" className="max-w-full" />{" "}
       {/* FIXME need to implement images on the backend */}
     </div>
