@@ -9,7 +9,7 @@ const Feed = ({ completion }: Props) => {
     completion.user.profilePicture || "images/Default_Profile.png";
 
   return (
-    <div className="w-22rem pl-6 sm:w-96 sm:pl-4 sm:overflow-x-hidden">
+    <div className="w-22rem pl-6 sm:w-96 sm:pl-1 sm:overflow-x-hidden">
       <div className="chat chat-start bg-kindly-offWhite">
         {/* avatar image */}
         <div className="chat-image avatar">
