@@ -240,17 +240,6 @@ const CalendarPage = () => {
                 })}
               />
             </div>
-
-            <button
-              className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
-              onClick={goToToday}
-              disabled={
-                currentMonth === new Date().getMonth() &&
-                currentYear === new Date().getFullYear()
-              }
-            >
-              Today
-            </button>
           </div>
         </div>
         <button
@@ -261,6 +250,17 @@ const CalendarPage = () => {
           {">"}
         </button>
       </div>
+      <button
+        className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
+        onClick={goToToday}
+        disabled={
+          currentMonth === new Date().getMonth() &&
+          currentYear === new Date().getFullYear()
+        }
+        style={{ display: 'block', width: '100%' }}
+      >
+        Today
+      </button>
       <Footer />
     </div>
   );
