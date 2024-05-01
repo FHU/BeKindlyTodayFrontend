@@ -83,12 +83,11 @@ body {
   min-height: 32px;
   min-width: 32px;
   border-width: 2px;
-  border-color: #cd0000;
   padding: 2px;
 }
 
 .current-day {
-  border-color: #007bff; /* This should be your 'kindly-blue' color. */
+  border-color: #cd0000; /* The current day needs to have more contrast to the completed day. */
   border-radius: 50%; /* Creates a circle */
   display: inline-flex;
   align-items: center;
