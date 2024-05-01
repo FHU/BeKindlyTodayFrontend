@@ -153,7 +153,7 @@ const Card: React.FC<CardProps> = ({
 
     case "confirmation":
       cardBody = (
-        <div className="card-body bg-white rounded-b-xl"> 
+        <div className="card card-body bg-white"> 
           <div className="text-black text-center py-6">
             <p className="text-lg font-semibold leading-tight">
               {completion?.description}
