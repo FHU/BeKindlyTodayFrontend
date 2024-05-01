@@ -24,7 +24,7 @@ const Feed = ({ completion }: Props) => {
         <div className="chat-header text-black">{completion.user.username}</div>
         {/* chat bubble */}
         <div
-          className="chat-bubble m:w-72 shadow-md bg-white text-black"
+          className="chat-bubble s:w-72 shadow-md bg-white text-black"
         >
           {completion.description}
         </div>
