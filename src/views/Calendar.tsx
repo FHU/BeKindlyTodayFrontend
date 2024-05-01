@@ -105,9 +105,9 @@ function mapDates(options: { dates: Date[]; month: number; year: number }) {
 }
 
 const CalendarPage = () => {
-  const initialYear = new Date().getFullYear();
-  const initialMonth = new Date().getMonth();
-  const initialDay = new Date().getDate();
+  const initialYear = new Date().getUTCFullYear();
+  const initialMonth = new Date().getUTCMonth();
+  const initialDay = new Date().getUTCDate();
 
   const [completionDates, setCompletionDates] = useState<Date[]>([]);
   const [userStreak, setUserStreak] = useState(0);
@@ -249,7 +249,10 @@ const CalendarPage = () => {
           {">"}
         </button>
       </div>
-      <div style={{ maxWidth: "100px", width: '100%', marginBottom:'-20px' }} className="mx-auto">
+      <div
+        style={{ maxWidth: "100px", width: "100%", marginBottom: "-20px" }}
+        className="mx-auto"
+      >
         <button
           className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
           onClick={goToToday}
@@ -257,7 +260,7 @@ const CalendarPage = () => {
             currentMonth === new Date().getMonth() &&
             currentYear === new Date().getFullYear()
           }
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
         >
           Today
         </button>
