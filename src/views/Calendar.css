@@ -84,6 +84,7 @@ body {
   min-width: 32px;
   border-width: 2px;
   padding: 2px;
+  border-color: transparent;
 }
 
 .current-day {
