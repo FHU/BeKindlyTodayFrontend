@@ -136,7 +136,7 @@ const CalendarPage = () => {
     } else if (!isLoading) {
       navigate("/");
     }
-  }, [isLoading]);
+  }, [isLoading, isAuthenticated, navigate, getToken]);
 
   const daysInMonth = [
     31,
@@ -202,7 +202,7 @@ const CalendarPage = () => {
   return (
     <div className="flex flex-col items-center justify-between bg-kindly-offWhite text-black min-h-screen">
       <Navbar showLogin={showLogin} />
-      <h1 className="text-3xl  mt-4">{streakTitle}</h1>
+      <h1 className="text-3xl mt-4">{streakTitle}</h1>
       <div className="flex items-center rounded-t-xl max-w-screen-sm mt-4">
         <button
           onClick={goToPreviousMonth}
@@ -215,15 +215,14 @@ const CalendarPage = () => {
           className="carousel w-full flex justify-center rounded-t-xl items-center"
           style={{ maxWidth: "800px" }}
         >
-          <div className="carousel-item rounded-t-xl flex flex-col justify-center max-w-fit ">
+          <div className="carousel-item rounded-t-xl flex flex-col justify-center max-w-fit">
             <div className="monthName w-full h-full rounded-full -mb-4">
               <MonthName monthIndex={currentMonth} year={currentYear} />
             </div>
-
             <div className="calendar-container rounded-b-lg shadow-xl p-4 bg-white">
               <div className="grid grid-cols-7 gap-4 mb-4">
                 {daysOfWeek.map((day, index) => (
-                  <div key={index} className="text-center ">
+                  <div key={index} className="text-center">
                     {day}
                   </div>
                 ))}
@@ -235,8 +234,8 @@ const CalendarPage = () => {
                 currentDay={initialDay}
                 completedDays={mapDates({
                   dates: completionDates,
-                  year: currentYear,
                   month: currentMonth,
+                  year: currentYear,
                 })}
               />
             </div>
@@ -250,17 +249,19 @@ const CalendarPage = () => {
           {">"}
         </button>
       </div>
-      <button
-        className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
-        onClick={goToToday}
-        disabled={
-          currentMonth === new Date().getMonth() &&
-          currentYear === new Date().getFullYear()
-        }
-        style={{ display: 'block', width: '100%' }}
-      >
-        Today
-      </button>
+      <div style={{ maxWidth: "800px", width: '100%' }} className="mx-auto">
+        <button
+          className="bg-kindly-blue text-white p-1 rounded-full px-3 py-1 mt-2 mx-auto disabled:bg-gray-600"
+          onClick={goToToday}
+          disabled={
+            currentMonth === new Date().getMonth() &&
+            currentYear === new Date().getFullYear()
+          }
+          style={{ width: '100%' }}
+        >
+          Today
+        </button>
+      </div>
       <Footer />
     </div>
   );
