@@ -88,13 +88,14 @@ body {
 }
 
 .current-day {
-  border-color: #cd0000; /* The current day needs to have more contrast to the completed day. */
+  border-color: #007bff; /* The current day needs to have more contrast to the completed day. */
   border-radius: 50%; /* Creates a circle */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 32px; /* Set a fixed width for the circle */
   height: 32px; /* Set a fixed height for the circle */
+  color: white;
 }
 
 .streak-counter {
