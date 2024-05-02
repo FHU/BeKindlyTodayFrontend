@@ -163,10 +163,10 @@ const CalendarPage = () => {
     >
       <div className="flex flex-row">
         <div className="flex flex-col pr-2">
-          <div className="text-4xl pb-2">
+          <div className="text-3xl pb-4">
             {userStreak}&nbsp; {/* Non-breaking space */}
           </div>
-          <div className="text-2xl">Day Streak!</div>
+          <div className="text-lg -mb-2">Day Streak!</div>
         </div>
         <div className="text-white justify-center text-7xl">
           <BsFire />

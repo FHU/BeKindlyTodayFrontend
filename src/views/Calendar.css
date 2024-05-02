@@ -88,14 +88,19 @@ body {
 }
 
 .current-day {
-  border-color: #007bff; /* The current day needs to have more contrast to the completed day. */
+  border-color: rgb(181, 48, 0); /* The current day needs to have more contrast to the completed day. */
   border-radius: 50%; /* Creates a circle */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 32px; /* Set a fixed width for the circle */
   height: 32px; /* Set a fixed height for the circle */
-  color: white;
+  color:white;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 115, 250, 1) 0%,
+    rgba(90, 180, 250, 1) 100%
+  );
 }
 
 .streak-counter {
