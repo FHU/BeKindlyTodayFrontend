@@ -26,7 +26,7 @@ const Navbar = ({ showLogin }: Props) => {
         </div>
       </Link>
       <h1 className="text-3xl sm:text-5xl my-auto sm:justify-self-center justify-self-start">
-        BeKindly
+        <a href="/home">BeKindly</a>
       </h1>
       <div className="flex justify-end items-center">
         {inDev || !showLogin ? (

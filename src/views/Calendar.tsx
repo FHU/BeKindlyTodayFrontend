@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Calendar.css";
-import Navbar from "../components/Nav";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getCalendarInfo } from "../services";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Nav";
+import Navbar from "../components/Navbar";
 import Stats from "../components/Stats";
 import Footer from "../components/Footer";
 import CountdownTimer from "../components/Timer";

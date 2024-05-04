@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "daisyui/dist/full.css";
 import "../index.css";
-import Navbar from "../components/Nav";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
