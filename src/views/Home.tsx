@@ -126,7 +126,7 @@ const Home: React.FC = () => {
         <CountdownTimer />
         <div className="mx-auto w-fit ">
           <h2 className="text-2xl sm:text-3xl py-3 rounded-t-xl text-white sm:w-96 w-80 text-center font-extrabold bg-kindly-blue ">
-            {completion !== undefined
+            {completion 
               ? "Completed Challenge"
               : "Today's Challenge"}
           </h2>
